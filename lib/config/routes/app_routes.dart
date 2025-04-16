@@ -5,6 +5,7 @@ import 'package:tsh_soft/features/auth/presentation/screens/register_screen.dart
 import 'package:tsh_soft/features/home/presentation/screens/all_category_screen.dart';
 import 'package:tsh_soft/features/home/presentation/screens/home_screen.dart';
 import 'package:tsh_soft/features/products/presentation/cubit/select_product_filter/select_filter_cubit.dart';
+import 'package:tsh_soft/features/products/presentation/screens/product_details_screen.dart';
 import 'package:tsh_soft/features/products/presentation/screens/products_screen.dart';
 import 'package:tsh_soft/features/splash/presentation/screens/on_boarding_screen.dart';
 import 'package:tsh_soft/features/splash/presentation/screens/splash_screen.dart';
@@ -19,7 +20,8 @@ class Routes {
   static const String registerScreenRoute = '/RegisterScreenRoute';
   static const String homeScreenRoute = '/HomeScreenRoute';
   static const String allCatregoryScreenRoute = '/AllCatregoryScreenRoute';
-  static const String allOrdersScreenRoute = '/AllOrdersScreenRoute';
+  static const String productsScreenRoute = '/ProductsScreenRoute';
+  static const String productDetailsScreenRoute = '/ProductsDetailsScreenRoute';
 }
 
 class AppRoutes {
@@ -63,14 +65,20 @@ class AppRoutes {
           builder: (BuildContext context) => const AllCategoriesScreen(),
         );
 
-      case Routes.allOrdersScreenRoute:
-       return MaterialPageRoute(
+      case Routes.productsScreenRoute:
+        return MaterialPageRoute(
           settings: routeSettings,
           builder: (BuildContext context) => BlocProvider(
             create: (context) => SelectProductFilterCubit(),
             child: const ProductsScreen(),
           ),
-        ); 
+        );
+
+      case Routes.productDetailsScreenRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const ProductDetailsScreen(),
+        );
 
       default:
         return undefinedRoute();

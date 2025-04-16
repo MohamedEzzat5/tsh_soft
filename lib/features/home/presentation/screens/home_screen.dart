@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                 title: 'newest_orders',
                 onViewAllTap: () => Navigator.pushNamed(
                   context,
-                  Routes.allOrdersScreenRoute,
+                  Routes.productsScreenRoute,
                 ),
               ),
               const ProductsGridView(),
