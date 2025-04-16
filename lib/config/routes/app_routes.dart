@@ -7,10 +7,18 @@ import 'package:tsh_soft/features/home/presentation/screens/home_screen.dart';
 import 'package:tsh_soft/features/products/presentation/cubit/select_product_filter/select_filter_cubit.dart';
 import 'package:tsh_soft/features/products/presentation/screens/product_details_screen.dart';
 import 'package:tsh_soft/features/products/presentation/screens/products_screen.dart';
+import 'package:tsh_soft/features/profile/presentation/screens/favorites_screen.dart';
 import 'package:tsh_soft/features/splash/presentation/screens/on_boarding_screen.dart';
 import 'package:tsh_soft/features/splash/presentation/screens/splash_screen.dart';
 
 import '../../core/utils/app_strings.dart';
+import '../../features/my_orders/presentation/screens/order_details.dart';
+import '../../features/my_orders/presentation/screens/orders_screen.dart';
+import '../../features/profile/presentation/screens/about_us.dart';
+import '../../features/profile/presentation/screens/contact_us_screen.dart';
+import '../../features/profile/presentation/screens/edit_profile_screen.dart';
+import '../../features/profile/presentation/screens/faq_screen.dart';
+import '../../features/profile/presentation/screens/profile_screen.dart';
 import '../../injection_container.dart';
 
 class Routes {
@@ -22,6 +30,14 @@ class Routes {
   static const String allCatregoryScreenRoute = '/AllCatregoryScreenRoute';
   static const String productsScreenRoute = '/ProductsScreenRoute';
   static const String productDetailsScreenRoute = '/ProductsDetailsScreenRoute';
+  static const String profileScreenRoute = '/ProfileScreenRoute';
+  static const String editProfileScreenRoute = '/EditProfileScreenRoute';
+  static const String contactUsScreenRoute = '/ContactUsScreenRoute';
+  static const String aboutUsScreenRoute = '/AboutUsScreenRoute';
+  static const String faqScreenRoute = '/FaqScreenRoute';
+  static const String favoritesScreenRoute = '/favoritesScreenRoute';
+  static const String ordersScreenRoute = '/OrdersScreenRoute';
+  static const String orderDetailsRoute = '/OrderDetailsRoute';
 }
 
 class AppRoutes {
@@ -78,6 +94,46 @@ class AppRoutes {
         return MaterialPageRoute(
           settings: routeSettings,
           builder: (BuildContext context) => const ProductDetailsScreen(),
+        );
+      case Routes.profileScreenRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const ProfileScreen(),
+        );
+      case Routes.editProfileScreenRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const EditProfileScreen(),
+        );
+      case Routes.contactUsScreenRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const ContactUsScreen(),
+        );
+      case Routes.aboutUsScreenRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const AboutUsScreen(),
+        );
+      case Routes.faqScreenRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const FaqScreen(),
+        );
+      case Routes.favoritesScreenRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const FavoritesScreen(),
+        );
+      case Routes.ordersScreenRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const OrdersScreen(),
+        );
+      case Routes.orderDetailsRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const OrderDetails(),
         );
 
       default:

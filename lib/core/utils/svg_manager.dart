@@ -170,4 +170,7 @@ class SvgAssets {
   static const String edit = 'assets/icons/edit.svg';
   static const String numberIcon = 'assets/icons/number_icon.svg';
   static const String calender = 'assets/icons/calender.svg';
+  static const String about_us = 'assets/icons/about_us.svg';
+  static const String clock = 'assets/icons/clock.svg';
+  static const String cityLine = 'assets/icons/city_line.svg';
 }
