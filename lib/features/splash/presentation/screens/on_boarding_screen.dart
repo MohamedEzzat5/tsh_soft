@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
 import 'package:tsh_soft/config/routes/app_routes.dart';
-import 'package:tsh_soft/core/utils/constants.dart';
 import 'package:tsh_soft/core/utils/image_manager.dart';
-import 'package:tsh_soft/core/utils/svg_manager.dart';
 import 'package:tsh_soft/core/utils/values/text_styles.dart';
+import 'package:tsh_soft/features/splash/presentation/widgets/on_boarding_button.dart';
 import 'package:tsh_soft/features/splash/presentation/widgets/page_indicator.dart';
 import 'package:tsh_soft/injection_container.dart';
 
@@ -84,7 +82,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             children: _pages,
           ),
           Positioned(
-            bottom: 130,
+            bottom: 1.sh - 0.95.sh,
             left: 16,
             right: 16,
             child: Row(
@@ -118,38 +116,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ),
           Positioned(
-            bottom: 205.h,
+            bottom: 1.sh - 0.82.sh,
             left: 0,
             right: 0,
             child: OnboardingButton(onPressed: _nextPage),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class OnboardingButton extends StatelessWidget {
-  final VoidCallback onPressed;
-
-  const OnboardingButton({super.key, required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all(colors.white),
-          shape: WidgetStateProperty.all(const CircleBorder()),
-        ),
-        onPressed: onPressed,
-        child: Padding(
-          padding: const EdgeInsets.all(22.0),
-          child: SvgPicture.asset(
-            SvgAssets.arrow,
-            colorFilter: Constants.colorFilter(colors.main),
-          ),
-        ),
       ),
     );
   }

@@ -24,34 +24,33 @@ class OnboardingPage extends StatelessWidget {
       children: [
         Image.asset(
           imageAsset,
-          width: ScreenUtil().screenWidth,
-          height: ScreenUtil().screenHeight * 0.8,
+          width: 1.sw,
+          height: 0.85.sh,
           fit: BoxFit.fill,
         ),
         Positioned(
-          top: 60,
-          left: 20,
-          right: 20,
+          top: 60.h,
+          left: 20.w,
+          right: 20.w,
           child: SizedBox(
-            width: 200,
+            width: 1.sw - 40.w,
             child: RichText(
               textAlign: TextAlign.start,
-              maxLines: 2,
               text: TextSpan(
-                text: title.tr,
-                style: TextStyles.bold28(),
                 children: [
                   TextSpan(
-                    text: description.tr,
-                    style: TextStyle(
-                      color: colors.main,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    text: "${title.tr}\n",
+                    style: TextStyles.bold28(),
                   ),
                   TextSpan(
-                    text: subDescription.tr,
-                    style: TextStyles.regular22(),
+                    text: description.tr,
+                    style: TextStyles.bold20(color: colors.main),
                   ),
+                  if (subDescription.isNotEmpty)
+                    TextSpan(
+                      text: subDescription.tr,
+                      style: TextStyles.regular22(),
+                    ),
                 ],
               ),
             ),

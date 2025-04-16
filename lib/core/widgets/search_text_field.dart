@@ -30,7 +30,7 @@ class MySearchBar extends StatelessWidget {
     double raduis = 15.r;
     return Container(
       width: ScreenUtil().screenWidth,
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
       alignment: Alignment.centerRight,
       child: TextFormField(
         controller: controller,
@@ -44,7 +44,7 @@ class MySearchBar extends StatelessWidget {
           fillColor: const Color(0x26B2B8B4),
           hintText: hintText,
           contentPadding:
-              EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+              EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
           hintStyle: theme.bodyMedium!.copyWith(
             color: colors.body,
             fontSize: myFontSize,

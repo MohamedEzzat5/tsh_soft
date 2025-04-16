@@ -72,6 +72,7 @@ ThemeData getAppTheme(BuildContext context, bool isLightTheme) {
     scaffoldBackgroundColor:
         isLightTheme ? MyColors.backGround : MyColors.backGroundDark,
     appBarTheme: AppBarTheme(
+      surfaceTintColor: Colors.transparent,
       systemOverlayStyle:
           const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
       backgroundColor:
@@ -84,7 +85,7 @@ ThemeData getAppTheme(BuildContext context, bool isLightTheme) {
       ),
       titleTextStyle: TextStyle(
         fontFamily: Fonts.primary,
-        fontSize: 20.sp,
+        fontSize: 18.sp,
         fontWeight: FontWeight.w700,
         color: isLightTheme ? MyColors.textColor : MyColors.titleDark,
       ),

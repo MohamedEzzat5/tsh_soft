@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'app_shimmer.dart';
 
@@ -11,6 +12,7 @@ class AppImage extends StatelessWidget {
   final String? imageAsset;
   final double? width;
   final double? height;
+  final double? borderRadius;
   final BoxFit fit;
   final Color? color;
   final bool? isCached;
@@ -20,6 +22,7 @@ class AppImage extends StatelessWidget {
     this.imageUrl,
     this.imageFile,
     this.imageAsset,
+    this.borderRadius,
     this.width,
     this.height,
     this.fit = BoxFit.scaleDown,
@@ -172,16 +175,19 @@ class AppImage extends StatelessWidget {
           maxHeight: height?.toInt(),
         ));
       }
-      return CachedNetworkImage(
-        imageUrl: imageUrl!,
-        color: color,
-        width: width,
-        height: height,
-        fit: fit,
-        placeholderFadeInDuration: const Duration(milliseconds: 500),
-        placeholder: (BuildContext context, String url) => _loadingWidget,
-        errorWidget: (BuildContext context, String url, dynamic error) =>
-            _errorWidget,
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
+        child: CachedNetworkImage(
+          imageUrl: imageUrl!,
+          color: color,
+          width: width,
+          height: height,
+          fit: fit,
+          placeholderFadeInDuration: const Duration(milliseconds: 500),
+          placeholder: (BuildContext context, String url) => _loadingWidget,
+          errorWidget: (BuildContext context, String url, dynamic error) =>
+              _errorWidget,
+        ),
       );
     }
     if (isCircle == true) {

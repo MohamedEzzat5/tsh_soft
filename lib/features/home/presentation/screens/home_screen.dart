@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tsh_soft/config/routes/app_routes.dart';
 import 'package:tsh_soft/core/widgets/gaps.dart';
+import 'package:tsh_soft/features/products/presentation/widgets/products_grid_view.dart';
 
 import '../widgets/home_categories_list.dart';
+import '../widgets/home_gallery.dart';
 import '../widgets/home_header.dart';
-import '../widgets/home_products_grid.dart';
-import '../widgets/home_search_bar.dart';
 import '../widgets/home_section_title.dart';
-import '../widgets/offers_gallery.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -24,16 +24,28 @@ class HomeScreen extends StatelessWidget {
             children: [
               Gaps.vGap20,
               const HomeHeader(),
+              // Gaps.vGap20,
+              // const HomeSearchBar(),
               Gaps.vGap20,
-              const HomeSearchBar(),
+              const HomeGallery(),
               Gaps.vGap20,
-              const OffersGallery(),
-              Gaps.vGap20,
-              const HomeSectionTitle(title: 'Categories'),
+              HomeSectionTitle(
+                title: 'categories',
+                onViewAllTap: () => Navigator.pushNamed(
+                  context,
+                  Routes.allCatregoryScreenRoute,
+                ),
+              ),
               const HomeCategoriesList(),
-              Gaps.vGap20,
-              const HomeSectionTitle(title: 'Newest Products'),
-              const HomeProductsGrid(),
+              Gaps.vGap5,
+              HomeSectionTitle(
+                title: 'newest_orders',
+                onViewAllTap: () => Navigator.pushNamed(
+                  context,
+                  Routes.allOrdersScreenRoute,
+                ),
+              ),
+              const ProductsGridView(),
             ],
           ),
         ),

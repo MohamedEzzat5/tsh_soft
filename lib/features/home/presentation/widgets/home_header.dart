@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tsh_soft/core/utils/constants.dart';
 import 'package:tsh_soft/core/utils/svg_manager.dart';
 import 'package:tsh_soft/core/utils/values/text_styles.dart';
 import 'package:tsh_soft/core/widgets/gaps.dart';
@@ -21,10 +22,8 @@ class HomeHeader extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Welcome',
-                    style: TextStyles.regular12(color: Colors.black)),
-                Text('Hello, User',
-                    style: TextStyles.bold14(color: Colors.black)),
+                Text('اهلا بك', style: TextStyles.regular14()),
+                Text('محمد احمد', style: TextStyles.bold14()),
               ],
             ),
           ],
@@ -47,12 +46,9 @@ class HomeHeader extends StatelessWidget {
         color: const Color(0xffEEEEEE),
         borderRadius: BorderRadius.circular(16.r),
       ),
-      child: Stack(
-        alignment: Alignment.topRight,
-        children: [
-          SvgPicture.asset(asset),
-          CircleAvatar(radius: 6.r, backgroundColor: colors.main),
-        ],
+      child: SvgPicture.asset(
+        asset,
+        colorFilter: Constants.colorFilter(colors.black),
       ),
     );
   }

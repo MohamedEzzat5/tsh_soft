@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tsh_soft/features/auth/presentation/screens/login_screen.dart';
 import 'package:tsh_soft/features/auth/presentation/screens/register_screen.dart';
+import 'package:tsh_soft/features/home/presentation/screens/all_category_screen.dart';
 import 'package:tsh_soft/features/home/presentation/screens/home_screen.dart';
+import 'package:tsh_soft/features/products/presentation/cubit/select_product_filter/select_filter_cubit.dart';
+import 'package:tsh_soft/features/products/presentation/screens/products_screen.dart';
 import 'package:tsh_soft/features/splash/presentation/screens/on_boarding_screen.dart';
 import 'package:tsh_soft/features/splash/presentation/screens/splash_screen.dart';
 
@@ -14,6 +18,8 @@ class Routes {
   static const String loginScreenRoute = '/LoginScreenRoute';
   static const String registerScreenRoute = '/RegisterScreenRoute';
   static const String homeScreenRoute = '/HomeScreenRoute';
+  static const String allCatregoryScreenRoute = '/AllCatregoryScreenRoute';
+  static const String allOrdersScreenRoute = '/AllOrdersScreenRoute';
 }
 
 class AppRoutes {
@@ -50,6 +56,21 @@ class AppRoutes {
           settings: routeSettings,
           builder: (BuildContext context) => const HomeScreen(),
         );
+
+      case Routes.allCatregoryScreenRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const AllCategoriesScreen(),
+        );
+
+      case Routes.allOrdersScreenRoute:
+       return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => BlocProvider(
+            create: (context) => SelectProductFilterCubit(),
+            child: const ProductsScreen(),
+          ),
+        ); 
 
       default:
         return undefinedRoute();

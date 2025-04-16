@@ -7,17 +7,19 @@ import 'package:tsh_soft/injection_container.dart';
 
 class HomeSectionTitle extends StatelessWidget {
   final String title;
+  final Function() onViewAllTap;
 
-  const HomeSectionTitle({super.key, required this.title});
+  const HomeSectionTitle(
+      {super.key, required this.title, required this.onViewAllTap});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('home_departments'.tr, style: TextStyles.regular18()),
+        Text(title.tr, style: TextStyles.regular18()),
         TextButton(
-          onPressed: () {},
+          onPressed: onViewAllTap,
           child: Row(
             children: [
               Text('view_all'.tr,

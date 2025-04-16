@@ -23,15 +23,9 @@ class TSHSoftApp extends ConsumerWidget {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       systemNavigationBarColor: Color(0xffdedede),
       systemNavigationBarIconBrightness: Brightness.dark,
-      systemNavigationBarDividerColor: null,
-      //statusBarColor: Color(0xffbf0000),
       statusBarIconBrightness: Brightness.dark,
       statusBarBrightness: Brightness.light,
     ));
-    // SystemChrome.setSystemUIOverlayStyle(
-    //      SystemUiOverlayStyle(statusBarColor:colors.main));
-    // SystemChrome.setEnabledSystemUIMode(
-    //     SystemUiMode.manual, overlays: [SystemUiOverlay.top,]);
     return MultiBlocProvider(
       providers: [
         ...languageBlocs,
