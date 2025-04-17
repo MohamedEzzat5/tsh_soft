@@ -70,13 +70,13 @@ ThemeData getAppTheme(BuildContext context, bool isLightTheme) {
       color: isLightTheme ? MyColors.main : MyColors.mainDark,
     ),
     scaffoldBackgroundColor:
-        isLightTheme ? MyColors.backGround : MyColors.backGroundDark,
+        isLightTheme ? MyColors.white : MyColors.backGroundDark,
     appBarTheme: AppBarTheme(
       surfaceTintColor: Colors.transparent,
       systemOverlayStyle:
           const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
       backgroundColor:
-          isLightTheme ? MyColors.backGround : MyColors.upBackGroundDark,
+          isLightTheme ? MyColors.white : MyColors.upBackGroundDark,
       elevation: 0,
       //centerTitle: true,
       iconTheme: IconThemeData(

@@ -1,0 +1,96 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tsh_soft/config/locale/app_localizations.dart';
+import 'package:tsh_soft/core/utils/svg_manager.dart';
+import 'package:tsh_soft/core/widgets/gaps.dart';
+import 'package:tsh_soft/core/widgets/my_default_button.dart';
+
+import '../../../../config/routes/app_routes.dart';
+import '../../../../core/utils/image_manager.dart';
+import '../../../../injection_container.dart';
+import '../widgets/IconLabelWidget.dart';
+import '../widgets/profile_image.dart';
+import '../widgets/seitting_widget.dart';
+
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'profile'.tr,
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              Center(
+                child: ProfileImageWidget(),
+              ),
+              Gaps.vGap30,
+              Container(
+                width: ScreenUtil().screenWidth,
+                padding: EdgeInsets.symmetric(vertical: 24.r),
+                decoration: BoxDecoration(
+                  color: colors.backGround,
+                  borderRadius: BorderRadius.circular(16.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.1),
+                      blurRadius: 4.r,
+                      offset: Offset(0, 2.r),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.ordersScreenRoute);
+                      },
+                      child: IconLabelWidget(
+                        text: 'my_orders'.tr,
+                        icon: ImgAssets.myOrdersIcon,
+                      ),
+                    ),
+                    Gaps.hGap12,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, Routes.favoritesScreenRoute);
+                      },
+                      child: IconLabelWidget(
+                        text: 'favorites'.tr,
+                        icon: ImgAssets.favoriteIcon,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Gaps.vGap16,
+              SettingWidget(),
+              Gaps.vGap16,
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 50.w),
+                  child: MyDefaultButton(
+                    onPressed: () {},
+                    btnText: 'logout',
+                    textColor: colors.main,
+                    color: colors.white,
+                    svgAsset: SvgAssets.logout,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

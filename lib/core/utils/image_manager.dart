@@ -12,6 +12,7 @@ class ImgAssets {
   static const String favoriteIcon = 'assets/images/favorite_icon.png';
   static const String contactUs = 'assets/images/contact_us.png';
   static const String done = 'assets/images/done.png';
-    static const String selectImageProfileImage =
+  static const String about_us = 'assets/images/about_us.png';
+  static const String selectImageProfileImage =
       'assets/images/select_image_profile.png';
 }
