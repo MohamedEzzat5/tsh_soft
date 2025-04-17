@@ -103,6 +103,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/fonts/
+    - assets/anim/
 
   fonts:
     - family: ElMessiri

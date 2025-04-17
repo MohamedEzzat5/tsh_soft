@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tsh_soft/config/routes/app_routes.dart';
 import 'package:tsh_soft/features/products/presentation/widgets/product_item.dart';
 
 class ProductsGridView extends StatelessWidget {
@@ -23,10 +24,18 @@ class ProductsGridView extends StatelessWidget {
       ),
       itemBuilder: (context, index) {
         final product = mockProducts[index];
-        return ProductItemWidget(
-          name: product.name,
-          image: product.image,
-          price: product.price,
+        return InkWell(
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              Routes.productDetailsScreenRoute,
+            );
+          },
+          child: ProductItemWidget(
+            name: product.name,
+            image: product.image,
+            price: product.price,
+          ),
         );
       },
     );

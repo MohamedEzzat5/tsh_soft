@@ -77,7 +77,7 @@ class DiffImage extends StatelessWidget {
                     ),
                     padding: EdgeInsets.all(16.r),
                     child: SvgPicture.asset(
-                      SvgAssets.notFound,
+                      SvgAssets.notesIcon,
                       fit: BoxFit.scaleDown,
                     ),
                   ),
@@ -97,7 +97,7 @@ class DiffImage extends StatelessWidget {
                 width: width * 0.6,
                 height: height * 0.6,
                 child: SvgPicture.asset(
-                  SvgAssets.notFound,
+                  SvgAssets.notesIcon,
                 ),
               ),
             ),
