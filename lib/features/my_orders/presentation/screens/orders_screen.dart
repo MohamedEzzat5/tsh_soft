@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
+import 'package:tsh_soft/features/my_orders/presentation/widget/recent_orders_list.dart';
 
 import '../cubit/tab_cubit.dart';
 import '../widget/tab_services.dart';
-import 'complete_orders.dart';
-import 'recent_orders.dart';
+import '../widget/complete_orders_list.dart';
 
 class OrdersScreen extends StatefulWidget {
   const OrdersScreen({super.key});
@@ -55,27 +55,23 @@ class _OrdersScreenState extends State<OrdersScreen>
                   },
                 ),
                 SizedBox(height: 16.h),
-                _buildTabBarView(),
+                Expanded(
+                  child: BlocBuilder<TabCubit, int>(
+                    builder: (context, selectedIndex) {
+                      return TabBarView(
+                        controller: _tabController,
+                        children: [
+                          RecentOrdersListView(),
+                          CompletedOrdersListView(),
+                        ],
+                      );
+                    },
+                  ),
+                )
               ],
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildTabBarView() {
-    return Expanded(
-      child: BlocBuilder<TabCubit, int>(
-        builder: (context, selectedIndex) {
-          return TabBarView(
-            controller: _tabController,
-            children: [
-              RecentOrders(),
-              CompletedOrders(),
-            ],
-          );
-        },
       ),
     );
   }

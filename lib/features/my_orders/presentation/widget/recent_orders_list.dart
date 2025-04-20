@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
+import 'package:tsh_soft/core/utils/constants.dart';
 
 import '../../../../config/routes/app_routes.dart';
 import '../../../../core/utils/svg_manager.dart';
@@ -9,8 +10,8 @@ import '../../../../core/utils/values/text_styles.dart';
 import '../../../../core/widgets/gaps.dart';
 import '../../../../injection_container.dart';
 
-class RecentOrders extends StatelessWidget {
-  const RecentOrders({super.key});
+class RecentOrdersListView extends StatelessWidget {
+  const RecentOrdersListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class RecentOrders extends StatelessWidget {
           onTap: () {
             Navigator.pushNamed(
               context,
-              Routes.orderDetailsRoute,
+              Routes.orderDetailsScreenRoute,
             );
           },
           child: Container(
@@ -75,7 +76,7 @@ class RecentOrders extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       SvgAssets.cityLine,
-                      color: colors.black,
+                      colorFilter: Constants.colorFilter(colors.main),
                     ),
                     Gaps.hGap10,
                     Text(

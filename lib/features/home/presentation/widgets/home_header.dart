@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tsh_soft/config/locale/app_localizations.dart';
 import 'package:tsh_soft/core/utils/constants.dart';
 import 'package:tsh_soft/core/utils/svg_manager.dart';
 import 'package:tsh_soft/core/utils/values/text_styles.dart';
@@ -26,12 +27,15 @@ class HomeHeader extends StatelessWidget {
           },
           child: Row(
             children: [
-              SvgPicture.asset(SvgAssets.homeAppBarIcon),
+              SvgPicture.asset(
+                SvgAssets.homeAppBarIcon,
+                colorFilter: Constants.colorFilter(colors.main),
+              ),
               Gaps.hGap8,
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('اهلا بك', style: TextStyles.regular14()),
+                  Text('welcome'.tr, style: TextStyles.regular14()),
                   Text('محمد احمد', style: TextStyles.bold14()),
                 ],
               ),
@@ -42,7 +46,10 @@ class HomeHeader extends StatelessWidget {
           children: [
             _buildIcon(SvgAssets.notificationIcon),
             Gaps.hGap8,
-            _buildIcon(SvgAssets.cartIcon),
+            InkWell(
+                onTap: () =>
+                    Navigator.pushNamed(context, Routes.cartScreenRoute),
+                child: _buildIcon(SvgAssets.cartIcon)),
           ],
         ),
       ],
@@ -53,12 +60,12 @@ class HomeHeader extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(12.r),
       decoration: BoxDecoration(
-        color: const Color(0xffEEEEEE),
+        color: colors.secondaryColor.withAlpha(80),
         borderRadius: BorderRadius.circular(16.r),
       ),
       child: SvgPicture.asset(
         asset,
-        colorFilter: Constants.colorFilter(colors.black),
+        colorFilter: Constants.colorFilter(colors.main),
       ),
     );
   }

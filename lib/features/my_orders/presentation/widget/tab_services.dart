@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
+import 'package:tsh_soft/injection_container.dart';
 
-import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/values/text_styles.dart';
 import '../cubit/tab_cubit.dart';
 
@@ -24,16 +24,16 @@ class TabOrders extends StatelessWidget {
         return TabBar(
           indicatorAnimation: TabIndicatorAnimation.elastic,
           controller: tabController,
-          physics: const NeverScrollableScrollPhysics(),
           onTap: onTap,
           dividerColor: Colors.transparent,
+          physics: const BouncingScrollPhysics(),
           indicator: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: MyColors.main,
+            color: colors.main,
           ),
-          labelColor: MyColors.white,
-          labelStyle: TextStyles.bold18(color: MyColors.black),
-          unselectedLabelColor: MyColors.black.withOpacity(0.5),
+          labelColor: colors.white,
+          labelStyle: TextStyles.bold18(color: colors.black),
+          unselectedLabelColor: colors.black.withAlpha(90),
           tabs: [
             SizedBox(
                 width: ScreenUtil().screenWidth * 0.42,

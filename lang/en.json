@@ -328,7 +328,7 @@
           "full_name": "Full name",
           "phone_number": "Phone number",
           "save_edit": "Save changes",
-          "delete_account": "Delete your account",
+          "delete_account": "Delete account",
           "delete_current_account": "Do you want to delete your current account?",
           "infoUserHeader": "Update My Information",
           "confirm_phone": "Confirm phone number",
@@ -754,5 +754,7 @@
           "about_us": "About us",
           "about_message": "The store application contains many services as it provides the perfume service as it contains many perfumes of all types and brands and also contains the accessories service which includes many accessories and also the gift service. What is distinctive about our application is that it contains the Hajj gifts service which includes all the Hajj gifts. The store application contains many services as it provides the perfume service as it contains many perfumes of all types and brands and also contains the accessories service which includes many accessories and also the gift service. What is distinctive about our application is that it contains the Hajj gifts service which includes all the Hajj gifts.",
           "request_received": "Your request has been received",
+          "add_to_cart_successfully" : "Product added to cart successfully",
+          
           "": ""
 }

@@ -10,8 +10,8 @@ import '../../../../core/utils/values/text_styles.dart';
 import '../../../../injection_container.dart';
 import '../widget/order_details_row_widget.dart';
 
-class OrderDetails extends StatelessWidget {
-  const OrderDetails({super.key});
+class OrderDetailsScreen extends StatelessWidget {
+  const OrderDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

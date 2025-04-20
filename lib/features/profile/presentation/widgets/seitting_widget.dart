@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
+import 'package:tsh_soft/core/utils/constants.dart';
+import 'package:tsh_soft/features/profile/presentation/widgets/language_setting_widget.dart';
 import 'package:tsh_soft/features/profile/presentation/widgets/profile_item.dart';
 
 import '../../../../config/routes/app_routes.dart';
@@ -48,7 +50,10 @@ class SettingWidget extends StatelessWidget {
             svgIcon: SvgAssets.editProfile,
           ),
           ProfileItem(
-            onPress: () {},
+            onPress: () {
+              Constants.buildCustomShowModel(
+                  context: context, child: LanguageSettingWidget());
+            },
             title: 'language'.tr,
             svgIcon: SvgAssets.language,
           ),

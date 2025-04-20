@@ -64,7 +64,7 @@ class ProfileImageWidget extends StatelessWidget {
             ],
           ),
           Gaps.vGap12,
-          Text("محمد العشري", style: TextStyles.bold16()),
+          Text("محمد احمد", style: TextStyles.bold16()),
         ],
       ),
     );
