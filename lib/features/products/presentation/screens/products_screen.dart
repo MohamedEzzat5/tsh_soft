@@ -32,8 +32,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
               focusNode: searchFocusNode,
               hintText: 'search'.tr(context),
             ),
-            Gaps.vGap4,
+            Gaps.vGap10,
             const FilterListWidget(),
+            Gaps.vGap10,
             const Expanded(
               child: Padding(
                 padding: EdgeInsets.all(16.0),

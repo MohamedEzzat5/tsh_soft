@@ -29,7 +29,7 @@ class HomeHeader extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 SvgAssets.homeAppBarIcon,
-                colorFilter: Constants.colorFilter(colors.main),
+                colorFilter: Constants.colorFilter(context.colors.main),
               ),
               Gaps.hGap8,
               Column(
@@ -44,28 +44,33 @@ class HomeHeader extends StatelessWidget {
         ),
         Row(
           children: [
-            _buildIcon(SvgAssets.notificationIcon),
+            InkWell(
+                onTap: () => Navigator.pushNamed(
+                      context,
+                      Routes.notificationScreenRoute,
+                    ),
+                child: _buildIcon(SvgAssets.notificationIcon, context)),
             Gaps.hGap8,
             InkWell(
                 onTap: () =>
                     Navigator.pushNamed(context, Routes.cartScreenRoute),
-                child: _buildIcon(SvgAssets.cartIcon)),
+                child: _buildIcon(SvgAssets.cartIcon, context)),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildIcon(String asset) {
+  Widget _buildIcon(String asset, BuildContext context) {
     return Container(
       padding: EdgeInsets.all(12.r),
       decoration: BoxDecoration(
-        color: colors.secondaryColor.withAlpha(80),
+        color: context.colors.secondaryColor.withAlpha(80),
         borderRadius: BorderRadius.circular(16.r),
       ),
       child: SvgPicture.asset(
         asset,
-        colorFilter: Constants.colorFilter(colors.main),
+        colorFilter: Constants.colorFilter(context.colors.main),
       ),
     );
   }

@@ -29,11 +29,11 @@ class TabOrders extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           indicator: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: colors.main,
+            color: context.colors.main,
           ),
-          labelColor: colors.white,
-          labelStyle: TextStyles.bold18(color: colors.black),
-          unselectedLabelColor: colors.black.withAlpha(90),
+          labelColor: context.colors.white,
+          labelStyle: TextStyles.bold18(),
+          // unselectedLabelColor: ,
           tabs: [
             SizedBox(
                 width: ScreenUtil().screenWidth * 0.42,

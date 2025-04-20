@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../injection_container.dart';
 import '/config/locale/app_localizations.dart';
+import '../../injection_container.dart';
 
 class BackIcon extends StatelessWidget {
   final Function()? onBack;
@@ -17,7 +17,7 @@ class BackIcon extends StatelessWidget {
             ? Icons.arrow_back
             : Icons.arrow_forward,
         size: 24.w,
-        color: colors.textColor,
+        color: context.colors.textColor,
       ),
     );
   }

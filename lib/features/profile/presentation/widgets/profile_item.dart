@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tsh_soft/core/utils/constants.dart';
 
 import '../../../../core/utils/values/text_styles.dart';
 import '../../../../core/widgets/gaps.dart';
@@ -15,7 +16,7 @@ class ProfileItem extends StatelessWidget {
     this.isBackIcon = false,
     this.iconColor,
     this.style,
-    this.trailing, // ✅ العنصر الجديد هنا
+    this.trailing,
   });
 
   final String title;
@@ -24,7 +25,7 @@ class ProfileItem extends StatelessWidget {
   final Color? iconColor;
   final TextStyle? style;
   final VoidCallback onPress;
-  final Widget? trailing; // ✅ عنصر إضافي اختياري في اليمين
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +35,10 @@ class ProfileItem extends StatelessWidget {
         onTap: onPress,
         child: Row(
           children: [
-            SvgPicture.asset(
-              svgIcon,
-              color: iconColor ?? colors.main,
-            ),
+            SvgPicture.asset(svgIcon,
+                colorFilter: iconColor != null
+                    ? Constants.colorFilter(iconColor!)
+                    : Constants.colorFilter(context.colors.main)),
             Gaps.hGap16,
             Expanded(
               child: Text(
@@ -45,7 +46,7 @@ class ProfileItem extends StatelessWidget {
                 style: style ?? TextStyles.regular16(),
               ),
             ),
-            trailing ?? // ✅ لو فيه trailing استخدمه
+            trailing ?? 
                 (isBackIcon == false
                     ? Icon(
                         Icons.chevron_right,

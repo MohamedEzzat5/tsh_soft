@@ -77,7 +77,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 isSecure
                     ? Icons.remove_red_eye_outlined
                     : Icons.visibility_off_outlined,
-                color: colors.buttonColor,
+                color: context.colors.buttonColor,
               ),
               onPressed: () => setState(() => isSecure = !isSecure),
             ),
@@ -94,7 +94,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 isSecureConfirm
                     ? Icons.remove_red_eye_outlined
                     : Icons.visibility_off_outlined,
-                color: colors.buttonColor,
+                color: context.colors.buttonColor,
               ),
               onPressed: () =>
                   setState(() => isSecureConfirm = !isSecureConfirm),
@@ -106,7 +106,7 @@ class _RegisterFormState extends State<RegisterForm> {
             onPressed: () {
               Navigator.pushNamed(context, Routes.homeScreenRoute);
             },
-            borderColor: colors.main,
+            borderColor: context.colors.main,
           ),
           Gaps.vGap40,
         ],

@@ -71,7 +71,7 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cart', style: TextStyles.bold18()),
+        title: Text('cart'.tr(context), style: TextStyles.bold18()),
       ),
       body: SafeArea(
         child: Column(

@@ -39,12 +39,12 @@ class OnboardingPage extends StatelessWidget {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: "${title.tr}\n",
+                    text: "${title.tr(context)} ",
                     style: TextStyles.bold28(),
                   ),
                   TextSpan(
                     text: description.tr(context),
-                    style: TextStyles.bold20(color: colors.main),
+                    style: TextStyles.bold20(color: context.colors.main),
                   ),
                   if (subDescription.isNotEmpty)
                     TextSpan(

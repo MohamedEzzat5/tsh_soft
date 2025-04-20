@@ -27,12 +27,12 @@ class LoadingView extends StatelessWidget {
       padding: EdgeInsets.all(8.r),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.r),
-        border: Border.all(color: colors.dividerColor),
-        color: bgColor ?? colors.main,
+        border: Border.all(color: context.colors.dividerColor),
+        color: bgColor ?? context.colors.main,
       ),
       child: Center(
         child: CircularProgressIndicator(
-          color: loadingColor ?? colors.upBackGround,
+          color: loadingColor ?? context.colors.upBackGround,
         ).appLoading,
       ),
     );

@@ -47,14 +47,14 @@ Widget _buildContent(BuildContext context, String message, ToastType type) {
     children: <Widget>[
       Icon(
         type.icon,
-        color: colors.baseColor,
+        color: context.colors.baseColor,
         size: 32.r,
       ),
       SizedBox(width: 8.w),
       Text(
         message,
         style: TextStyle(
-          color: colors.baseColor,
+          color: context.colors.baseColor,
           fontSize: 14.sp,
           fontWeight: FontWeight.w500,
           overflow: TextOverflow.clip,

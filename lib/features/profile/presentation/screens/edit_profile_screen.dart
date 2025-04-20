@@ -69,7 +69,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 Gaps.vGap30,
                 Text(
                   'name'.tr(context),
-                  style: TextStyles.regular16(color: colors.main),
+                  style: TextStyles.regular16(color: context.colors.main),
                 ),
                 Gaps.vGap10,
                 AppTextFormField(
@@ -80,7 +80,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 Gaps.vGap24,
                 Text(
                   'phone'.tr(context),
-                  style: TextStyles.regular16(color: colors.main),
+                  style: TextStyles.regular16(color: context.colors.main),
                 ),
                 Gaps.vGap10,
                 AppTextFormField(
@@ -91,7 +91,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 Gaps.vGap24,
                 Text(
                   'email'.tr(context),
-                  style: TextStyles.regular16(color: colors.main),
+                  style: TextStyles.regular16(color: context.colors.main),
                 ),
                 Gaps.vGap10,
                 AppTextFormField(
@@ -102,7 +102,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 Gaps.vGap24,
                 Text(
                   'city'.tr(context),
-                  style: TextStyles.regular16(color: colors.main),
+                  style: TextStyles.regular16(color: context.colors.main),
                 ),
                 Gaps.vGap10,
                 AppTextFormField(

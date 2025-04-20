@@ -29,7 +29,7 @@ class _SettingWidgetState extends ConsumerState<SettingWidget> {
       width: ScreenUtil().screenWidth,
       padding: EdgeInsets.symmetric(vertical: 16.r, horizontal: 16.r),
       decoration: BoxDecoration(
-        color: colors.backGround,
+        color: context.colors.backGround,
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
@@ -66,8 +66,8 @@ class _SettingWidgetState extends ConsumerState<SettingWidget> {
             svgIcon: SvgAssets.language,
           ),
           ProfileItem(
-            onPress: () {}, 
-            title: 'mode'.tr(context),
+            onPress: () {},
+            title: 'dark_mode'.tr(context),
             svgIcon: SvgAssets.language,
             trailing: Switch(
               value: isLight,
@@ -111,9 +111,9 @@ class _SettingWidgetState extends ConsumerState<SettingWidget> {
             padding: EdgeInsets.symmetric(horizontal: 8.r),
             child: ProfileItem(
               style: TextStyles.semiBold18(
-                color: colors.errorColor,
+                color: context.colors.errorColor,
               ),
-              iconColor: colors.errorColor,
+              iconColor: context.colors.errorColor,
               isBackIcon: true,
               onPress: () {},
               title: 'delete_account'.tr(context),

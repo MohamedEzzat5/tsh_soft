@@ -50,13 +50,14 @@ class MyDefaultButton extends StatelessWidget {
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius?.r ?? 12.r),
               side: BorderSide(
-                color: borderColor ?? colors.borderColor,
+                color: borderColor ?? context.colors.borderColor,
               ),
             ),
           ),
-          backgroundColor: WidgetStateProperty.all<Color>(color ?? colors.main),
+          backgroundColor:
+              WidgetStateProperty.all<Color>(color ?? context.colors.main),
           foregroundColor: WidgetStateProperty.all<Color>(
-            textColor ?? colors.upBackGround,
+            textColor ?? context.colors.upBackGround,
           ),
         ),
         onPressed: onPressed,
@@ -66,7 +67,7 @@ class MyDefaultButton extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: textStyle ??
                     textTheme.bodyMedium!.copyWith(
-                      color: textColor ?? colors.upBackGround,
+                      color: textColor ?? context.colors.upBackGround,
                       fontSize: 16.sp,
                     ),
               )
@@ -79,7 +80,7 @@ class MyDefaultButton extends StatelessWidget {
                     height: 16.h,
                     width: 16.w,
                     colorFilter: ColorFilter.mode(
-                      textColor ?? colors.upBackGround,
+                      textColor ?? context.colors.upBackGround,
                       BlendMode.srcIn,
                     ),
                   ),
@@ -89,7 +90,7 @@ class MyDefaultButton extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: textStyle ??
                         textTheme.bodyMedium!.copyWith(
-                          color: textColor ?? colors.textColor,
+                          color: textColor ?? context.colors.textColor,
                           fontSize: 16.sp,
                         ),
                   ),

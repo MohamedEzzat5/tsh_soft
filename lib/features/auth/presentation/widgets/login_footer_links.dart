@@ -19,7 +19,7 @@ class LoginFooterLinks extends StatelessWidget {
               onTap: () {},
               child: Text(
                 'log_in_forget_pass'.tr(context),
-                style: TextStyles.regular16(color: colors.main),
+                style: TextStyles.regular16(color: context.colors.main),
               ),
             ),
           ],
@@ -30,7 +30,7 @@ class LoginFooterLinks extends StatelessWidget {
           children: [
             Text(
               '${'newAccount'.tr(context)} !',
-              style: TextStyles.regular16(color: Colors.black),
+              style: TextStyles.regular16(),
             ),
             Gaps.hGap8,
             InkWell(
@@ -39,7 +39,7 @@ class LoginFooterLinks extends StatelessWidget {
               },
               child: Text(
                 'create_account'.tr(context),
-                style: TextStyles.bold16(color: colors.main),
+                style: TextStyles.bold16(color: context.colors.main),
               ),
             ),
           ],

@@ -30,14 +30,14 @@ class QuantitySelector extends StatelessWidget {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: colors.secondaryColor,
+                color: context.colors.secondaryColor,
               ),
               child: SvgPicture.asset(
                 SvgAssets.minus,
                 fit: BoxFit.none,
                 height: 50.h,
                 width: 50.h,
-                colorFilter: Constants.colorFilter(colors.black),
+                colorFilter: Constants.colorFilter(context.colors.black),
               ),
             ),
           ),
@@ -48,7 +48,7 @@ class QuantitySelector extends StatelessWidget {
             alignment: Alignment.center,
             height: 50.h,
             decoration: BoxDecoration(
-              color: colors.backGround,
+              color: context.colors.backGround,
               borderRadius: BorderRadius.circular(16.r),
             ),
             child: Text('$counter', style: TextStyles.bold14()),
@@ -62,14 +62,14 @@ class QuantitySelector extends StatelessWidget {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: colors.secondaryColor,
+                color: context.colors.secondaryColor,
               ),
               child: SvgPicture.asset(
                 SvgAssets.plus,
                 fit: BoxFit.none,
                 height: 50.h,
                 width: 50.h,
-                colorFilter: Constants.colorFilter(colors.black),
+                colorFilter: Constants.colorFilter(context.colors.black),
               ),
             ),
           ),

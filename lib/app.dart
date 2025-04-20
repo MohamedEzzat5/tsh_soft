@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tsh_soft/features/splash/splash_injection.dart';
+
 import 'config/locale/app_localizations_setup.dart';
 import 'config/routes/app_routes.dart';
 import 'config/routes/navigator_observer.dart';
@@ -20,12 +21,21 @@ class TSHSoftApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      systemNavigationBarColor: Color(0xffdedede),
-      systemNavigationBarIconBrightness: Brightness.dark,
-      statusBarIconBrightness: Brightness.dark,
-      statusBarBrightness: Brightness.light,
-    ));
+    final isLight = ref.watch(appThemeProvider);
+
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        systemNavigationBarColor:
+            isLight ? const Color(0xFFF5F5F5) : const Color(0xFF1E1E1E),
+        systemNavigationBarIconBrightness:
+            isLight ? Brightness.dark : Brightness.light,
+        statusBarColor:
+            isLight ? const Color(0xFFF5F5F5) : const Color(0xFF1E1E1E),
+        statusBarIconBrightness: isLight ? Brightness.dark : Brightness.light,
+        statusBarBrightness: isLight ? Brightness.light : Brightness.dark,
+      ),
+    );
+
     return MultiBlocProvider(
       providers: [
         ...languageBlocs,

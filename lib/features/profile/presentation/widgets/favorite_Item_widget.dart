@@ -49,14 +49,15 @@ class FavoriteItemWidget extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(8.r),
                   decoration: BoxDecoration(
-                    color: colors.white,
+                    color: context.colors.white,
                     shape: BoxShape.circle,
                   ),
                   child: SvgPicture.asset(
                     SvgAssets.heart,
                     width: 20.w,
                     height: 20.h,
-                    colorFilter: Constants.colorFilter(colors.errorColor),
+                    colorFilter:
+                        Constants.colorFilter(context.colors.errorColor),
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -94,7 +95,7 @@ class FavoriteItemWidget extends StatelessWidget {
                     ),
                     CircleAvatar(
                       radius: 20.r,
-                      backgroundColor: colors.main,
+                      backgroundColor: context.colors.main,
                       child: Padding(
                         padding: EdgeInsets.all(6.r),
                         child: SvgPicture.asset(

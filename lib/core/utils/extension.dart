@@ -104,9 +104,9 @@ extension UserStatusExtension on UserStatus {
 }
 
 extension ColorFilterExtension on ColorFilter {
-  static ColorFilter getFocusIconColor(FocusNode focusNode) {
+  static ColorFilter getFocusIconColor(FocusNode focusNode , BuildContext context) {
     return ColorFilter.mode(
-      focusNode.hasFocus ? colors.main : colors.body,
+      focusNode.hasFocus ? context.colors.main : context.colors.body,
       BlendMode.srcIn,
     );
   }

@@ -76,15 +76,15 @@ abstract class ServiceLocator {
         () => AppSecureStorageImpl(instance: secureStorage));
   }
 
-  static void injectAppColors(
-      {AppColors? appColors, BuildContext? context}) async {
-    instance.registerLazySingleton<AppColors>(() {
-      if (context != null) {
-        return Theme.of(context).extension<AppColors>()!;
-      }
-      return appColors!;
-    });
-  }
+  // static void injectAppColors(
+  //     {AppColors? appColors, BuildContext? context}) async {
+  //   instance.registerLazySingleton<AppColors>(() {
+  //     if (context != null) {
+  //       return Theme.of(context).extension<AppColors>()!;
+  //     }
+  //     return appColors!;
+  //   });
+  // }
 
   static void injectAppLocalizations(
       {AppLocalizations? appLocalizations, BuildContext? context}) async {
@@ -126,7 +126,6 @@ AppInterceptors get appInterceptors =>
 
 LogInterceptor get logInterceptor => ServiceLocator.instance<LogInterceptor>();
 
-AppColors get colors => ServiceLocator.instance<AppColors>();
 
 AppLocalizations get appLocalizations =>
     ServiceLocator.instance<AppLocalizations>();
@@ -139,3 +138,6 @@ String get tokenFCM =>
 
 // FirebaseRemoteConfigService get remoteConfigService =>
 //     ServiceLocator.instance<FirebaseRemoteConfigService>();
+extension ThemeContextExtension on BuildContext {
+  AppColors get colors => Theme.of(this).extension<AppColors>()!;
+}

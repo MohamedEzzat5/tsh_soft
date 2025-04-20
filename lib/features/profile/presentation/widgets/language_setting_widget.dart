@@ -67,9 +67,9 @@ class _LanguageSettingWidgetState extends State<LanguageSettingWidget> {
                           .changeLanguage(LanguageCode.ar, context);
                     },
                     btnText: 'arabic',
-                    color: colors.secondaryColor,
-                    borderColor: colors.buttonColor2,
-                    textColor: colors.main,
+                    color: context.colors.secondaryColor,
+                    borderColor: context.colors.buttonColor2,
+                    textColor: context.colors.main,
                     width: 150.w,
                   ),
                   MyDefaultButton(

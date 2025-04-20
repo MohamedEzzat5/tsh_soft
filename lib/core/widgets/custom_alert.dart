@@ -54,8 +54,8 @@ class CustomAlert {
             Expanded(
               child: MyDefaultButton(
                 height: 45.0.h,
-                color: secondColor ?? colors.main,
-                textColor: secondTxtColor ?? colors.iconColor,
+                color: secondColor ?? context.colors.main,
+                textColor: secondTxtColor ?? context.colors.iconColor,
                 isSelected: false,
                 onPressed: () => onTap ?? Navigator.pop(context),
                 btnText: secondBtnTitle,
@@ -69,8 +69,8 @@ class CustomAlert {
     );
     // set up the SimpleDialog
     SimpleDialog dialog = SimpleDialog(
-      surfaceTintColor: colors.upBackGround,
-      backgroundColor: colors.upBackGround,
+      surfaceTintColor: context.colors.upBackGround,
+      backgroundColor: context.colors.upBackGround,
       shape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0.r)),
       titlePadding: const EdgeInsets.only(top: 8.0),

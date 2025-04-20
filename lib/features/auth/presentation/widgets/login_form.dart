@@ -41,7 +41,7 @@ class _LoginFormState extends State<LoginForm> {
               isSecure
                   ? Icons.remove_red_eye_outlined
                   : Icons.visibility_off_outlined,
-              color: colors.buttonColor,
+              color: context.colors.buttonColor,
             ),
             onPressed: () {
               setState(() {
@@ -56,7 +56,7 @@ class _LoginFormState extends State<LoginForm> {
           onPressed: () {
             Navigator.pushNamed(context, Routes.homeScreenRoute);
           },
-          borderColor: colors.main,
+          borderColor: context.colors.main,
         ),
       ],
     );

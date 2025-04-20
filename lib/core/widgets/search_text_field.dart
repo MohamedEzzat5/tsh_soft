@@ -46,7 +46,7 @@ class MySearchBar extends StatelessWidget {
           contentPadding:
               EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
           hintStyle: theme.bodyMedium!.copyWith(
-            color: colors.body,
+            color: context.colors.body,
             fontSize: myFontSize,
           ),
           prefixIcon: const Icon(
@@ -56,20 +56,20 @@ class MySearchBar extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(raduis)),
             borderSide: BorderSide(
-              color: colors.dividerColor,
+              color: context.colors.dividerColor,
               width: 1.0,
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(raduis)),
             borderSide: BorderSide(
-              color: colors.dividerColor,
+              color: context.colors.dividerColor,
               width: 1.0,
             ),
           ),
         ),
         style: theme.bodyMedium!.copyWith(
-          color: colors.body,
+          color: context.colors.body,
           fontSize: myFontSize,
         ),
       ),

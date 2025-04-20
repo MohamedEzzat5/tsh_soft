@@ -29,7 +29,7 @@ class RecentOrdersListView extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(16.r),
             decoration: BoxDecoration(
-              color: colors.backGround,
+              color: context.colors.backGround,
               borderRadius: BorderRadius.circular(25),
             ),
             child: Column(
@@ -39,11 +39,11 @@ class RecentOrdersListView extends StatelessWidget {
                   children: [
                     Text(
                       '#26585',
-                      style: TextStyles.regular14(color: colors.main),
+                      style: TextStyles.regular14(color: context.colors.main),
                     ),
                     Text(
                       'details'.tr(context),
-                      style: TextStyles.regular14(color: colors.main),
+                      style: TextStyles.regular14(color: context.colors.main),
                     ),
                   ],
                 ),
@@ -52,22 +52,26 @@ class RecentOrdersListView extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       SvgAssets.calender,
-                      color: colors.black,
+                      colorFilter: Constants.colorFilter(
+                        context.colors.main,
+                      ),
                     ),
                     Gaps.hGap10,
                     Text(
                       '12/12/2023',
-                      style: TextStyles.semiBold16(color: colors.black),
+                      style: TextStyles.semiBold16(),
                     ),
                     Gaps.hGap50,
                     SvgPicture.asset(
                       SvgAssets.clock,
-                      color: colors.black,
+                     colorFilter: Constants.colorFilter(
+                        context.colors.main,
+                      ),
                     ),
                     Gaps.hGap10,
                     Text(
                       '03:23 م',
-                      style: TextStyles.semiBold16(color: colors.black),
+                      style: TextStyles.semiBold16(),
                     ),
                   ],
                 ),
@@ -76,12 +80,12 @@ class RecentOrdersListView extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       SvgAssets.cityLine,
-                      colorFilter: Constants.colorFilter(colors.main),
+                      colorFilter: Constants.colorFilter(context.colors.main),
                     ),
                     Gaps.hGap10,
                     Text(
                       'شارع جمال عبدالناصر - القاهره ',
-                      style: TextStyles.regular14(color: colors.black),
+                      style: TextStyles.regular14(),
                     ),
                   ],
                 ),

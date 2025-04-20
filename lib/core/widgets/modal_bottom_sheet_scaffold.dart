@@ -25,7 +25,7 @@ class ModalBottomSheetScaffold extends StatelessWidget {
           topStart: Radius.circular(24.r),
           topEnd: Radius.circular(24.r),
         ),
-        color: colors.upBackGround,
+        color: context.colors.upBackGround,
       ),
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.start,
@@ -35,7 +35,7 @@ class ModalBottomSheetScaffold extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                onPressed: (){},
+                onPressed: () {},
                 icon: Icon(
                   Icons.close_rounded,
                   size: 32.r,
@@ -45,36 +45,37 @@ class ModalBottomSheetScaffold extends StatelessWidget {
               Expanded(
                 child: Text(
                   title,
-                  style: TextStyles.semiBold18(color: colors.textColor),
+                  style: TextStyles.semiBold18(color: context.colors.textColor),
                   textAlign: TextAlign.center,
                 ),
               ),
               IconButton(
-                onPressed: (){
+                onPressed: () {
                   Navigator.pop(context);
                 },
                 icon: Icon(
                   Icons.close_rounded,
                   size: 32.r,
-                  color: colors.textColor,
+                  color: context.colors.textColor,
                 ),
               ),
             ],
           ),
           subTitle.isNotEmpty
               ? Center(
-                child: Text(
-                  subTitle,
-                  style: TextStyles.regular14(color: colors.body),
-                  textAlign: TextAlign.center,
-                ),
-              ) : const SizedBox(),
+                  child: Text(
+                    subTitle,
+                    style: TextStyles.regular14(color: context.colors.body),
+                    textAlign: TextAlign.center,
+                  ),
+                )
+              : const SizedBox(),
           SizedBox(height: 16.h),
+
           ///Body
           child,
         ],
       ),
     );
   }
-
 }

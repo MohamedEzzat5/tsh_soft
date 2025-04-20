@@ -72,7 +72,7 @@ abstract class Constants {
   }
 
   static Color iconColor(FocusNode focusNode, BuildContext context) {
-    return focusNode.hasFocus ? colors.main : colors.iconColor;
+    return focusNode.hasFocus ? context.colors.main : context.colors.iconColor;
   }
 
   static ColorFilter colorFilter(Color color) {
@@ -133,15 +133,15 @@ abstract class Constants {
   //   Fluttertoast.showToast(
   //       toastLength: Toast.LENGTH_LONG,
   //       msg: msg,
-  //       backgroundColor: color ?? colors.main,
+  //       backgroundColor: color ?? context.colors.main,
   //       gravity: gravity ?? ToastGravity.BOTTOM);
   // }
 
   /// Type: 1 done , 2: warning, 3: error
   static void showSnakToast({required context, message, type}) {
-    Color background = colors.main;
-    Color iconColor = colors.upBackGround;
-    Color textColor = colors.upBackGround;
+    Color background = context.colors.main;
+    Color iconColor = context.colors.upBackGround;
+    Color textColor = context.colors.upBackGround;
     var width = MediaQuery.of(context).size.width;
 
     String icon = '';
@@ -151,31 +151,31 @@ abstract class Constants {
       case 1:
         background = Colors.green;
         icon = 'assets/images/done.png';
-        textColor = colors.upBackGround;
-        iconColor = colors.upBackGround;
+        textColor = context.colors.upBackGround;
+        iconColor = context.colors.upBackGround;
         break;
 
       // warning
       case 2:
         background = Colors.orangeAccent;
         icon = 'assets/images/warning.png';
-        textColor = colors.upBackGround;
-        iconColor = colors.upBackGround;
+        textColor = context.colors.upBackGround;
+        iconColor = context.colors.upBackGround;
         break;
       // error
       case 3:
         background = Colors.red;
         icon = 'assets/images/warning.png';
-        textColor = colors.upBackGround;
-        iconColor = colors.upBackGround;
+        textColor = context.colors.upBackGround;
+        iconColor = context.colors.upBackGround;
         break;
 
       // General
       case 4:
-        background = colors.upBackGround;
+        background = context.colors.upBackGround;
         icon = 'assets/address.svg';
         textColor = Colors.black;
-        iconColor = colors.upBackGround;
+        iconColor = context.colors.upBackGround;
         break;
     }
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -304,7 +304,7 @@ abstract class Constants {
               topLeft: Radius.circular(25),
               topRight: Radius.circular(25),
             ),
-            color: colors.upBackGround,
+            color: context.colors.upBackGround,
           ),
           height: height,
           padding: padding ?? const EdgeInsets.symmetric(vertical: 16.0),
@@ -322,11 +322,11 @@ abstract class Constants {
         return Center(
           child: Container(
             decoration: BoxDecoration(
-                color: colors.upBackGround,
+                color: context.colors.upBackGround,
                 borderRadius: BorderRadius.circular(5.0)),
             padding: const EdgeInsets.all(50.0),
             child: CircularProgressIndicator(
-              color: colors.main,
+              color: context.colors.main,
             ).appLoading,
           ),
         );

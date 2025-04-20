@@ -44,7 +44,7 @@ class FilterListWidget extends StatelessWidget {
     return Container(
       height: 56.h,
       padding: EdgeInsets.symmetric(horizontal: 10.h),
-      color: colors.secondaryColor.withAlpha(120 * 255),
+      color: context.colors.secondaryColor.withAlpha(120 * 255),
       child: Row(
         children: [
           BlocBuilder<SelectProductFilterCubit, int>(
@@ -59,9 +59,13 @@ class FilterListWidget extends StatelessWidget {
                       EdgeInsets.symmetric(vertical: 15.h, horizontal: 16.w),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.r),
-                    color: isAllSelected ? colors.main.withOpacity(0.1) : null,
+                    color: isAllSelected
+                        ? context.colors.main.withOpacity(0.1)
+                        : null,
                     border: Border.all(
-                      color: isAllSelected ? colors.main : Colors.transparent,
+                      color: isAllSelected
+                          ? context.colors.main
+                          : Colors.transparent,
                     ),
                   ),
                   child: Text(

@@ -93,7 +93,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         onTap: _previousPage,
                         child: Text(
                           "back".tr(context),
-                          style: TextStyles.semiBold16(color: colors.textColor),
+                          style: TextStyles.semiBold16(color: context.colors.textColor),
                         ),
                       )
                     : SizedBox(width: 26.w),
@@ -108,7 +108,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   child: Text(
                     "skip".tr(context),
                     style: TextStyles.semiBold16(
-                      color: colors.textColor,
+                      color: context.colors.textColor,
                     ),
                   ),
                 ),

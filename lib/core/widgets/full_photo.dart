@@ -19,7 +19,7 @@ class FullPhotoScreen extends StatelessWidget {
         elevation: 4,
       ),
       body: Container(
-        color: colors.backGround,
+        color: context.colors.backGround,
         child: PhotoView(
           imageProvider: NetworkImage(image),
           // initialScale: PhotoViewComputedScale.contained * 0.8,
@@ -28,7 +28,7 @@ class FullPhotoScreen extends StatelessWidget {
             child: const CircularProgressIndicator().appLoading,
           ),
           backgroundDecoration: BoxDecoration(
-            color: colors.backGround,
+            color: context.colors.backGround,
           ),
         ),
       ),

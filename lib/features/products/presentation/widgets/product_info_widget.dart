@@ -41,12 +41,12 @@ class ProductInfoWidget extends StatelessWidget {
         Gaps.vGap16,
         Row(
           children: [
-            Text(name, style: TextStyles.bold18(color: colors.main)),
+            Text(name, style: TextStyles.bold18(color: context.colors.main)),
             const Spacer(),
             SvgPicture.asset(
               SvgAssets.heart,
               height: 28.h,
-              colorFilter: Constants.colorFilter(colors.errorColor),
+              colorFilter: Constants.colorFilter(context.colors.errorColor),
             )
           ],
         ),
@@ -60,13 +60,13 @@ class ProductInfoWidget extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(12.r),
           decoration: BoxDecoration(
-            color: colors.secondaryColor,
+            color: context.colors.secondaryColor,
             borderRadius: BorderRadius.circular(16.r),
           ),
           child: Container(
             padding: EdgeInsets.all(16.r),
             decoration: BoxDecoration(
-              color: colors.backGround,
+              color: context.colors.backGround,
               borderRadius: BorderRadius.circular(16.r),
             ),
             child: Row(
@@ -76,14 +76,14 @@ class ProductInfoWidget extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       SvgAssets.priceIcon,
-                      colorFilter: Constants.colorFilter(colors.main),
+                      colorFilter: Constants.colorFilter(context.colors.main),
                     ),
                     Gaps.hGap4,
                     Text('price'.tr(context), style: TextStyles.bold14()),
                   ],
                 ),
                 Text('$price ${'egp'.tr(context)}',
-                    style: TextStyles.bold14(color: colors.main)),
+                    style: TextStyles.bold14(color: context.colors.main)),
               ],
             ),
           ),

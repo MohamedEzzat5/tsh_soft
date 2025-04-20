@@ -30,7 +30,7 @@ class ChangeLanguageState extends State<ChangeLanguage> {
         title: Text(
           'language'.tr(context),
         ),
-        iconTheme: IconThemeData(color: colors.main),
+        iconTheme: IconThemeData(color: context.colors.main),
       ),
       body: Container(
         padding: EdgeInsets.all(16.r),

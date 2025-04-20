@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../injection_container.dart';
-
 class MyColors {
   static const Color white = Colors.white;
   static const Color backGround = Color(0xFFF6F7F6);
@@ -63,9 +61,7 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color buttonColor2;
   final Color white;
   final Color black;
-
   final Color profileDividerColor;
-
   final Color onBoardingColor;
 
   const AppColors({
@@ -142,42 +138,34 @@ class AppColors extends ThemeExtension<AppColors> {
   }
 
   @override
-  AppColors lerp(ThemeExtension<AppColors> other, double t) {
-    if (other is! AppColors) {
-      return this;
-    }
-    final appColors = AppColors(
-      baseColor: Color.lerp(baseColor, other.baseColor, t) ?? baseColor,
-      backGround: Color.lerp(backGround, other.backGround, t) ?? backGround,
-      upBackGround:
-          Color.lerp(upBackGround, other.upBackGround, t) ?? upBackGround,
-      main: Color.lerp(main, other.main, t) ?? main,
-      secondaryColor:
-          Color.lerp(secondaryColor, other.secondaryColor, t) ?? secondaryColor,
-      textColor: Color.lerp(textColor, other.textColor, t) ?? textColor,
-      highlight: Color.lerp(highlight, other.highlight, t) ?? highlight,
-      body: Color.lerp(body, other.body, t) ?? body,
-      iconColor: Color.lerp(iconColor, other.iconColor, t) ?? iconColor,
-      dividerColor:
-          Color.lerp(dividerColor, other.dividerColor, t) ?? dividerColor,
-      unselected: Color.lerp(unselected, other.unselected, t) ?? unselected,
-      successColor:
-          Color.lerp(successColor, other.successColor, t) ?? successColor,
-      errorColor: Color.lerp(errorColor, other.errorColor, t) ?? errorColor,
-      borderColor: Color.lerp(borderColor, other.borderColor, t) ?? borderColor,
-      review: Color.lerp(review, other.review, t) ?? review,
-      buttonColor: Color.lerp(buttonColor, other.buttonColor, t) ?? buttonColor,
-      buttonColor2:
-          Color.lerp(buttonColor2, other.buttonColor2, t) ?? buttonColor2,
+  AppColors lerp(ThemeExtension<AppColors>? other, double t) {
+    if (other is! AppColors) return this;
+    return AppColors(
+      baseColor: Color.lerp(baseColor, other.baseColor, t)!,
+      backGround: Color.lerp(backGround, other.backGround, t)!,
+      upBackGround: Color.lerp(upBackGround, other.upBackGround, t)!,
+      main: Color.lerp(main, other.main, t)!,
+      secondaryColor: Color.lerp(secondaryColor, other.secondaryColor, t)!,
+      textColor: Color.lerp(textColor, other.textColor, t)!,
+      highlight: Color.lerp(highlight, other.highlight, t)!,
+      body: Color.lerp(body, other.body, t)!,
+      iconColor: Color.lerp(iconColor, other.iconColor, t)!,
+      dividerColor: Color.lerp(dividerColor, other.dividerColor, t)!,
+      unselected: Color.lerp(unselected, other.unselected, t)!,
+      successColor: Color.lerp(successColor, other.successColor, t)!,
+      errorColor: Color.lerp(errorColor, other.errorColor, t)!,
+      borderColor: Color.lerp(borderColor, other.borderColor, t)!,
+      review: Color.lerp(review, other.review, t)!,
+      buttonColor: Color.lerp(buttonColor, other.buttonColor, t)!,
+      buttonColor2: Color.lerp(buttonColor2, other.buttonColor2, t)!,
       profileDividerColor:
-          Color.lerp(profileDividerColor, other.profileDividerColor, t) ??
-              profileDividerColor,
-      onBoardingColor: Color.lerp(onBoardingColor, other.onBoardingColor, t) ??
-          onBoardingColor,
-      white: Color.lerp(white, other.white, t) ?? white,
-      black: Color.lerp(black, other.black, t) ?? black,
+          Color.lerp(profileDividerColor, other.profileDividerColor, t)!,
+      onBoardingColor: Color.lerp(onBoardingColor, other.onBoardingColor, t)!,
+      white: Color.lerp(white, other.white, t)!,
+      black: Color.lerp(black, other.black, t)!,
     );
-    ServiceLocator.injectAppColors(appColors: appColors);
-    return appColors;
   }
 }
+
+
+

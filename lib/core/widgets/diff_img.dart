@@ -44,7 +44,8 @@ class DiffImage extends StatelessWidget {
       padding: hasBorder ? EdgeInsets.all(8.w) : null,
       decoration: BoxDecoration(
         borderRadius: borderRadius ?? BorderRadius.circular(radius),
-        border: hasBorder ? Border.all(color: colors.borderColor) : null,
+        border:
+            hasBorder ? Border.all(color: context.colors.borderColor) : null,
         boxShadow: hasShadow == true
             ? const [
                 BoxShadow(
@@ -73,7 +74,7 @@ class DiffImage extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(radius),
-                      border: Border.all(color: colors.borderColor),
+                      border: Border.all(color: context.colors.borderColor),
                     ),
                     padding: EdgeInsets.all(16.r),
                     child: SvgPicture.asset(

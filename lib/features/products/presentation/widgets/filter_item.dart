@@ -39,10 +39,10 @@ class FilterItem extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
             decoration: BoxDecoration(
               border: Border.all(
-                color: isSelected ? colors.main : Colors.transparent,
+                color: isSelected ? context.colors.main : Colors.transparent,
               ),
               borderRadius: BorderRadius.circular(8.r),
-              color: isSelected ? colors.main.withOpacity(0.1) : null,
+              color: isSelected ? context.colors.main.withOpacity(0.1) : null,
             ),
             child: Row(
               children: [

@@ -57,7 +57,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   Gaps.vGap22,
                   Text(
                     'name'.tr(context),
-                    style: TextStyles.regular14(color: colors.main),
+                    style: TextStyles.regular14(color: context.colors.main),
                   ),
                   Gaps.vGap8,
                   AppTextFormField(
@@ -71,7 +71,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   Gaps.vGap15,
                   Text(
                     'email'.tr(context),
-                    style: TextStyles.regular14(color: colors.main),
+                    style: TextStyles.regular14(color: context.colors.main),
                   ),
                   Gaps.vGap8,
                   AppTextFormField(
@@ -85,7 +85,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   Gaps.vGap15,
                   Text(
                     'phone_number'.tr(context),
-                    style: TextStyles.regular14(color: colors.main),
+                    style: TextStyles.regular14(color: context.colors.main),
                   ),
                   Gaps.vGap8,
                   AppTextFormField(
@@ -99,7 +99,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   Gaps.vGap15,
                   Text(
                     'message'.tr(context),
-                    style: TextStyles.regular14(color: colors.main),
+                    style: TextStyles.regular14(color: context.colors.main),
                   ),
                   Gaps.vGap8,
                   AppTextFormField(
@@ -115,7 +115,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                       onSendPressed(context);
                     },
                     btnText: 'send',
-                    textColor: colors.white,
+                    textColor: context.colors.white,
                   ),
                 ],
               ),

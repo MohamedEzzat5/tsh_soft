@@ -34,8 +34,8 @@
 //                     Navigator.of(context).pop(true);
 //                   },
 //                   text: Strings.back,
-//                   borderColor: colors.errorColor,
-//                   textColor: colors.errorColor,
+//                   borderColor: context.colors.errorColor,
+//                   textColor: context.colors.errorColor,
 //                   backgroundColor: Colors.white,
 //                 ),
 //               ),

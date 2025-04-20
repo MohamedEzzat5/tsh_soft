@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:tsh_soft/core/utils/constants.dart';
 
 import '../../../../core/utils/svg_manager.dart';
 import '../../../../core/widgets/diff_img.dart';
@@ -49,10 +50,12 @@ class EditProfileImage extends StatelessWidget {
                     ],
                   ),
                   child: CircleAvatar(
-                    backgroundColor: colors.white,
+                    backgroundColor: context.colors.white,
                     child: SvgPicture.asset(
                       SvgAssets.addPhotoIcon,
-                      color: colors.main,
+                     colorFilter: Constants.colorFilter(
+                        context.colors.main,
+                      ),
                     ),
                   ),
                 ),

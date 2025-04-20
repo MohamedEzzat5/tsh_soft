@@ -5,6 +5,7 @@ import 'package:tsh_soft/features/auth/presentation/screens/register_screen.dart
 import 'package:tsh_soft/features/cart/presentation/screens/cart_screen.dart';
 import 'package:tsh_soft/features/home/presentation/screens/all_category_screen.dart';
 import 'package:tsh_soft/features/home/presentation/screens/home_screen.dart';
+import 'package:tsh_soft/features/home/presentation/screens/notifications_screen.dart';
 import 'package:tsh_soft/features/products/presentation/cubit/select_product_filter/select_filter_cubit.dart';
 import 'package:tsh_soft/features/products/presentation/screens/product_details_screen.dart';
 import 'package:tsh_soft/features/products/presentation/screens/products_screen.dart';
@@ -40,6 +41,7 @@ class Routes {
   static const String ordersScreenRoute = '/OrdersScreenRoute';
   static const String orderDetailsScreenRoute = '/OrderDetailsRoute';
   static const String cartScreenRoute = '/CartsRoute';
+  static const String notificationScreenRoute = '/NotificationRoute';
 }
 
 class AppRoutes {
@@ -150,6 +152,12 @@ class AppRoutes {
         return MaterialPageRoute(
           settings: routeSettings,
           builder: (BuildContext context) => const CartScreen(),
+        );
+
+      case Routes.notificationScreenRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const NotificationsScreen(),
         );
 
       default:

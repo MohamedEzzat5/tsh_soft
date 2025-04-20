@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
 import 'package:tsh_soft/core/utils/values/text_styles.dart';
-import 'package:tsh_soft/injection_container.dart';
 
 import '../widgets/register_form.dart';
 
@@ -22,10 +21,10 @@ class RegisterScreen extends StatelessWidget {
         //     false;
       },
       child: Scaffold(
-        backgroundColor: colors.upBackGround,
+        // backgroundColor: context.colors.upBackGround,
         appBar: AppBar(
           centerTitle: false,
-          backgroundColor: colors.upBackGround,
+          // backgroundColor: context.colors.upBackGround,
           title: Text(
             'create_account'.tr(context),
             style: TextStyles.bold18(),

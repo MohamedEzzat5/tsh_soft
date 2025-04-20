@@ -13,7 +13,7 @@ class AppCustomLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LoadingAnimationWidget.inkDrop(
-      color: colors.main,
+      color: context.colors.main,
       size: loadingSize ?? 50.r,
     );
   }

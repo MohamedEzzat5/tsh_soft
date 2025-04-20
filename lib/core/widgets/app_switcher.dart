@@ -16,10 +16,10 @@ class AppSwitcher extends StatelessWidget {
   Widget build(BuildContext context) {
     return Switch.adaptive(
       value: value,
-      activeColor: colors.baseColor,
-      activeTrackColor: colors.main,
-      inactiveThumbColor: colors.baseColor,
-      inactiveTrackColor: colors.unselected,
+      activeColor: context.colors.baseColor,
+      activeTrackColor: context.colors.main,
+      inactiveThumbColor: context.colors.baseColor,
+      inactiveTrackColor: context.colors.unselected,
       trackOutlineWidth: WidgetStateProperty.all(0),
       trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
       onChanged: onChanged,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:tsh_soft/core/utils/constants.dart';
 
 import '../../../../core/utils/values/text_styles.dart';
 import '../../../../core/widgets/gaps.dart';
@@ -22,12 +23,14 @@ class OrderDetailsRowWidget extends StatelessWidget {
       children: [
         SvgPicture.asset(
           image,
-          color: colors.main,
+           colorFilter: Constants.colorFilter(
+                                context.colors.main,
+                              ),
         ),
         Gaps.hGap10,
         Text(
           title,
-          style: titleStyle ?? TextStyles.semiBold16(color: colors.black),
+          style: titleStyle ?? TextStyles.semiBold16(),
         ),
       ],
     );

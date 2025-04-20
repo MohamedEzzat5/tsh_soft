@@ -29,7 +29,7 @@ class CompletedOrdersListView extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(16.r),
             decoration: BoxDecoration(
-              color: colors.backGround,
+              color: context.colors.backGround,
               borderRadius: BorderRadius.circular(25),
             ),
             child: Column(
@@ -39,11 +39,11 @@ class CompletedOrdersListView extends StatelessWidget {
                   children: [
                     Text(
                       '#26585',
-                      style: TextStyles.regular14(color: colors.main),
+                      style: TextStyles.regular14(),
                     ),
                     Text(
                       'details'.tr(context),
-                      style: TextStyles.regular14(color: colors.main),
+                      style: TextStyles.regular14(),
                     ),
                   ],
                 ),
@@ -52,22 +52,22 @@ class CompletedOrdersListView extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       SvgAssets.calender,
-                      colorFilter: Constants.colorFilter(colors.black),
+                      colorFilter: Constants.colorFilter(context.colors.main),
                     ),
                     Gaps.hGap10,
                     Text(
                       '12/12/2023',
-                      style: TextStyles.semiBold16(color: colors.black),
+                      style: TextStyles.semiBold16(),
                     ),
                     Gaps.hGap50,
                     SvgPicture.asset(
                       SvgAssets.clock,
-                      colorFilter: Constants.colorFilter(colors.black),
+                      colorFilter: Constants.colorFilter(context.colors.main),
                     ),
                     Gaps.hGap10,
                     Text(
                       '03:23 م',
-                      style: TextStyles.semiBold16(color: colors.black),
+                      style: TextStyles.semiBold16(),
                     ),
                   ],
                 ),
@@ -76,12 +76,12 @@ class CompletedOrdersListView extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       SvgAssets.cityLine,
-                      colorFilter: Constants.colorFilter(colors.black),
+                      colorFilter: Constants.colorFilter(context.colors.main),
                     ),
                     Gaps.hGap10,
                     Text(
                       'شارع جمال عبدالناصر - القاهره ',
-                      style: TextStyles.regular14(color: colors.black),
+                      style: TextStyles.regular14(),
                     ),
                   ],
                 ),
@@ -92,15 +92,16 @@ class CompletedOrdersListView extends StatelessWidget {
                       padding:
                           EdgeInsets.symmetric(vertical: 8.r, horizontal: 16.r),
                       decoration: BoxDecoration(
-                        color: colors.white,
+                        // color: context.colors.white,
                         borderRadius: BorderRadius.circular(15.r),
                         border: Border.all(
-                          color: colors.borderColor,
+                          color: context.colors.borderColor,
                         ),
                       ),
                       child: Text(
                         'request_completed'.tr(context),
-                        style: TextStyles.semiBold16(color: colors.main),
+                        style:
+                            TextStyles.semiBold16(color: context.colors.main),
                       ),
                     ),
                   ],

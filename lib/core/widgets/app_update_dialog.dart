@@ -31,7 +31,7 @@
 //               Expanded(
 //                 child: Text(
 //                   'v$newVersion',
-//                   style: TextStyles.semiBold18(color: colors.main),
+//                   style: TextStyles.semiBold18(color: context.colors.main),
 //                 ),
 //               ),
 //             ],

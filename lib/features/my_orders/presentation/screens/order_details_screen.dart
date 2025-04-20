@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
+import 'package:tsh_soft/core/utils/constants.dart';
 import 'package:tsh_soft/core/widgets/gaps.dart';
 import 'package:tsh_soft/core/widgets/my_default_button.dart';
 
@@ -40,10 +41,13 @@ class OrderDetailsScreen extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 25,
-                            backgroundColor: colors.main.withValues(alpha: 0.2),
+                            backgroundColor:
+                                context.colors.main.withValues(alpha: 0.2),
                             child: SvgPicture.asset(
                               SvgAssets.shoppingBag,
-                              color: colors.main,
+                              colorFilter: Constants.colorFilter(
+                                context.colors.main,
+                              ),
                             ),
                           ),
                           Gaps.hGap10,
@@ -57,8 +61,8 @@ class OrderDetailsScreen extends StatelessWidget {
                       LinearProgressIndicator(
                         borderRadius: BorderRadius.circular(10),
                         value: 0.25,
-                        backgroundColor: colors.borderColor,
-                        color: colors.main,
+                        backgroundColor: context.colors.borderColor,
+                        color: context.colors.main,
                         minHeight: 5,
                       ),
                       Gaps.vGap16,
@@ -69,8 +73,8 @@ class OrderDetailsScreen extends StatelessWidget {
                               onPressed: () {},
                               borderRadius: 20,
                               btnText: 'edit',
-                              textColor: colors.main,
-                              color: colors.white,
+                              textColor: context.colors.main,
+                              color: context.colors.white,
                               svgAsset: SvgAssets.edit,
                             ),
                           ),
@@ -80,8 +84,8 @@ class OrderDetailsScreen extends StatelessWidget {
                               onPressed: () {},
                               borderRadius: 20,
                               btnText: 'cancel',
-                              textColor: colors.black,
-                              color: colors.white,
+                              textColor: context.colors.black,
+                              color: context.colors.white,
                               svgAsset: SvgAssets.cancel,
                             ),
                           ),
@@ -96,7 +100,7 @@ class OrderDetailsScreen extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(vertical: 16.r, horizontal: 16.r),
                   decoration: BoxDecoration(
-                    color: colors.backGround,
+                    color: context.colors.backGround,
                     borderRadius: BorderRadius.circular(25.r),
                   ),
                   child: Column(
@@ -106,7 +110,7 @@ class OrderDetailsScreen extends StatelessWidget {
                         image: SvgAssets.numberIcon,
                         title: '#26585',
                         titleStyle: TextStyles.semiBold18(
-                          color: colors.main,
+                          color: context.colors.main,
                         ),
                       ),
                       Gaps.vGap20,
@@ -138,7 +142,7 @@ class OrderDetailsScreen extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(vertical: 16.r, horizontal: 16.r),
                   decoration: BoxDecoration(
-                    color: colors.backGround,
+                    color: context.colors.backGround,
                     borderRadius: BorderRadius.circular(25.r),
                   ),
                   child: Column(
@@ -146,7 +150,8 @@ class OrderDetailsScreen extends StatelessWidget {
                     children: [
                       Text(
                         'products'.tr(context),
-                        style: TextStyles.semiBold16(color: colors.textColor),
+                        style: TextStyles.semiBold16(
+                            color: context.colors.textColor),
                       ),
                       Gaps.vGap10,
                       ListView.separated(
@@ -158,20 +163,17 @@ class OrderDetailsScreen extends StatelessWidget {
                             children: [
                               Text(
                                 'اكسسوارات بناتي',
-                                style:
-                                    TextStyles.semiBold16(color: colors.black),
+                                style: TextStyles.semiBold16(),
                               ),
                               Spacer(),
                               Text(
                                 '2 x',
-                                style:
-                                    TextStyles.semiBold16(color: colors.black),
+                                style: TextStyles.semiBold16(),
                               ),
                               Gaps.hGap10,
                               Text(
                                 '1000 ${'egp'.tr(context)}',
-                                style:
-                                    TextStyles.semiBold16(color: colors.black),
+                                style: TextStyles.semiBold16(),
                               ),
                             ],
                           );
@@ -180,7 +182,7 @@ class OrderDetailsScreen extends StatelessWidget {
                         itemCount: 2,
                       ),
                       Divider(
-                        color: colors.borderColor,
+                        color: context.colors.borderColor,
                         height: 30.h,
                       ),
                       Row(
@@ -188,16 +190,16 @@ class OrderDetailsScreen extends StatelessWidget {
                         children: [
                           Text(
                             'delivery'.tr(context),
-                            style: TextStyles.semiBold16(color: colors.black),
+                            style: TextStyles.semiBold16(),
                           ),
                           Text(
                             '200 ${'egp'.tr(context)}',
-                            style: TextStyles.semiBold16(color: colors.black),
+                            style: TextStyles.semiBold16(),
                           ),
                         ],
                       ),
                       Divider(
-                        color: colors.borderColor,
+                        color: context.colors.borderColor,
                         height: 30.h,
                       ),
                       Row(
@@ -205,11 +207,11 @@ class OrderDetailsScreen extends StatelessWidget {
                         children: [
                           Text(
                             'total'.tr(context),
-                            style: TextStyles.semiBold16(color: colors.black),
+                            style: TextStyles.semiBold16(),
                           ),
                           Text(
                             '2200 ${'egp'.tr(context)}',
-                            style: TextStyles.semiBold16(color: colors.black),
+                            style: TextStyles.semiBold16(),
                           ),
                         ],
                       ),

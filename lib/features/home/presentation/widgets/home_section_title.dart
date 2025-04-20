@@ -23,10 +23,10 @@ class HomeSectionTitle extends StatelessWidget {
           child: Row(
             children: [
               Text('view_all'.tr(context),
-                  style: TextStyles.regular14(color: colors.main)),
+                  style: TextStyles.regular14(color: context.colors.main)),
               Gaps.hGap4,
               Icon(Icons.arrow_forward_ios_rounded,
-                  size: 12.r, color: colors.main),
+                  size: 12.r, color: context.colors.main),
             ],
           ),
         ),

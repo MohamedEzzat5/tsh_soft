@@ -56,11 +56,11 @@ class AppElevatedButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           padding:
               padding ?? EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-          foregroundColor: colors.baseColor,
-          backgroundColor: buttonColor ?? colors.main,
+          foregroundColor: context.colors.baseColor,
+          backgroundColor: buttonColor ?? context.colors.main,
           elevation: elevation ?? 0,
           side: borderColor != null
-              ? BorderSide(color: borderColor ?? colors.main)
+              ? BorderSide(color: borderColor ?? context.colors.main)
               : null,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
@@ -105,7 +105,7 @@ class AppElevatedButton extends StatelessWidget {
                       text,
                       style: textStyle ??
                           TextStyles.medium16(
-                              color: textColor ?? colors.baseColor),
+                              color: textColor ?? context.colors.baseColor),
                       textAlign: TextAlign.center,
                       maxLines: 1,
                     ),
@@ -115,7 +115,8 @@ class AppElevatedButton extends StatelessWidget {
               return Text(
                 text,
                 style: textStyle ??
-                    TextStyles.medium16(color: textColor ?? colors.baseColor),
+                    TextStyles.medium16(
+                        color: textColor ?? context.colors.baseColor),
                 textAlign: TextAlign.center,
                 maxLines: 1,
               );

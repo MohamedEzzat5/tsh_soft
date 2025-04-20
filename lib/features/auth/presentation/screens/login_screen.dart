@@ -16,7 +16,6 @@ class LoginScreen extends StatelessWidget {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: const Color(0xffF6F6F6),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
@@ -38,7 +37,6 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 28.sp,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
                     ),
                   ),
                   Gaps.vGap10,
@@ -46,7 +44,6 @@ class LoginScreen extends StatelessWidget {
                     'login_txt'.tr(context),
                     style: TextStyle(
                       fontSize: 14.sp,
-                      color: Colors.black54,
                     ),
                   ),
                   Gaps.vGap50,

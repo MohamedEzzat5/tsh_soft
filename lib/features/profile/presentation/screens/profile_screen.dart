@@ -36,7 +36,7 @@ class ProfileScreen extends StatelessWidget {
                 width: ScreenUtil().screenWidth,
                 padding: EdgeInsets.symmetric(vertical: 24.r),
                 decoration: BoxDecoration(
-                  color: colors.backGround,
+                  color: context.colors.backGround,
                   borderRadius: BorderRadius.circular(16.r),
                   boxShadow: [
                     BoxShadow(
@@ -80,8 +80,8 @@ class ProfileScreen extends StatelessWidget {
                   width: 0.6.sw,
                   onPressed: () {},
                   btnText: 'logout',
-                  textColor: colors.main,
-                  color: colors.white,
+                  textColor: context.colors.main,
+                  color: context.colors.white,
                   svgAsset: SvgAssets.logout,
                 ),
               ),

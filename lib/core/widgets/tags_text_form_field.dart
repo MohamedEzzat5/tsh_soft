@@ -74,11 +74,12 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color color = labelText != null
-        ? colors.highlight
+        ? context.colors.highlight
         : focusNode!.hasFocus
-            ? colors.highlight
-            : colors.body;
-    Color labelColor = focusNode!.hasFocus ? colors.main : colors.body;
+            ? context.colors.highlight
+            : context.colors.body;
+    Color labelColor =
+        focusNode!.hasFocus ? context.colors.main : context.colors.body;
     TextTheme theme = Theme.of(context).textTheme;
     double myFontSize = 14.sp;
     //double radius = 12.r;
@@ -90,13 +91,13 @@ class AppTextFormField extends StatelessWidget {
       keyboardType: keyboardType,
       textInputAction: textInputAction ?? TextInputAction.done,
       validator: validatorType != null
-          ? (String? value) =>
-              Validator.call(value: value, type: validatorType! , context: context)
+          ? (String? value) => Validator.call(
+              value: value, type: validatorType!, context: context)
           : validator,
       readOnly: readOnly,
       textAlign: textAlign,
       obscureText: obscureText,
-      cursorColor: colors.main,
+      cursorColor: context.colors.main,
       inputFormatters: inputFormatters,
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
@@ -114,33 +115,33 @@ class AppTextFormField extends StatelessWidget {
                     ),
                   )
                 : null,
-        fillColor: backgroundColor ?? colors.upBackGround,
+        fillColor: backgroundColor ?? context.colors.upBackGround,
         filled: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(radius ?? 12.r)),
           borderSide: BorderSide(
-            color: borderColor ?? colors.dividerColor,
+            color: borderColor ?? context.colors.dividerColor,
             width: 1.0,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(radius ?? 12.r)),
           borderSide: BorderSide(
-            color:borderColor?? colors.main,
+            color: borderColor ?? context.colors.main,
             width: 1.0,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(radius ?? 12.r)),
           borderSide: BorderSide(
-            color: colors.errorColor,
+            color: context.colors.errorColor,
             width: 1.0,
           ),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(radius ?? 12.r)),
           borderSide: BorderSide(
-            color: colors.errorColor,
+            color: context.colors.errorColor,
             width: 1.0,
           ),
         ),

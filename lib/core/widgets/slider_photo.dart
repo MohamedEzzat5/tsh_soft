@@ -31,7 +31,7 @@ class SliderPhotoScreen extends StatelessWidget {
         elevation: 4,
       ),
       body: Container(
-        color: colors.backGround,
+        color: context.colors.backGround,
         child: PhotoViewGallery.builder(
           scrollPhysics: const BouncingScrollPhysics(),
           builder: (BuildContext context, int index) {

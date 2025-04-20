@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tsh_soft/core/utils/constants.dart';
@@ -15,7 +14,7 @@ class OnboardingButton extends StatelessWidget {
     return Center(
       child: ElevatedButton(
         style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all(colors.white),
+          backgroundColor: WidgetStateProperty.all(context.colors.white),
           shape: WidgetStateProperty.all(const CircleBorder()),
         ),
         onPressed: onPressed,
@@ -23,7 +22,7 @@ class OnboardingButton extends StatelessWidget {
           padding: const EdgeInsets.all(22.0),
           child: SvgPicture.asset(
             SvgAssets.arrow,
-            colorFilter: Constants.colorFilter(colors.main),
+            colorFilter: Constants.colorFilter(context.colors.main),
           ),
         ),
       ),

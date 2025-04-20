@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
+import 'package:tsh_soft/core/utils/constants.dart';
 import 'package:tsh_soft/core/widgets/gaps.dart';
 
 import '../../../../core/utils/image_manager.dart';
@@ -43,12 +44,14 @@ class AboutUsScreen extends StatelessWidget {
                     SvgPicture.asset(
                       SvgAssets.about_us,
                       height: 33.h,
-                      color: colors.main,
+                     colorFilter: Constants.colorFilter(
+                        context.colors.main,
+                      ),
                     ),
                     Gaps.hGap8,
                     Text(
                       'about_us'.tr(context),
-                      style: TextStyles.bold20(color: colors.main),
+                      style: TextStyles.bold20(color: context.colors.main),
                     )
                   ],
                 ),

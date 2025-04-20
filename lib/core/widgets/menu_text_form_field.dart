@@ -24,7 +24,7 @@ class MenuTextFormField extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    Color labelColor = colors.body;
+    Color labelColor = context.colors.body;
     TextTheme theme = Theme.of(context).textTheme;
     double myFontSize = 14.sp;
     double raduis = 10.r;
@@ -34,40 +34,40 @@ class MenuTextFormField extends StatelessWidget {
       validator: validate,
       readOnly: true,
       onTap: onTap,
-      cursorColor: colors.main,
+      cursorColor: context.colors.main,
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
         suffixIcon: Icon(
           Icons.keyboard_arrow_down,
-          color: colors.body,
+          color: context.colors.body,
         ),
-        fillColor: colors.upBackGround,
+        fillColor: context.colors.upBackGround,
         filled: true,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(raduis)),
           borderSide: BorderSide(
-            color: colors.dividerColor,
+            color: context.colors.dividerColor,
             width: 1.0,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(raduis)),
           borderSide: BorderSide(
-            color: colors.dividerColor,
+            color: context.colors.dividerColor,
             width: 1.0,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(raduis)),
           borderSide: BorderSide(
-            color: colors.errorColor,
+            color: context.colors.errorColor,
             width: 1.0,
           ),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(raduis)),
           borderSide: BorderSide(
-            color: colors.errorColor,
+            color: context.colors.errorColor,
             width: 1.0,
           ),
         ),
@@ -91,7 +91,7 @@ class MenuTextFormField extends StatelessWidget {
         ),
       ),
       style: theme.bodyMedium!.copyWith(
-        color: colors.main,
+        color: context.colors.main,
         fontSize: myFontSize,
       ),
     );

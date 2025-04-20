@@ -1,10 +1,12 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tsh_soft/core/utils/image_manager.dart';
 import 'package:tsh_soft/injection_container.dart';
+
 import '../utils/constants.dart';
 import 'diff_img.dart';
 
@@ -67,8 +69,8 @@ class _ProfileImageState extends State<ProfileImage> {
                             child: Padding(
                               padding:
                                   EdgeInsets.all(screenWidth * 0), //padding_16
-                              child:
-                                  Image.asset(ImgAssets.selectImageProfileImage),
+                              child: Image.asset(
+                                  ImgAssets.selectImageProfileImage),
                             ),
                           )
                         : DiffImage(
@@ -103,12 +105,12 @@ class _ProfileImageState extends State<ProfileImage> {
                       height: 25.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
-                        color: colors.main,
+                        color: context.colors.main,
                       ),
                       padding: const EdgeInsets.all(4),
                       child: Icon(
                         FontAwesomeIcons.pen,
-                        color: colors.upBackGround,
+                        color: context.colors.upBackGround,
                         size: 15,
                       ),
                     ),

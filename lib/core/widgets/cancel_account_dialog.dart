@@ -23,7 +23,7 @@
 //           SizedBox(height: 24.h),
 //           Text(
 //             Strings.cancelAccountWarning,
-//             style: TextStyles.regular16(color: colors.body),
+//             style: TextStyles.regular16(color: context.colors.body),
 //           ),
 //           SizedBox(height: 32.h),
 //           Row(
@@ -34,8 +34,8 @@
 //                     Navigator.of(context).pop(true);
 //                   },
 //                   text: Strings.cancelAccount,
-//                   textStyle: TextStyles.regular14(color: colors.errorColor),
-//                   borderColor: colors.errorColor,
+//                   textStyle: TextStyles.regular14(color: context.colors.errorColor),
+//                   borderColor: context.colors.errorColor,
 //                   backgroundColor: Colors.white,
 //                 ),
 //               ),
@@ -46,7 +46,7 @@
 //                     Navigator.of(context).pop(false);
 //                   },
 //                   text: Strings.no,
-//                   textStyle: TextStyles.regular14(color: colors.main),
+//                   textStyle: TextStyles.regular14(color: context.colors.main),
 //                   backgroundColor: Colors.white,
 //                 ),
 //               ),
@@ -86,8 +86,8 @@
 //                     Navigator.of(context).pop(true);
 //                   },
 //                   text: Strings.yes,
-//                   borderColor: colors.errorColor,
-//                   textColor: colors.errorColor,
+//                   borderColor: context.colors.errorColor,
+//                   textColor: context.colors.errorColor,
 //                   backgroundColor: Colors.white,
 //                 ),
 //               ),

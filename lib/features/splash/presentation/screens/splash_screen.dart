@@ -44,17 +44,8 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  void injectLocalizationAndColors() {
-    try {
-      colors;
-    } catch (e) {
-      ServiceLocator.injectAppColors(context: context);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    injectLocalizationAndColors();
     log('Localizations: ${appLocalizations.locale?.languageCode}');
     return BlocListener<AutoLoginCubit, AutoLoginState>(
       listener: (context, state) {
@@ -65,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
       },
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: colors.upBackGround,
+          backgroundColor: context.colors.upBackGround,
           body: Stack(
             children: [
               AnimatedOpacity(
@@ -74,7 +65,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [colors.main, colors.secondaryColor],
+                      colors: [
+                        context.colors.main,
+                        context.colors.secondaryColor
+                      ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
