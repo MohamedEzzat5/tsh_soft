@@ -10,7 +10,7 @@ class LanguagesRespModel extends BaseListResponse {
 
   factory LanguagesRespModel.fromJson(Map<String, dynamic> json) =>
       LanguagesRespModel(
-        success: json['success'],
+        success: json['status'],
         message: json['message'],
         data: json['data'] == null
             ? []
@@ -19,7 +19,7 @@ class LanguagesRespModel extends BaseListResponse {
       );
 
   Map<String, dynamic> toJson() => {
-        'success': success,
+        'status': success,
         'message': message,
         'data': data == null
             ? []

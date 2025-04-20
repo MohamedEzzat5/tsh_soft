@@ -46,14 +46,14 @@ class _LanguageSettingWidgetState extends State<LanguageSettingWidget> {
           ),
           Gaps.vGap18,
           Text(
-            'language'.tr,
+            'language'.tr(context),
             style: TextStyles.bold16(),
           ),
           const Divider(),
           Gaps.vGap30,
           BlocListener<LocaleCubit, LocaleState>(
             listener: (context, state) {
-              // Navigator.pop(context);
+              Navigator.pop(context);
             },
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 13.w),

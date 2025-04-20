@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
 import 'package:tsh_soft/core/utils/image_manager.dart';
 import 'package:tsh_soft/core/widgets/gaps.dart';
+
 import '../widgets/login_footer_links.dart';
 import '../widgets/login_form.dart';
 
@@ -33,7 +34,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   Gaps.vGap20,
                   Text(
-                    'welcome'.tr,
+                    'welcome'.tr(context),
                     style: TextStyle(
                       fontSize: 28.sp,
                       fontWeight: FontWeight.bold,
@@ -42,7 +43,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   Gaps.vGap10,
                   Text(
-                    'login_txt'.tr,
+                    'login_txt'.tr(context),
                     style: TextStyle(
                       fontSize: 14.sp,
                       color: Colors.black54,

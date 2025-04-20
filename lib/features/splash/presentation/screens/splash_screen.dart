@@ -59,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return BlocListener<AutoLoginCubit, AutoLoginState>(
       listener: (context, state) {
         log('UserType: ${state.userType}');
-        Future.delayed(const Duration(milliseconds: 800), () {
+        Future.delayed(const Duration(milliseconds: 1500), () {
           _goNext(state.userType);
         });
       },

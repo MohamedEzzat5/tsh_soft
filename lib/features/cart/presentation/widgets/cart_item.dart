@@ -46,7 +46,7 @@ class CartItem extends StatelessWidget {
                   children: [
                     Text(item['name'], style: TextStyles.bold14()),
                     Gaps.vGap4,
-                    Text('${item['price']} ${'egp'.tr}',
+                    Text('${item['price']} ${'egp'.tr(context)}',
                         style: TextStyles.bold16()),
                   ],
                 ),
@@ -91,9 +91,9 @@ class CartItem extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text('total'.tr, style: TextStyles.bold14()),
+                  Text('total'.tr(context), style: TextStyles.bold14()),
                   Text(
-                    '${item['price'] * item['quantity']} ${'egp'.tr}',
+                    '${item['price'] * item['quantity']} ${'egp'.tr(context)}',
                     style: TextStyles.bold16(color: Colors.blue),
                   ),
                 ],

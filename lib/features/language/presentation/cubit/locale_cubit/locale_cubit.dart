@@ -39,7 +39,7 @@ class LocaleCubit extends Cubit<LocaleState> {
           (value) {
         currentLangCode = langCode;
         final newLocal = Locale(currentLangCode.name);
-        appLocalizations.load(locale: newLocal);
+        // appLocalizations.load(locale: newLocal);
         dioConsumer.updateLanguageCodeHeader();
         emit(LocaleState(newLocal));
       },

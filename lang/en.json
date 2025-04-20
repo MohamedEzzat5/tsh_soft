@@ -748,13 +748,14 @@
           "expected_delivery_date": "Expected delivery date",
           "delivery_date": "Delivery date",
           "edit_account": "Edit Account",
-          "about_app": "About the app",
+          "about_app": "About app",
           "terms_conditions": "Terms and Conditions",
            "request_completed": "Request completed",
           "about_us": "About us",
           "about_message": "The store application contains many services as it provides the perfume service as it contains many perfumes of all types and brands and also contains the accessories service which includes many accessories and also the gift service. What is distinctive about our application is that it contains the Hajj gifts service which includes all the Hajj gifts. The store application contains many services as it provides the perfume service as it contains many perfumes of all types and brands and also contains the accessories service which includes many accessories and also the gift service. What is distinctive about our application is that it contains the Hajj gifts service which includes all the Hajj gifts.",
           "request_received": "Your request has been received",
           "add_to_cart_successfully" : "Product added to cart successfully",
+          "about_developer" : "About developer",
           
           "": ""
 }

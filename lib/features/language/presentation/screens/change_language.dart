@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tsh_soft/config/locale/app_localizations.dart';
 
-import '../../../../core/utils/values/strings.dart';
 import '../../../../core/utils/values/text_styles.dart';
 import '../../../../core/widgets/app_elevated_button.dart';
 import '../../../../injection_container.dart';
@@ -28,7 +28,7 @@ class ChangeLanguageState extends State<ChangeLanguage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          Strings.language,
+          'language'.tr(context),
         ),
         iconTheme: IconThemeData(color: colors.main),
       ),
@@ -49,7 +49,7 @@ class ChangeLanguageState extends State<ChangeLanguage> {
                       alignment: alignmentGeometry,
                       height: 50.h,
                       child: Text(
-                        'English',
+                        'english'.tr(context),
                         style: TextStyles.medium20(),
                       ),
                     ),
@@ -80,7 +80,7 @@ class ChangeLanguageState extends State<ChangeLanguage> {
                       alignment: alignmentGeometry,
                       height: 50.h,
                       child: Text(
-                        'العربية',
+                        'arabic'.tr(context),
                         style: TextStyles.medium20(),
                       ),
                     ),
@@ -104,7 +104,7 @@ class ChangeLanguageState extends State<ChangeLanguage> {
               onPressed: () {
                 Navigator.of(context).pop(check);
               },
-              text: Strings.change,
+              text: 'change'.tr(context),
             ),
           ],
         ),

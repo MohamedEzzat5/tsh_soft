@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../injection_container.dart';
 
 class MyColors {
@@ -6,12 +7,12 @@ class MyColors {
   static const Color backGround = Color(0xFFF6F7F6);
   static const Color upBackGround = Color(0xFFFFFFFF);
   static const Color main = Color(0xFF0D47A1);
-static const Color secondaryColor = Color(0xFFBBDEFB);
-static const Color textColor = Color(0xFF1A237E);
-static const Color body = Color(0xFF5C6BC0);
-static const Color highlight = Color(0xFF1976D2);
-static const Color buttonColor = Color(0xFF0D47A1);
-static const Color onBoardingColor = Color(0xFF1E88E5);
+  static const Color secondaryColor = Color(0xFFBBDEFB);
+  static const Color textColor = Color(0xFF1A237E);
+  static const Color body = Color(0xFF5C6BC0);
+  static const Color highlight = Color(0xFF1976D2);
+  static const Color buttonColor = Color(0xFF0D47A1);
+  static const Color onBoardingColor = Color(0xFF1E88E5);
   static const Color iconColor = Color(0xFF8A8A8A);
   static const Color title = Color(0xFF3D5F48);
   static const Color unselected = Color(0xFFB2B8B4);
@@ -25,16 +26,16 @@ static const Color onBoardingColor = Color(0xFF1E88E5);
 
 // dark mode
   static const Color black = Colors.black;
+  static const Color mainDark = Color(0xFF1976D2);
+  static const Color titleDark = Color(0xFFE9F2FD);
+  static const Color highlightDark = Color(0xFF42A5F5);
+  static const Color bodyDark = Color(0xFF90CAF9);
+  static const Color errorDarkColor = Color(0xFFEF5350);
   static const Color backGroundDark = Color(0xFF2D2D3E);
   static const Color upBackGroundDark = Color(0xFF3A3A4B);
-  static const Color mainDark = Color(0xFF64B5F6);
-  static const Color titleDark = Color(0xFFBBDEFB);
-  static const Color highlightDark = Color(0xFF90CAF9);
-  static const Color bodyDark = Color(0xFFB3E5FC);
   static const Color unselectedDark = Color(0xFF78909C);
   static const Color dividerDarkColor = Color(0xFF455A64);
   static const Color successDarkColor = Color(0xFF4CAF50);
-  static const Color errorDarkColor = Color(0xFFFF5F5F);
 
 // shared
   static Color borderColor = const Color(0xffCBCBCB);

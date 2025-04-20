@@ -42,7 +42,7 @@ class AllCategoriesScreen extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: Text('all_categories'.tr),
+        title: Text('all_categories'.tr(context)),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 16.0.h),

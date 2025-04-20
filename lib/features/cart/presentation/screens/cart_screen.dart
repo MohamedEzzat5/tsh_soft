@@ -88,7 +88,7 @@ class _CartScreenState extends State<CartScreen> {
                             width: 200.w,
                           ),
                           Gaps.vGap20,
-                          Text("noCurrentOrders".tr,
+                          Text("noCurrentOrders".tr(context),
                               style: TextStyles.bold16()),
                           Gaps.vGap60,
                         ],
@@ -129,8 +129,9 @@ class _CartScreenState extends State<CartScreen> {
                 ),
                 child: Row(
                   children: [
-                    Text('total'.tr, style: TextStyles.bold14()),
-                    Text(' $total${'egp'.tr}', style: TextStyles.bold14()),
+                    Text('total'.tr(context), style: TextStyles.bold14()),
+                    Text(' $total${'egp'.tr(context)}',
+                        style: TextStyles.bold14()),
                     const Spacer(),
                     Expanded(
                       flex: 2,

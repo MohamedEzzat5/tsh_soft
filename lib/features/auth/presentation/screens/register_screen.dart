@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
 import 'package:tsh_soft/core/utils/values/text_styles.dart';
-import 'package:tsh_soft/core/widgets/register_back_dialog.dart';
-import 'package:tsh_soft/core/widgets/show_dialog.dart';
 import 'package:tsh_soft/injection_container.dart';
 
 import '../widgets/register_form.dart';
@@ -17,11 +15,11 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopScope(
       onPopInvoked: (value) async {
-        await showAppDialog(
-              context: context,
-              child: const RegisterBackDialog(),
-            ) ??
-            false;
+        // await showAppDialog(
+        //       context: context,
+        //       child: const RegisterBackDialog(),
+        //     ) ??
+        //     false;
       },
       child: Scaffold(
         backgroundColor: colors.upBackGround,
@@ -29,7 +27,7 @@ class RegisterScreen extends StatelessWidget {
           centerTitle: false,
           backgroundColor: colors.upBackGround,
           title: Text(
-            'create_account'.tr,
+            'create_account'.tr(context),
             style: TextStyles.bold18(),
           ),
         ),

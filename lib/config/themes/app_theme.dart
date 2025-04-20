@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tsh_soft/core/utils/app_colors.dart';
 
 import '../../core/utils/values/fonts.dart';
-
 ThemeData getAppTheme(BuildContext context, bool isLightTheme) {
   return ThemeData(
     extensions: <ThemeExtension<AppColors>>[

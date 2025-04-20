@@ -31,7 +31,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('product_details'.tr),
+        title: Text('product_details'.tr(context)),
       ),
       body: SafeArea(
         child: Column(

@@ -42,7 +42,7 @@ class CompletedOrdersListView extends StatelessWidget {
                       style: TextStyles.regular14(color: colors.main),
                     ),
                     Text(
-                      'details'.tr,
+                      'details'.tr(context),
                       style: TextStyles.regular14(color: colors.main),
                     ),
                   ],
@@ -99,7 +99,7 @@ class CompletedOrdersListView extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        'request_completed'.tr,
+                        'request_completed'.tr(context),
                         style: TextStyles.semiBold16(color: colors.main),
                       ),
                     ),

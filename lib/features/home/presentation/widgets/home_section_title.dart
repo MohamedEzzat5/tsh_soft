@@ -17,12 +17,12 @@ class HomeSectionTitle extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title.tr, style: TextStyles.regular18()),
+        Text(title.tr(context), style: TextStyles.regular18()),
         TextButton(
           onPressed: onViewAllTap,
           child: Row(
             children: [
-              Text('view_all'.tr,
+              Text('view_all'.tr(context),
                   style: TextStyles.regular14(color: colors.main)),
               Gaps.hGap4,
               Icon(Icons.arrow_forward_ios_rounded,

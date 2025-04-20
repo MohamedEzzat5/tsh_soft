@@ -20,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'profile'.tr,
+          'profile'.tr(context),
         ),
       ),
       body: SingleChildScrollView(
@@ -31,7 +31,7 @@ class ProfileScreen extends StatelessWidget {
               Center(
                 child: ProfileImageWidget(),
               ),
-              Gaps.vGap30,
+              Gaps.vGap10,
               Container(
                 width: ScreenUtil().screenWidth,
                 padding: EdgeInsets.symmetric(vertical: 24.r),
@@ -40,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16.r),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.1),
+                      color: Colors.black.withValues(alpha: 0.3),
                       blurRadius: 4.r,
                       offset: Offset(0, 2.r),
                     ),
@@ -54,7 +54,7 @@ class ProfileScreen extends StatelessWidget {
                         Navigator.pushNamed(context, Routes.ordersScreenRoute);
                       },
                       child: IconLabelWidget(
-                        text: 'my_orders'.tr,
+                        text: 'my_orders'.tr(context),
                         icon: ImgAssets.myOrdersIcon,
                       ),
                     ),
@@ -65,7 +65,7 @@ class ProfileScreen extends StatelessWidget {
                             context, Routes.favoritesScreenRoute);
                       },
                       child: IconLabelWidget(
-                        text: 'favorites'.tr,
+                        text: 'favorites'.tr(context),
                         icon: ImgAssets.favoriteIcon,
                       ),
                     )
@@ -76,17 +76,16 @@ class ProfileScreen extends StatelessWidget {
               SettingWidget(),
               Gaps.vGap16,
               Center(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 50.w),
-                  child: MyDefaultButton(
-                    onPressed: () {},
-                    btnText: 'logout',
-                    textColor: colors.main,
-                    color: colors.white,
-                    svgAsset: SvgAssets.logout,
-                  ),
+                child: MyDefaultButton(
+                  width: 0.6.sw,
+                  onPressed: () {},
+                  btnText: 'logout',
+                  textColor: colors.main,
+                  color: colors.white,
+                  svgAsset: SvgAssets.logout,
                 ),
-              )
+              ),
+              Gaps.vGap30,
             ],
           ),
         ),

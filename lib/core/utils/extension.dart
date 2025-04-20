@@ -6,7 +6,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../injection_container.dart';
 import 'enums.dart';
-import 'values/strings.dart';
 
 extension LanguageCodeExtension on LanguageCode {
   static LanguageCode fromString(String value) => LanguageCode.values
@@ -16,34 +15,35 @@ extension LanguageCodeExtension on LanguageCode {
   String get displayName {
     switch (this) {
       case LanguageCode.en:
-        return Strings.english;
+        return 'en';
       case LanguageCode.ar:
-        return Strings.arabic;
+        return 'ar';
     }
   }
 }
 
 extension ThemesExtension on Themes {
-  static Themes fromString(String value) => Themes.values
-      .firstWhere((Themes element) => element.name == value,
-      orElse: () => Themes.light);
+  static Themes fromString(String value) =>
+      Themes.values.firstWhere((Themes element) => element.name == value,
+          orElse: () => Themes.light);
 }
 
 extension UserTypeExtension on UserType {
-  static UserType fromString(String value) => UserType.values
-      .firstWhere((UserType element) => element.name == value,
-      orElse: () => UserType.firstOpen);
+  static UserType fromString(String value) =>
+      UserType.values.firstWhere((UserType element) => element.name == value,
+          orElse: () => UserType.firstOpen);
 }
+
 extension UserRoleExtension on UserType {
-  static UserType fromString(String value) => UserType.values
-      .firstWhere((UserType element) => element.name == value,
-      orElse: () => UserType.user);
+  static UserType fromString(String value) =>
+      UserType.values.firstWhere((UserType element) => element.name == value,
+          orElse: () => UserType.user);
 }
 
 extension StringExtension on String {
   Future<void> get launcherUrl async {
     Uri? uri = Uri.tryParse(this);
-    if(uri == null){
+    if (uri == null) {
       throw 'Could not launch $this';
     }
     if (await canLaunchUrl(uri)) {
@@ -62,44 +62,40 @@ extension DateTimeExtension on DateTime {
     String day = this.day.toString();
     String month = this.month.toString();
     String year = this.year.toString();
-    if(day.length == 1){
+    if (day.length == 1) {
       day = '0$day';
     }
-    if(month.length == 1){
+    if (month.length == 1) {
       month = '0$month';
     }
     return '$year-$month-$day';
   }
 
   String get displayDateNamed => DateFormat.yMMMMd(
-    appLocalizations.isArLocale ? 'ar_SA' : 'en_US',
-  ).format(this);
+        appLocalizations.isArLocale ? 'ar_SA' : 'en_US',
+      ).format(this);
 }
 
 extension FormDataExtension on FormData {
-  String get toPrint{
+  String get toPrint {
     List<String> list = [];
     Map<String, dynamic> result = {};
-    for(final item in fields){
-      result.addAll({
-        item.key : item.value
-      });
+    for (final item in fields) {
+      result.addAll({item.key: item.value});
       list.add('${item.key}:${item.value}');
     }
-    for(final item in files){
-      result.addAll({
-        item.key : item.value.filename
-      });
+    for (final item in files) {
+      result.addAll({item.key: item.value.filename});
       list.add('${item.key}:${item.value.filename}');
     }
     return list.toString();
   }
 }
 
-extension UserStatusExtension on UserStatus{
-  static UserStatus fromString(String value){
-    for(UserStatus type in UserStatus.values){
-      if(type.name.toLowerCase() == value.toLowerCase()){
+extension UserStatusExtension on UserStatus {
+  static UserStatus fromString(String value) {
+    for (UserStatus type in UserStatus.values) {
+      if (type.name.toLowerCase() == value.toLowerCase()) {
         return type;
       }
     }
@@ -107,13 +103,14 @@ extension UserStatusExtension on UserStatus{
   }
 }
 
-extension ColorFilterExtension on ColorFilter{
+extension ColorFilterExtension on ColorFilter {
   static ColorFilter getFocusIconColor(FocusNode focusNode) {
     return ColorFilter.mode(
       focusNode.hasFocus ? colors.main : colors.body,
       BlendMode.srcIn,
     );
   }
+
   static ColorFilter setColor(Color color) {
     return ColorFilter.mode(
       color,
@@ -122,7 +119,7 @@ extension ColorFilterExtension on ColorFilter{
   }
 }
 
-extension AppUpdateTypeExtension on AppUpdateType{
+extension AppUpdateTypeExtension on AppUpdateType {
   static AppUpdateType fromString(String value) {
     for (AppUpdateType type in AppUpdateType.values) {
       if (type.name.toLowerCase() == value.toLowerCase()) {
@@ -133,9 +130,9 @@ extension AppUpdateTypeExtension on AppUpdateType{
   }
 }
 
-extension CircularProgressIndicatorExtension on CircularProgressIndicator{
-  CircularProgressIndicator get appLoading{
-    if(color != null){
+extension CircularProgressIndicatorExtension on CircularProgressIndicator {
+  CircularProgressIndicator get appLoading {
+    if (color != null) {
       return CircularProgressIndicator(
         key: key,
         strokeWidth: 2.w,

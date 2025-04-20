@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:phone_number/phone_number.dart';
+import 'package:tsh_soft/core/utils/log_utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '/core/utils/app_strings.dart';
 import '../../config/locale/app_localizations.dart';
@@ -19,6 +21,7 @@ abstract class Constants {
     // return locale.languageCode;
     return 'ar';
   }
+
   // static Future<void> makePhoneCall(String phoneNumber) async {
   //   final Uri launchUri = Uri(
   //     scheme: 'tel',
@@ -30,6 +33,19 @@ abstract class Constants {
   //     throw 'Could not launch $launchUri';
   //   }
   // }
+  static Future<void> openUrl(String url) async {
+    Uri uri = Uri.parse(url);
+    try {
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri);
+      } else {
+        throw 'Couldn\'t launch $url';
+      }
+    } catch (e) {
+      Log.e(e.toString());
+      throw 'Couldn\'t launch $url';
+    }
+  }
 
   static picker.Country egyptCountryPicker = picker.Country(
     phoneCode: '20',

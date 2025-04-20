@@ -8,7 +8,6 @@ import '../../injection_container.dart';
 import '../error/exceptions.dart';
 import '../utils/extension.dart';
 import '../utils/log_utils.dart';
-import '../utils/values/strings.dart';
 import 'status_code.dart';
 
 abstract class DioConsumer {
@@ -132,7 +131,7 @@ class DioConsumerImpl implements DioConsumer {
       Log.i('[GET][$path], response: ${response.data.toString()}');
       return response.data;
     } on SocketException {
-      throw InternetConnectionException(message: Strings.noInternetConnection);
+      throw InternetConnectionException(message: 'No internet connection');
     } on DioException catch (error) {
       _handleDioError(error);
     } catch (error) {
@@ -160,7 +159,7 @@ class DioConsumerImpl implements DioConsumer {
       Log.i('[POST][$path], response: ${response.data.toString()}');
       return response.data;
     } on SocketException {
-      throw InternetConnectionException(message: Strings.noInternetConnection);
+      throw InternetConnectionException(message: 'No internet connection');
     } on DioException catch (error) {
       _handleDioError(error);
     } catch (error) {
@@ -187,7 +186,7 @@ class DioConsumerImpl implements DioConsumer {
       Log.i('[PUT][$path], response: ${response.data.toString()}');
       return response.data;
     } on SocketException {
-      throw InternetConnectionException(message: Strings.noInternetConnection);
+      throw InternetConnectionException(message: 'No internet connection');
     } on DioException catch (error) {
       _handleDioError(error);
     } catch (error) {
@@ -209,7 +208,7 @@ class DioConsumerImpl implements DioConsumer {
       Log.i('[DELETE][$path], response: ${response.data.toString()}');
       return response.data;
     } on SocketException {
-      throw InternetConnectionException(message: Strings.noInternetConnection);
+      throw InternetConnectionException(message: 'No internet connection');
     } on DioException catch (error) {
       _handleDioError(error);
     } catch (error) {
@@ -231,7 +230,7 @@ class DioConsumerImpl implements DioConsumer {
       );
     }
     if (error.type == DioExceptionType.unknown) {
-      throw InternetConnectionException(message: Strings.noInternetConnection);
+      throw InternetConnectionException(message: 'No internet connection');
     }
     throw ServerException(
       message:

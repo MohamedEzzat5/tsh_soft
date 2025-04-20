@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/error/failures.dart';
-import '../../utils/values/strings.dart';
 import '../entity/pagination_response.dart';
 import '../usecase/additional_pagination_params.dart';
 import '../usecase/pagination_usecase.dart';
@@ -45,10 +44,11 @@ abstract class PaginationCubit<T, UseCase extends PaginationUseCase<T>>
       emit(const PaginationLoadingState());
     }
     final Either<Failure, PaginationResponse<T>> eitherResult =
-    await useCase.call(PaginationParams(page: page, perPage: perPage, additionalParams: additionalParams));
+        await useCase.call(PaginationParams(
+            page: page, perPage: perPage, additionalParams: additionalParams));
     eitherResult.fold((Failure fail) {
       emit(PaginationErrorState(
-          message: fail.message ?? Strings.pleaseTryAgainLater));
+          message: fail.message ?? 'Please try again later'));
     }, (PaginationResponse<T> response) {
       meta = response.meta;
       if (meta.currentPage == 1) {
@@ -83,12 +83,15 @@ abstract class PaginationCubit<T, UseCase extends PaginationUseCase<T>>
       }
 
       final params = PaginationParams(
-          term: this.term, page: page, perPage: perPage, additionalParams: additionalParams);
+          term: this.term,
+          page: page,
+          perPage: perPage,
+          additionalParams: additionalParams);
       final Either<Failure, PaginationResponse<T>> eitherResult =
-      await useCase.call(params);
+          await useCase.call(params);
       eitherResult.fold((Failure fail) {
         emit(PaginationErrorState(
-            message: fail.message ?? Strings.pleaseTryAgainLater));
+            message: fail.message ?? 'Please try again later'));
       }, (PaginationResponse<T> response) {
         metaSearch = response.meta;
         if (metaSearch.currentPage == 1) {
@@ -100,20 +103,20 @@ abstract class PaginationCubit<T, UseCase extends PaginationUseCase<T>>
     });
   }
 
-  void emitAllData(){
+  void emitAllData() {
     debounceTimer?.cancel();
     isSearch = false;
     emit(const PaginationLoadingState());
     emit(PaginationSuccessState(value: data));
   }
 
-  void emitItems(List<T> items){
+  void emitItems(List<T> items) {
     data = items;
     emit(const PaginationLoadingState());
     emit(PaginationSuccessState(value: data));
   }
 
-  void resetFields(){
+  void resetFields() {
     data = [];
     dataSearch = [];
     isSearch = false;
@@ -125,23 +128,28 @@ abstract class PaginationCubit<T, UseCase extends PaginationUseCase<T>>
 
   void addScrollListener() {
     scrollController.addListener(() {
-      if(isSearch){
+      if (isSearch) {
         if (state is! PaginationPaginationLoadingState &&
             metaSearch.currentPage < metaSearch.lastPage &&
             scrollController.hasClients &&
             scrollController.position.pixels >=
                 scrollController.position.maxScrollExtent * 0.9) {
-          metaSearch = metaSearch.copyWith(currentPage: metaSearch.currentPage + 1);
-          fPaginationSearch(page: metaSearch.currentPage, term: term!, additionalParams: additionalParams);
+          metaSearch =
+              metaSearch.copyWith(currentPage: metaSearch.currentPage + 1);
+          fPaginationSearch(
+              page: metaSearch.currentPage,
+              term: term!,
+              additionalParams: additionalParams);
         }
-      }else {
+      } else {
         if (state is! PaginationPaginationLoadingState &&
             meta.currentPage < meta.lastPage &&
             scrollController.hasClients &&
             scrollController.position.pixels >=
                 scrollController.position.maxScrollExtent * 0.9) {
           meta = meta.copyWith(currentPage: meta.currentPage + 1);
-          fPagination(page: meta.currentPage, additionalParams: additionalParams);
+          fPagination(
+              page: meta.currentPage, additionalParams: additionalParams);
         }
       }
     });

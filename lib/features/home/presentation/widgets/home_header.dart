@@ -35,7 +35,7 @@ class HomeHeader extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('welcome'.tr, style: TextStyles.regular14()),
+                  Text('welcome'.tr(context), style: TextStyles.regular14()),
                   Text('محمد احمد', style: TextStyles.bold14()),
                 ],
               ),

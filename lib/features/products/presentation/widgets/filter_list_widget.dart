@@ -65,7 +65,7 @@ class FilterListWidget extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    'all'.tr,
+                    'all'.tr(context),
                     style: TextStyles.bold12(),
                   ),
                 ),

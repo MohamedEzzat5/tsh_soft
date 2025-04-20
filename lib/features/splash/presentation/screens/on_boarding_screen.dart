@@ -92,7 +92,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     ? GestureDetector(
                         onTap: _previousPage,
                         child: Text(
-                          "back".tr,
+                          "back".tr(context),
                           style: TextStyles.semiBold16(color: colors.textColor),
                         ),
                       )
@@ -106,7 +106,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 GestureDetector(
                   onTap: _skip,
                   child: Text(
-                    "skip".tr,
+                    "skip".tr(context),
                     style: TextStyles.semiBold16(
                       color: colors.textColor,
                     ),

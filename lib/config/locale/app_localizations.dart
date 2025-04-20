@@ -34,8 +34,7 @@ class AppLocalizations {
 }
 
 extension AppLocalizationsExtension on String {
-  String get tr {
-    String translate = appLocalizations.text(this);
-    return translate;
+  String tr(BuildContext context) {
+    return AppLocalizations.of(context)?.text(this) ?? this;
   }
 }

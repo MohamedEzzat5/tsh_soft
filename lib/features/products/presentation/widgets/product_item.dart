@@ -87,7 +87,7 @@ class ProductItemWidget extends StatelessWidget {
                         ),
                         Gaps.hGap4,
                         Text(
-                          'egp'.tr,
+                          'egp'.tr(context),
                           style: TextStyles.regular12(),
                         ),
                       ],

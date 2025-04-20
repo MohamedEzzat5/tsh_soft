@@ -54,7 +54,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'edit_profile_info'.tr,
+            'edit_profile_info'.tr(context),
           ),
         ),
         body: SingleChildScrollView(
@@ -68,47 +68,47 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 ),
                 Gaps.vGap30,
                 Text(
-                  'name'.tr,
+                  'name'.tr(context),
                   style: TextStyles.regular16(color: colors.main),
                 ),
                 Gaps.vGap10,
                 AppTextFormField(
                   controller: nameController,
                   focusNode: nameFocusNode,
-                  hintText: 'name'.tr,
+                  hintText: 'name'.tr(context),
                 ),
                 Gaps.vGap24,
                 Text(
-                  'phone'.tr,
+                  'phone'.tr(context),
                   style: TextStyles.regular16(color: colors.main),
                 ),
                 Gaps.vGap10,
                 AppTextFormField(
                   controller: phoneController,
                   focusNode: phoneFocusNode,
-                  hintText: 'phone'.tr,
+                  hintText: 'phone'.tr(context),
                 ),
                 Gaps.vGap24,
                 Text(
-                  'email'.tr,
+                  'email'.tr(context),
                   style: TextStyles.regular16(color: colors.main),
                 ),
                 Gaps.vGap10,
                 AppTextFormField(
                   controller: emailController,
                   focusNode: emailFocusNode,
-                  hintText: 'email'.tr,
+                  hintText: 'email'.tr(context),
                 ),
                 Gaps.vGap24,
                 Text(
-                  'city'.tr,
+                  'city'.tr(context),
                   style: TextStyles.regular16(color: colors.main),
                 ),
                 Gaps.vGap10,
                 AppTextFormField(
                   controller: cityController,
                   focusNode: cityFocusNode,
-                  hintText: 'city'.tr,
+                  hintText: 'city'.tr(context),
                 ),
                 Gaps.vGap30,
                 MyDefaultButton(

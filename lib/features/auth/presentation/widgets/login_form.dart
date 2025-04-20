@@ -27,13 +27,13 @@ class _LoginFormState extends State<LoginForm> {
       children: [
         AppTextFormField(
           focusNode: emailFocusNode,
-          hintText: 'email'.tr,
+          hintText: 'email'.tr(context),
           controller: emailController,
         ),
         Gaps.vGap20,
         AppTextFormField(
           focusNode: passwordFocusNode,
-          hintText: 'password'.tr,
+          hintText: 'password'.tr(context),
           obscureText: isSecure,
           controller: passwordController,
           suffixIcon: IconButton(

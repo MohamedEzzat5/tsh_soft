@@ -37,7 +37,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(70.h),
             child: AppBar(
-              title: Text('contactUs'.tr),
+              title: Text('contactUs'.tr(context)),
             )),
         body: SafeArea(
           child: SingleChildScrollView(
@@ -56,7 +56,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   ),
                   Gaps.vGap22,
                   Text(
-                    'name'.tr,
+                    'name'.tr(context),
                     style: TextStyles.regular14(color: colors.main),
                   ),
                   Gaps.vGap8,
@@ -66,11 +66,11 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
                     validatorType: ValidatorType.name,
-                    hintText: 'name'.tr,
+                    hintText: 'name'.tr(context),
                   ),
                   Gaps.vGap15,
                   Text(
-                    'email'.tr,
+                    'email'.tr(context),
                     style: TextStyles.regular14(color: colors.main),
                   ),
                   Gaps.vGap8,
@@ -80,11 +80,11 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
                     validatorType: ValidatorType.email,
-                    hintText: 'email'.tr,
+                    hintText: 'email'.tr(context),
                   ),
                   Gaps.vGap15,
                   Text(
-                    'phone_number'.tr,
+                    'phone_number'.tr(context),
                     style: TextStyles.regular14(color: colors.main),
                   ),
                   Gaps.vGap8,
@@ -94,11 +94,11 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                     keyboardType: TextInputType.phone,
                     textInputAction: TextInputAction.next,
                     validatorType: ValidatorType.phone,
-                    hintText: 'phone_number'.tr,
+                    hintText: 'phone_number'.tr(context),
                   ),
                   Gaps.vGap15,
                   Text(
-                    'message'.tr,
+                    'message'.tr(context),
                     style: TextStyles.regular14(color: colors.main),
                   ),
                   Gaps.vGap8,
@@ -107,7 +107,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                     controller: suggestionsController,
                     focusNode: suggestionsfocusNode,
                     validatorType: ValidatorType.textOnly,
-                    hintText: 'message'.tr,
+                    hintText: 'message'.tr(context),
                   ),
                   Gaps.vGap40,
                   MyDefaultButton(

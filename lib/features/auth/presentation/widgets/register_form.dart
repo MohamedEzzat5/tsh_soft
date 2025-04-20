@@ -47,21 +47,21 @@ class _RegisterFormState extends State<RegisterForm> {
           AppTextFormField(
             controller: nameController,
             focusNode: nameFocus,
-            hintText: 'name'.tr,
+            hintText: 'name'.tr(context),
             validatorType: ValidatorType.standard,
           ),
           Gaps.vGap20,
           AppTextFormField(
             focusNode: emailFocus,
             controller: emailController,
-            hintText: 'log_in_enter_email'.tr,
+            hintText: 'log_in_enter_email'.tr(context),
             validatorType: ValidatorType.email,
           ),
           Gaps.vGap20,
           AppTextFormField(
             focusNode: phoneFocus,
             controller: phoneController,
-            hintText: 'register_phone'.tr,
+            hintText: 'register_phone'.tr(context),
             keyboardType: TextInputType.phone,
             validatorType: ValidatorType.phone,
           ),
@@ -69,7 +69,7 @@ class _RegisterFormState extends State<RegisterForm> {
           AppTextFormField(
             controller: passController,
             focusNode: passFocus,
-            hintText: 'log_in_enter_pass'.tr,
+            hintText: 'log_in_enter_pass'.tr(context),
             obscureText: isSecure,
             validatorType: ValidatorType.password,
             suffixIcon: IconButton(
@@ -86,7 +86,7 @@ class _RegisterFormState extends State<RegisterForm> {
           AppTextFormField(
             focusNode: confirmPasswordFocus,
             controller: confirmPasswordController,
-            hintText: 'confirm_password'.tr,
+            hintText: 'confirm_password'.tr(context),
             obscureText: isSecureConfirm,
             validatorType: ValidatorType.password,
             suffixIcon: IconButton(
@@ -104,7 +104,7 @@ class _RegisterFormState extends State<RegisterForm> {
           MyDefaultButton(
             btnText: 'create_account',
             onPressed: () {
-            Navigator.pushNamed(context, Routes.homeScreenRoute);
+              Navigator.pushNamed(context, Routes.homeScreenRoute);
             },
             borderColor: colors.main,
           ),

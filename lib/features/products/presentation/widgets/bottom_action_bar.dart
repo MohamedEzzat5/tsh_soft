@@ -43,9 +43,9 @@ class BottomActionBar extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text('total'.tr, style: TextStyles.bold14()),
+              Text('total'.tr(context), style: TextStyles.bold14()),
               Gaps.hGap2,
-              Text('${totalPrice.mRoundDouble(2)} ${'egp'.tr}',
+              Text('${totalPrice.mRoundDouble(2)} ${'egp'.tr(context)}',
                   style: TextStyles.bold14()),
             ],
           ),
@@ -57,7 +57,7 @@ class BottomActionBar extends StatelessWidget {
                   ? () {
                       Constants.showSnakToast(
                         context: context,
-                        message: 'cart_error'.tr,
+                        message: 'cart_error'.tr(context),
                         type: 3,
                       );
                     }
@@ -74,7 +74,7 @@ class BottomActionBar extends StatelessWidget {
                                   children: [
                                     Lottie.asset(AnimationAssets.addToCart),
                                     Text(
-                                      'add_to_cart_successfully'.tr,
+                                      'add_to_cart_successfully'.tr(context),
                                       style: TextStyles.semiBold14(),
                                     ),
                                     Gaps.vGap16,

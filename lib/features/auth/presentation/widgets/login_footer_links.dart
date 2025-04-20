@@ -18,7 +18,7 @@ class LoginFooterLinks extends StatelessWidget {
             InkWell(
               onTap: () {},
               child: Text(
-                'log_in_forget_pass'.tr,
+                'log_in_forget_pass'.tr(context),
                 style: TextStyles.regular16(color: colors.main),
               ),
             ),
@@ -29,7 +29,7 @@ class LoginFooterLinks extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '${'newAccount'.tr} !',
+              '${'newAccount'.tr(context)} !',
               style: TextStyles.regular16(color: Colors.black),
             ),
             Gaps.hGap8,
@@ -38,7 +38,7 @@ class LoginFooterLinks extends StatelessWidget {
                 Navigator.pushNamed(context, Routes.registerScreenRoute);
               },
               child: Text(
-                'create_account'.tr,
+                'create_account'.tr(context),
                 style: TextStyles.bold16(color: colors.main),
               ),
             ),

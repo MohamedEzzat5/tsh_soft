@@ -15,23 +15,23 @@ class ProfileItem extends StatelessWidget {
     this.isBackIcon = false,
     this.iconColor,
     this.style,
+    this.trailing, // ✅ العنصر الجديد هنا
   });
 
   final String title;
   final String svgIcon;
   final bool? isBackIcon;
   final Color? iconColor;
-
   final TextStyle? style;
-
   final VoidCallback onPress;
+  final Widget? trailing; // ✅ عنصر إضافي اختياري في اليمين
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPress,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 12.r),
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 14.r),
+      child: InkWell(
+        onTap: onPress,
         child: Row(
           children: [
             SvgPicture.asset(
@@ -39,17 +39,19 @@ class ProfileItem extends StatelessWidget {
               color: iconColor ?? colors.main,
             ),
             Gaps.hGap16,
-            Text(
-              title,
-              style: style ?? TextStyles.regular16(),
+            Expanded(
+              child: Text(
+                title,
+                style: style ?? TextStyles.regular16(),
+              ),
             ),
-            Spacer(),
-            isBackIcon == false
-                ? Icon(
-                    Icons.chevron_right,
-                    size: 30.sp,
-                  )
-                : Gaps.empty,
+            trailing ?? // ✅ لو فيه trailing استخدمه
+                (isBackIcon == false
+                    ? Icon(
+                        Icons.chevron_right,
+                        size: 30.sp,
+                      )
+                    : Gaps.empty),
           ],
         ),
       ),

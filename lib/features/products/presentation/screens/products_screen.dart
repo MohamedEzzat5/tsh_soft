@@ -23,14 +23,14 @@ class _ProductsScreenState extends State<ProductsScreen> {
       onTap: () => searchFocusNode.unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('products'.tr),
+          title: Text('products'.tr(context)),
         ),
         body: Column(
           children: [
             MySearchBar(
               controller: searchController,
               focusNode: searchFocusNode,
-              hintText: 'search'.tr,
+              hintText: 'search'.tr(context),
             ),
             Gaps.vGap4,
             const FilterListWidget(),

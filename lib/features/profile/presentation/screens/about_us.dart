@@ -17,7 +17,7 @@ class AboutUsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'about_app'.tr,
+          'about_app'.tr(context),
         ),
       ),
       body: GestureDetector(
@@ -47,7 +47,7 @@ class AboutUsScreen extends StatelessWidget {
                     ),
                     Gaps.hGap8,
                     Text(
-                      'about_us'.tr,
+                      'about_us'.tr(context),
                       style: TextStyles.bold20(color: colors.main),
                     )
                   ],
@@ -56,7 +56,7 @@ class AboutUsScreen extends StatelessWidget {
                   height: 24,
                 ),
                 Text(
-                  'about_message'.tr,
+                  'about_message'.tr(context),
                 )
               ],
             ),

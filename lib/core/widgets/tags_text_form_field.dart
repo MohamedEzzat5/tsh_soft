@@ -91,7 +91,7 @@ class AppTextFormField extends StatelessWidget {
       textInputAction: textInputAction ?? TextInputAction.done,
       validator: validatorType != null
           ? (String? value) =>
-              Validator.call(value: value, type: validatorType!)
+              Validator.call(value: value, type: validatorType! , context: context)
           : validator,
       readOnly: readOnly,
       textAlign: textAlign,

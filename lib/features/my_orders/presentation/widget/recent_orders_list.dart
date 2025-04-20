@@ -42,7 +42,7 @@ class RecentOrdersListView extends StatelessWidget {
                       style: TextStyles.regular14(color: colors.main),
                     ),
                     Text(
-                      'details'.tr,
+                      'details'.tr(context),
                       style: TextStyles.regular14(color: colors.main),
                     ),
                   ],

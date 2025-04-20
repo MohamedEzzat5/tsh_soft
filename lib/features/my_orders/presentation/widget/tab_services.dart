@@ -38,11 +38,11 @@ class TabOrders extends StatelessWidget {
             SizedBox(
                 width: ScreenUtil().screenWidth * 0.42,
                 child: Tab(
-                  text: "current".tr,
+                  text: "current".tr(context),
                 )),
             SizedBox(
                 width: ScreenUtil().screenWidth * 0.42,
-                child: Tab(text: "previous".tr)),
+                child: Tab(text: "previous".tr(context))),
           ],
         );
       },

@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/utils/values/strings.dart';
 import '/core/base_classes/base_list_response.dart';
 import '/core/error/failures.dart';
 import '/core/usecases/usecase.dart';
@@ -23,7 +22,7 @@ class GetLanguagesCubit extends Cubit<GetLanguagesState> {
       changeLoadingView();
       emit(response.fold(
         (failure) =>
-            GetLanguagesError(msg: failure.message?? Strings.pleaseTryAgainLater),
+            GetLanguagesError(msg: failure.message ?? 'Please try again later'),
         (response) {
           return GetLanguagesLoaded(response: response);
         },

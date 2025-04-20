@@ -18,7 +18,7 @@ class OrderDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'order_details'.tr,
+          'order_details'.tr(context),
         ),
       ),
       body: GestureDetector(
@@ -48,7 +48,7 @@ class OrderDetailsScreen extends StatelessWidget {
                           ),
                           Gaps.hGap10,
                           Text(
-                            'request_received'.tr,
+                            'request_received'.tr(context),
                             style: TextStyles.semiBold15(),
                           ),
                         ],
@@ -145,7 +145,7 @@ class OrderDetailsScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'products'.tr,
+                        'products'.tr(context),
                         style: TextStyles.semiBold16(color: colors.textColor),
                       ),
                       Gaps.vGap10,
@@ -169,7 +169,7 @@ class OrderDetailsScreen extends StatelessWidget {
                               ),
                               Gaps.hGap10,
                               Text(
-                                '1000 ${'egp'.tr}',
+                                '1000 ${'egp'.tr(context)}',
                                 style:
                                     TextStyles.semiBold16(color: colors.black),
                               ),
@@ -187,11 +187,11 @@ class OrderDetailsScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'delivery'.tr,
+                            'delivery'.tr(context),
                             style: TextStyles.semiBold16(color: colors.black),
                           ),
                           Text(
-                            '200 ${'egp'.tr}',
+                            '200 ${'egp'.tr(context)}',
                             style: TextStyles.semiBold16(color: colors.black),
                           ),
                         ],
@@ -204,11 +204,11 @@ class OrderDetailsScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'total'.tr,
+                            'total'.tr(context),
                             style: TextStyles.semiBold16(color: colors.black),
                           ),
                           Text(
-                            '2200 ${'egp'.tr}',
+                            '2200 ${'egp'.tr(context)}',
                             style: TextStyles.semiBold16(color: colors.black),
                           ),
                         ],

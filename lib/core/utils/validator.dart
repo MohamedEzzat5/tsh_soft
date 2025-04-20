@@ -1,63 +1,64 @@
-import '../utils/values/strings.dart';
+import 'package:flutter/material.dart';
+import 'package:tsh_soft/config/locale/app_localizations.dart';
 
 abstract class Validator {
-  static String? call({
-    required String? value,
-    required ValidatorType type,
-  }) {
-    String? validateNotEmpty = _notEmpty(value);
+  static String? call(
+      {required String? value,
+      required ValidatorType type,
+      required BuildContext context}) {
+    String? validateNotEmpty = _notEmpty(value, context);
     if (validateNotEmpty == null) {
       return type.condition.call(value!) ?? validateNotEmpty;
     }
     return validateNotEmpty;
   }
 
-  static String? _notEmpty(String? value) {
+  static String? _notEmpty(String? value, context) {
     if (value != null && value.trim().isEmpty) {
-      return Strings.errorFieldRequired;
+      return 'error_field_required'.tr(context);
     }
     return null;
   }
 
-  static String? _name(String value) {
+  static String? _name(String value, context) {
     if (value.trim().split(' ').length < 2) {
-      return Strings.errorValidName;
+      return 'error_valid_name'.tr(context);
     }
     return null;
   }
 
-  static String? _phone(String value) {
+  static String? _phone(String value, context) {
     const pattern = r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$';
     final regExp = RegExp(pattern);
     if (!regExp.hasMatch(value)) {
-      return Strings.errorValidPhoneNumber;
+      return 'error_valid_phone_number'.tr(context);
     }
     return null;
   }
 
-  static String? _email(String value) {
+  static String? _email(String value, context) {
     const pattern =
         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
     final regExp = RegExp(pattern);
     if (!regExp.hasMatch(value)) {
-      return Strings.errorValidEmail;
+      return 'error_valid_email'.tr(context);
     }
     return null;
   }
 
-  static String? _textOnly(String value) {
+  static String? _textOnly(String value, context) {
     const pattern = '[a-zA-Z]';
     final regExp = RegExp(pattern);
     if (!regExp.hasMatch(value)) {
-      return Strings.errorValidText;
+      return 'error_valid_text'.tr(context);
     }
     return null;
   }
 
-  static String? _numbersOnly(String value) {
+  static String? _numbersOnly(String value, context) {
     final int? number = int.tryParse(value);
     if (number == null) {
-      return Strings.errorValidNumbers;
+      return 'error_valid_numbers'.tr(context);
     }
     return null;
   }
@@ -73,9 +74,9 @@ abstract class Validator {
   //   return null;
   // }
 
-  static String? _password(String? password) {
+  static String? _password(String? password, context) {
     if (password == null || password.isEmpty) {
-      return Strings.errorValidPassword;
+      return 'error_valid_password'.tr(context);
     }
 
     // bool hasUppercase = password.contains(RegExp(r'[A-Z]'));
@@ -89,14 +90,14 @@ abstract class Validator {
         // hasLowercase &
         // hasSpecialCharacters &
         hasMinLength;
-    return isValid ? null : Strings.errorValidPassword;
+    return isValid ? null : 'error_valid_password'.tr(context);
   }
 
-  static String? _confirmPassword(String value, String? password) {
-    final String? notEmptyPassword = _notEmpty(password);
+  static String? _confirmPassword(String value, String? password, context) {
+    final String? notEmptyPassword = _notEmpty(password, context);
     if (notEmptyPassword != null) {
       if (value != password) {
-        return Strings.errorValidPasswordConfirm;
+        return 'error_valid_password_confirm'.tr(context);
       }
     }
     return null;

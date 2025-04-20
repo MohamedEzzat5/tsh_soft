@@ -5,8 +5,8 @@ import 'package:tsh_soft/config/locale/app_localizations.dart';
 import 'package:tsh_soft/features/my_orders/presentation/widget/recent_orders_list.dart';
 
 import '../cubit/tab_cubit.dart';
-import '../widget/tab_services.dart';
 import '../widget/complete_orders_list.dart';
+import '../widget/tab_services.dart';
 
 class OrdersScreen extends StatefulWidget {
   const OrdersScreen({super.key});
@@ -37,7 +37,7 @@ class _OrdersScreenState extends State<OrdersScreen>
       create: (context) => TabCubit(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('my_orders'.tr),
+          title: Text('my_orders'.tr(context)),
         ),
         body: SafeArea(
           child: Padding(

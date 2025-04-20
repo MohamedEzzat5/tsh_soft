@@ -17,7 +17,7 @@ class FaqScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'terms_conditions'.tr,
+          'terms_conditions'.tr(context),
         ),
       ),
       body: GestureDetector(
@@ -47,7 +47,7 @@ class FaqScreen extends StatelessWidget {
                     ),
                     Gaps.hGap8,
                     Text(
-                      'terms_conditions'.tr,
+                      'terms_conditions'.tr(context),
                       style: TextStyles.bold20(color: colors.main),
                     )
                   ],
@@ -56,7 +56,7 @@ class FaqScreen extends StatelessWidget {
                   height: 24,
                 ),
                 Text(
-                  'about_message'.tr,
+                  'about_message'.tr(context),
                 )
               ],
             ),

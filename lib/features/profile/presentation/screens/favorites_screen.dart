@@ -11,7 +11,7 @@ class FavoritesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'favorites'.tr,
+          'favorites'.tr(context),
         ),
       ),
       body: GestureDetector(
