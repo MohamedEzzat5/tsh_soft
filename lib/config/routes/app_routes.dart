@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tsh_soft/features/auth/presentation/screens/login_screen.dart';
 import 'package:tsh_soft/features/auth/presentation/screens/register_screen.dart';
+import 'package:tsh_soft/features/cart/presentation/screens/bill_screen.dart';
 import 'package:tsh_soft/features/cart/presentation/screens/cart_screen.dart';
 import 'package:tsh_soft/features/home/presentation/screens/all_category_screen.dart';
 import 'package:tsh_soft/features/home/presentation/screens/home_screen.dart';
@@ -42,6 +43,7 @@ class Routes {
   static const String orderDetailsScreenRoute = '/OrderDetailsRoute';
   static const String cartScreenRoute = '/CartsRoute';
   static const String notificationScreenRoute = '/NotificationRoute';
+  static const String billScreenRoute = '/BillRoute';
 }
 
 class AppRoutes {
@@ -158,6 +160,12 @@ class AppRoutes {
         return MaterialPageRoute(
           settings: routeSettings,
           builder: (BuildContext context) => const NotificationsScreen(),
+        );
+
+      case Routes.billScreenRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const BillScreen(),
         );
 
       default:

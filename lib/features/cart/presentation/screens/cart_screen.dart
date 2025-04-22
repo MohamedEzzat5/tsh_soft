@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
+import 'package:tsh_soft/config/routes/app_routes.dart';
 import 'package:tsh_soft/core/utils/image_manager.dart';
 import 'package:tsh_soft/core/utils/values/text_styles.dart';
 import 'package:tsh_soft/core/widgets/gaps.dart';
@@ -136,7 +137,9 @@ class _CartScreenState extends State<CartScreen> {
                     Expanded(
                       flex: 2,
                       child: MyDefaultButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, Routes.billScreenRoute);
+                        },
                         btnText: 'order_now',
                       ),
                     )

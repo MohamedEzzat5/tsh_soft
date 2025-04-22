@@ -138,7 +138,7 @@ abstract class Constants {
   // }
 
   /// Type: 1 done , 2: warning, 3: error
-  static void showSnakToast({required context, message, type}) {
+  static void showSnakToast({required BuildContext context, message, type}) {
     Color background = context.colors.main;
     Color iconColor = context.colors.upBackGround;
     Color textColor = context.colors.upBackGround;
