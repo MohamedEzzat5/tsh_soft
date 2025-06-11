@@ -6,14 +6,14 @@ class BaseListResponse extends Equatable {
   const BaseListResponse({
     this.data,
     this.message,
-    this.success,
+    this.status,
     this.pagination,
     this.statusCode,
   });
 
   final List<dynamic>? data;
   final String? message;
-  final bool? success;
+  final bool? status;
   final Pagination? pagination;
   final num? statusCode;
 
@@ -21,7 +21,7 @@ class BaseListResponse extends Equatable {
   List<Object?> get props => [
         data,
         message,
-        success,
+        status,
         pagination,
         statusCode,
       ];

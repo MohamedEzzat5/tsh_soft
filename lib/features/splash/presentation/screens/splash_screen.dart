@@ -113,11 +113,11 @@ class _SplashScreenState extends State<SplashScreen> {
     if (userType == UserType.firstOpen) {
       Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
     } else if (userType == UserType.login) {
-      Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
+      Navigator.pushReplacementNamed(context, Routes.loginScreenRoute);
     } else if (userType == UserType.approved) {
-      Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
+      Navigator.pushReplacementNamed(context, Routes.homeScreenRoute);
     } else if (userType == UserType.pending) {
-      Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
+      Navigator.pushReplacementNamed(context, Routes.loginScreenRoute);
     }
   }
 }

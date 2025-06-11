@@ -2,7 +2,7 @@ import '/core/base_classes/base_one_response.dart';
 
 class DeleteResponse extends BaseOneResponse {
   const DeleteResponse({
-    super.success,
+    super.status,
     List<dynamic>? super.data,
     super.message,
   });
@@ -10,12 +10,12 @@ class DeleteResponse extends BaseOneResponse {
   factory DeleteResponse.fromJson(Map<String, dynamic> json) => DeleteResponse(
         data: json['data'],
         message: json['message'],
-        success: json['success'],
+        status: json['status'],
       );
 
   Map<String, dynamic> toJson() => {
         'data': data,
         'message': message,
-        'success': success,
+        'status': status,
       };
 }

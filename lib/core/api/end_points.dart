@@ -1,7 +1,9 @@
 class EndPoints {
-  static const String canUrl = "https://canshopp.com";
-  static const String domainUrl = "$canUrl/api";
-
-  static const String favorites = '$domainUrl/wish_lists';
+  static const String login = '/login';
+  static const String register = '/register';
+  static const String getCategories = '/categories';
+  static const String getProducts = '/products';
+  static const String getProfile = '/profile';
+  static const String updateProfile = '/update-profile';
 
 }

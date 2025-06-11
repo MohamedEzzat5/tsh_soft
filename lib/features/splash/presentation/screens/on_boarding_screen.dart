@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
 import 'package:tsh_soft/config/routes/app_routes.dart';
+import 'package:tsh_soft/core/utils/enums.dart';
 import 'package:tsh_soft/core/utils/image_manager.dart';
 import 'package:tsh_soft/core/utils/values/text_styles.dart';
+import 'package:tsh_soft/features/splash/presentation/cubit/auto_login/auto_login_cubit.dart';
 import 'package:tsh_soft/features/splash/presentation/widgets/on_boarding_button.dart';
 import 'package:tsh_soft/features/splash/presentation/widgets/page_indicator.dart';
 import 'package:tsh_soft/injection_container.dart';
@@ -50,11 +53,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       );
     } else {
       Navigator.pushReplacementNamed(context, Routes.loginScreenRoute);
+      BlocProvider.of<AutoLoginCubit>(context)
+          .saveUserType(type: UserType.login);
     }
   }
 
   void _skip() {
     Navigator.pushReplacementNamed(context, Routes.loginScreenRoute);
+    BlocProvider.of<AutoLoginCubit>(context).saveUserType(type: UserType.login);
   }
 
   void _previousPage() {
@@ -93,7 +99,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         onTap: _previousPage,
                         child: Text(
                           "back".tr(context),
-                          style: TextStyles.semiBold16(color: context.colors.textColor),
+                          style: TextStyles.semiBold16(
+                              color: context.colors.textColor),
                         ),
                       )
                     : SizedBox(width: 26.w),

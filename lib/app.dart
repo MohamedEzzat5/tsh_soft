@@ -5,8 +5,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tsh_soft/features/auth/auth_injection.dart';
+import 'package:tsh_soft/features/home/home_injection.dart';
+import 'package:tsh_soft/features/products/products_injection.dart';
+import 'package:tsh_soft/features/profile/profile_injection.dart';
 import 'package:tsh_soft/features/splash/splash_injection.dart';
-
 import 'config/locale/app_localizations_setup.dart';
 import 'config/routes/app_routes.dart';
 import 'config/routes/navigator_observer.dart';
@@ -40,6 +43,10 @@ class TSHSoftApp extends ConsumerWidget {
       providers: [
         ...languageBlocs,
         ...splashBlocs,
+        ...productsBlocs,
+        ...authBlocs,
+        ...homeBlocs,
+        ...profileBlocs,
       ],
       child: BlocBuilder<LocaleCubit, LocaleState>(
         buildWhen: (previous, current) {

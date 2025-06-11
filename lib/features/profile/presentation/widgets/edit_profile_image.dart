@@ -1,67 +1,152 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:tsh_soft/core/utils/constants.dart';
+import 'package:image_picker/image_picker.dart';
 
-import '../../../../core/utils/svg_manager.dart';
-import '../../../../core/widgets/diff_img.dart';
 import '../../../../injection_container.dart';
 
-class EditProfileImage extends StatelessWidget {
-  const EditProfileImage({super.key});
+class CustomProfileImagePickerWidget extends StatefulWidget {
+  final void Function(File?) onImageSelected;
+  final String? initialImageUrl; // جديد: الصورة الافتراضية من الـ API
+
+  const CustomProfileImagePickerWidget({
+    super.key,
+    required this.onImageSelected,
+    this.initialImageUrl,
+  });
+
+  @override
+  State<CustomProfileImagePickerWidget> createState() =>
+      _CustomProfileImagePickerWidgetState();
+}
+
+class _CustomProfileImagePickerWidgetState
+    extends State<CustomProfileImagePickerWidget> {
+  File? _pickedImage;
+
+  Future<void> _pickImage(ImageSource source) async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: source, imageQuality: 50);
+    if (pickedFile != null) {
+      setState(() {
+        _pickedImage = File(pickedFile.path);
+      });
+      widget.onImageSelected(_pickedImage);
+    }
+  }
+
+  void _showImageSourceOptions(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return SafeArea(
+          child: Wrap(
+            children: [
+              ListTile(
+                leading: const Icon(Icons.photo_library),
+                title: const Text('اختر من المعرض'),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  _pickImage(ImageSource.gallery);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.photo_camera),
+                title: const Text('التقاط صورة بالكاميرا'),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  _pickImage(ImageSource.camera);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 15.h),
-      decoration: BoxDecoration(
-        color: Colors.transparent,
-        borderRadius: BorderRadius.circular(12.r),
-      ),
-      child: Stack(
-        clipBehavior: Clip.none,
-        alignment: Alignment.topRight,
-        children: [
-          DiffImage(
-            image:
-                'https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?t=st=1740821083~exp=1740824683~hmac=6a0365d6a328894f5c8278105377a058197b506585d15960ebbbb4391da5de2a&w=900',
-            isCircle: false,
-            hasBorder: false,
-            fitType: BoxFit.cover,
-            height: 100.h,
-            width: 100.w,
+    return Stack(
+      children: [
+        GestureDetector(
+          onTap: () => _showImageSourceOptions(context),
+          child: CircleAvatar(
+            radius: 70.r,
+            backgroundColor: Colors.grey.shade300,
+            child: ClipOval(
+              child: _pickedImage != null
+                  ? Image.file(
+                      _pickedImage!,
+                      fit: BoxFit.cover,
+                      width: 140.w,
+                      height: 140.h,
+                    )
+                  : widget.initialImageUrl != null
+                      ? Image.network(
+                          widget.initialImageUrl!,
+                          fit: BoxFit.cover,
+                          width: 140.w,
+                          height: 140.h,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return const Center(
+                                child: CircularProgressIndicator());
+                          },
+                          errorBuilder: (context, error, stackTrace) {
+                            return Icon(Icons.person,
+                                size: 50.w, color: Colors.grey);
+                          },
+                        )
+                      : Icon(Icons.person, size: 50.w, color: Colors.grey),
+            ),
           ),
+        ),
+        Positioned(
+          bottom: 0,
+          right: 0,
+          child: GestureDetector(
+            onTap: () => _showImageSourceOptions(context),
+            child: Container(
+              padding: EdgeInsets.all(6.r),
+              decoration: BoxDecoration(
+                color: context.colors.main,
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                Icons.camera_alt,
+                color: context.colors.textColor,
+                size: 20,
+              ),
+            ),
+          ),
+        ),
+        if (_pickedImage != null)
           Positioned(
-              bottom: -8,
-              left: -20,
-              child: IconButton(
-                onPressed: () {},
-                icon: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color:
-                            Colors.black.withValues(alpha: 0.2), // Shadow color
-                        blurRadius: 6, // Softness of shadow
-                        spreadRadius: 2, // Spread effect
-                        offset: Offset(0, 3), // Moves shadow downward
-                      ),
-                    ],
-                  ),
-                  child: CircleAvatar(
-                    backgroundColor: context.colors.white,
-                    child: SvgPicture.asset(
-                      SvgAssets.addPhotoIcon,
-                     colorFilter: Constants.colorFilter(
-                        context.colors.main,
-                      ),
-                    ),
-                  ),
+            right: 0,
+            top: 0,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  _pickedImage = null;
+                  widget.onImageSelected(null);
+                });
+              },
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.red,
+                  shape: BoxShape.circle,
                 ),
-              )),
-        ],
-      ),
+                child: const Icon(
+                  Icons.close,
+                  size: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+      ],
     );
   }
 }

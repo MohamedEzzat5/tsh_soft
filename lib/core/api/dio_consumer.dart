@@ -37,13 +37,10 @@ abstract class DioConsumer {
 }
 
 abstract class ApiConstants {
-  static const String live = 'https://api.sub.seedsflow.net';
-  static const String dev = 'https://sub.seedsflow.net/dev';
-  static const String staging = 'https://canshopp.com';
+  // static const String live = 'https://api.sub.seedsflow.net';
+  // static const String dev = 'https://sub.seedsflow.net/dev';
+  static const String staging = "https://store.tsh-dev.com/api/customer";
   static const String baseUrl = staging;
-  static const String portal = 'portal';
-  static const String doctors = 'doctors';
-  static const String version = 'v1';
 }
 
 class DioConsumerImpl implements DioConsumer {

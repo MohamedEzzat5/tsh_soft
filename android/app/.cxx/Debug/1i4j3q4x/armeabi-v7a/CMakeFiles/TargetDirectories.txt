@@ -1,0 +1,2 @@
+E:/projects/tsh/tsh_soft/android/app/.cxx/Debug/1i4j3q4x/armeabi-v7a/CMakeFiles/edit_cache.dir
+E:/projects/tsh/tsh_soft/android/app/.cxx/Debug/1i4j3q4x/armeabi-v7a/CMakeFiles/rebuild_cache.dir

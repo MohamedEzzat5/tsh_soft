@@ -3,14 +3,14 @@ import '/features/language/domain/entities/languages_response.dart';
 
 class LanguagesRespModel extends BaseListResponse {
   const LanguagesRespModel({
-    super.success,
+    super.status,
     super.message,
     List<LanguageModel>? super.data,
   });
 
   factory LanguagesRespModel.fromJson(Map<String, dynamic> json) =>
       LanguagesRespModel(
-        success: json['status'],
+        status: json['status'],
         message: json['message'],
         data: json['data'] == null
             ? []
@@ -19,7 +19,7 @@ class LanguagesRespModel extends BaseListResponse {
       );
 
   Map<String, dynamic> toJson() => {
-        'status': success,
+        'status': status,
         'message': message,
         'data': data == null
             ? []

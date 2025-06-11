@@ -12,11 +12,13 @@ import 'package:tsh_soft/injection_container.dart';
 class ProductItemWidget extends StatelessWidget {
   final String name;
   final String image;
-  final double price;
+  final dynamic price;
+  final bool isFavorite;
 
   const ProductItemWidget({
     super.key,
     required this.name,
+    required this.isFavorite,
     required this.image,
     required this.price,
   });
@@ -56,8 +58,9 @@ class ProductItemWidget extends StatelessWidget {
                     SvgAssets.heart,
                     width: 20.w,
                     height: 20.h,
-                    colorFilter:
-                        Constants.colorFilter(context.colors.errorColor),
+                    colorFilter: Constants.colorFilter(isFavorite
+                        ? context.colors.errorColor
+                        : context.colors.borderColor),
                     fit: BoxFit.contain,
                   ),
                 ),

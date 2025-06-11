@@ -12,7 +12,7 @@ import 'package:tsh_soft/core/widgets/my_default_button.dart';
 import 'package:tsh_soft/injection_container.dart';
 
 class BottomActionBar extends StatelessWidget {
-  final double totalPrice;
+  final num totalPrice;
   final int counter;
 
   const BottomActionBar({

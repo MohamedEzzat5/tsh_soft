@@ -5,6 +5,7 @@ import 'package:tsh_soft/config/locale/app_localizations.dart';
 import 'package:tsh_soft/config/themes/provider/app_theme_provider.dart';
 import 'package:tsh_soft/core/utils/constants.dart';
 import 'package:tsh_soft/core/utils/enums.dart';
+import 'package:tsh_soft/features/profile/domain/entities/profile_entity.dart';
 import 'package:tsh_soft/features/profile/presentation/widgets/language_setting_widget.dart';
 import 'package:tsh_soft/features/profile/presentation/widgets/profile_item.dart';
 
@@ -14,7 +15,8 @@ import '../../../../core/utils/values/text_styles.dart';
 import '../../../../injection_container.dart';
 
 class SettingWidget extends ConsumerStatefulWidget {
-  const SettingWidget({super.key});
+  final ProfileEntity profileData;
+  const SettingWidget({super.key,required this.profileData});
 
   @override
   ConsumerState<SettingWidget> createState() => _SettingWidgetState();
@@ -50,7 +52,9 @@ class _SettingWidgetState extends ConsumerState<SettingWidget> {
           ),
           ProfileItem(
             onPress: () {
-              Navigator.pushNamed(context, Routes.editProfileScreenRoute);
+              Navigator.pushNamed(context, Routes.editProfileScreenRoute ,
+              arguments: widget.profileData,
+              );
             },
             title: 'edit_account'.tr(context),
             svgIcon: SvgAssets.editProfile,

@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tsh_soft/features/auth/auth_injection.dart';
+import 'package:tsh_soft/features/home/home_injection.dart';
+import 'package:tsh_soft/features/products/products_injection.dart';
+import 'package:tsh_soft/features/profile/profile_injection.dart';
 import 'package:tsh_soft/features/splash/splash_injection.dart';
 import 'config/locale/app_localizations.dart';
 import 'core/api/app_interceptors.dart';
@@ -23,6 +27,10 @@ abstract class ServiceLocator {
     /// Features
     await initSplashFeatureInjection();
     await initLanguageFeatureInjection();
+    await initProductsFeatureInjection();
+    await initAuthFeatureInjection();
+    await inithomeFeatureInjection();
+    await initProfileFeatureInjection();
  
  
 

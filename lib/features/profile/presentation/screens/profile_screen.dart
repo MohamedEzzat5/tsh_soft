@@ -4,6 +4,7 @@ import 'package:tsh_soft/config/locale/app_localizations.dart';
 import 'package:tsh_soft/core/utils/svg_manager.dart';
 import 'package:tsh_soft/core/widgets/gaps.dart';
 import 'package:tsh_soft/core/widgets/my_default_button.dart';
+import 'package:tsh_soft/features/profile/domain/entities/profile_entity.dart';
 
 import '../../../../config/routes/app_routes.dart';
 import '../../../../core/utils/image_manager.dart';
@@ -13,7 +14,8 @@ import '../widgets/profile_image.dart';
 import '../widgets/seitting_widget.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  final ProfileEntity profileData;
+  const ProfileScreen({super.key, required this.profileData});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class ProfileScreen extends StatelessWidget {
           child: Column(
             children: [
               Center(
-                child: ProfileImageWidget(),
+                child: ProfileImageWidget(profileData: profileData),
               ),
               Gaps.vGap10,
               Container(
@@ -73,12 +75,19 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               Gaps.vGap16,
-              SettingWidget(),
+              SettingWidget(
+                profileData: profileData,
+              ),
               Gaps.vGap16,
               Center(
                 child: MyDefaultButton(
                   width: 0.6.sw,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, Routes.loginScreenRoute, (_) => false);
+                    sharedPreferences.clearAll();
+                    secureStorage.clearAll();
+                  },
                   btnText: 'logout',
                   textColor: context.colors.main,
                   color: context.colors.white,

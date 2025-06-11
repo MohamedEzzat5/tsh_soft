@@ -16,7 +16,9 @@ class LoginFooterLinks extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, Routes.forgetPasswordScreenRoute);
+              },
               child: Text(
                 'log_in_forget_pass'.tr(context),
                 style: TextStyles.regular16(color: context.colors.main),

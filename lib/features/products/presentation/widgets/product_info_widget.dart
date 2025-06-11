@@ -13,7 +13,8 @@ class ProductInfoWidget extends StatelessWidget {
   final String name;
   final String description;
   final String image;
-  final double price;
+  final dynamic price;
+  final bool isFavorite;
 
   const ProductInfoWidget({
     super.key,
@@ -21,6 +22,7 @@ class ProductInfoWidget extends StatelessWidget {
     required this.description,
     required this.price,
     required this.image,
+    required this.isFavorite,
   });
 
   @override
@@ -46,7 +48,9 @@ class ProductInfoWidget extends StatelessWidget {
             SvgPicture.asset(
               SvgAssets.heart,
               height: 28.h,
-              colorFilter: Constants.colorFilter(context.colors.errorColor),
+              colorFilter: Constants.colorFilter(isFavorite
+                  ? context.colors.errorColor
+                  : context.colors.borderColor),
             )
           ],
         ),

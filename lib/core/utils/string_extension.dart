@@ -15,8 +15,8 @@ extension DateOnlyCompare on DateTime {
   }
 }
 
-extension RoundOnlyDouble on double {
-  double mRoundDouble(int places) {
+extension RoundOnlyDouble on num {
+  num mRoundDouble(int places) {
     num mod = pow(10.0, places);
     return ((this * mod).round().toDouble() / mod);
   }

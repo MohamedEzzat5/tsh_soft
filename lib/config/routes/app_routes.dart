@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tsh_soft/core/params/reset_password_params.dart';
+import 'package:tsh_soft/features/auth/presentation/screens/confirm_code_screen.dart';
+import 'package:tsh_soft/features/auth/presentation/screens/forget_password_screen.dart';
 import 'package:tsh_soft/features/auth/presentation/screens/login_screen.dart';
 import 'package:tsh_soft/features/auth/presentation/screens/register_screen.dart';
+import 'package:tsh_soft/features/auth/presentation/screens/reset_password_screen.dart';
 import 'package:tsh_soft/features/cart/presentation/screens/bill_screen.dart';
 import 'package:tsh_soft/features/cart/presentation/screens/cart_screen.dart';
 import 'package:tsh_soft/features/home/presentation/screens/all_category_screen.dart';
 import 'package:tsh_soft/features/home/presentation/screens/home_screen.dart';
 import 'package:tsh_soft/features/home/presentation/screens/notifications_screen.dart';
+import 'package:tsh_soft/features/products/domain/entities/product_entity_model.dart';
 import 'package:tsh_soft/features/products/presentation/cubit/select_product_filter/select_filter_cubit.dart';
 import 'package:tsh_soft/features/products/presentation/screens/product_details_screen.dart';
 import 'package:tsh_soft/features/products/presentation/screens/products_screen.dart';
+import 'package:tsh_soft/features/profile/domain/entities/profile_entity.dart';
 import 'package:tsh_soft/features/profile/presentation/screens/favorites_screen.dart';
 import 'package:tsh_soft/features/splash/presentation/screens/on_boarding_screen.dart';
 import 'package:tsh_soft/features/splash/presentation/screens/splash_screen.dart';
@@ -44,6 +50,9 @@ class Routes {
   static const String cartScreenRoute = '/CartsRoute';
   static const String notificationScreenRoute = '/NotificationRoute';
   static const String billScreenRoute = '/BillRoute';
+  static const String forgetPasswordScreenRoute = '/ForgetPasswordRoute';
+  static const String confirmCodeScreenRoute = '/ConfirmCodeRoute';
+  static const String resetPasswordRoute = '/ResetPasswordScreen';
 }
 
 class AppRoutes {
@@ -97,21 +106,33 @@ class AppRoutes {
         );
 
       case Routes.productDetailsScreenRoute:
+        final ProductEntity product = routeSettings.arguments as ProductEntity;
         return MaterialPageRoute(
           settings: routeSettings,
-          builder: (BuildContext context) => const ProductDetailsScreen(),
+          builder: (BuildContext context) => ProductDetailsScreen(
+            product: product,
+          ),
         );
 
       case Routes.profileScreenRoute:
+        final ProfileEntity profileData =
+            routeSettings.arguments as ProfileEntity;
         return MaterialPageRoute(
           settings: routeSettings,
-          builder: (BuildContext context) => const ProfileScreen(),
+          builder: (BuildContext context) => ProfileScreen(
+            profileData: profileData,
+          ),
         );
 
       case Routes.editProfileScreenRoute:
+        final ProfileEntity profileData =
+            routeSettings.arguments as ProfileEntity;
+
         return MaterialPageRoute(
           settings: routeSettings,
-          builder: (BuildContext context) => const EditProfileScreen(),
+          builder: (BuildContext context) => EditProfileScreen(
+            profileData: profileData,
+          ),
         );
 
       case Routes.contactUsScreenRoute:
@@ -166,6 +187,32 @@ class AppRoutes {
         return MaterialPageRoute(
           settings: routeSettings,
           builder: (BuildContext context) => const BillScreen(),
+        );
+
+      case Routes.forgetPasswordScreenRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const ForgetPasswordScreen(),
+        );
+
+      case Routes.confirmCodeScreenRoute:
+        String email = routeSettings.arguments as String;
+
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => ConfirmCodeScreen(
+            email: email,
+          ),
+        );
+
+      case Routes.resetPasswordRoute:
+        final ResetPasswordParams resetCodeParams =
+            routeSettings.arguments as ResetPasswordParams;
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => ResetPasswordScreen(
+            resetCodeParams: resetCodeParams,
+          ),
         );
 
       default:

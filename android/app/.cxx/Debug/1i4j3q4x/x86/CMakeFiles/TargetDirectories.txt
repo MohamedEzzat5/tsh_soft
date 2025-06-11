@@ -1,0 +1,2 @@
+E:/projects/tsh/tsh_soft/android/app/.cxx/Debug/1i4j3q4x/x86/CMakeFiles/edit_cache.dir
+E:/projects/tsh/tsh_soft/android/app/.cxx/Debug/1i4j3q4x/x86/CMakeFiles/rebuild_cache.dir
