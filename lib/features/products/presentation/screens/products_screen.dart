@@ -1,8 +1,10 @@
 // ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
+import 'package:tsh_soft/core/params/product_params.dart';
 import 'package:tsh_soft/core/widgets/gaps.dart';
-import 'package:tsh_soft/core/widgets/search_text_field.dart';
+import 'package:tsh_soft/features/products/presentation/cubit/get_products_cubit/get_products_cubit.dart';
 import 'package:tsh_soft/features/products/presentation/widgets/filter_list_widget.dart';
 import 'package:tsh_soft/features/products/presentation/widgets/products_grid_view.dart';
 
@@ -14,9 +16,14 @@ class ProductsScreen extends StatefulWidget {
 }
 
 class _ProductsScreenState extends State<ProductsScreen> {
+
   final TextEditingController searchController = TextEditingController();
   final FocusNode searchFocusNode = FocusNode();
-
+  @override
+  void initState() {
+    BlocProvider.of<GetProductsCubit>(context).getProducts(params: ProductsParams());
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -27,11 +34,11 @@ class _ProductsScreenState extends State<ProductsScreen> {
         ),
         body: Column(
           children: [
-            MySearchBar(
-              controller: searchController,
-              focusNode: searchFocusNode,
-              hintText: 'search'.tr(context),
-            ),
+            // MySearchBar(
+            //   controller: searchController,
+            //   focusNode: searchFocusNode,
+            //   hintText: 'search'.tr(context),
+            // ),
             Gaps.vGap10,
             const FilterListWidget(),
             Gaps.vGap10,

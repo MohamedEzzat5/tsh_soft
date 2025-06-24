@@ -6,6 +6,7 @@ import 'package:tsh_soft/config/themes/provider/app_theme_provider.dart';
 import 'package:tsh_soft/core/utils/constants.dart';
 import 'package:tsh_soft/core/utils/enums.dart';
 import 'package:tsh_soft/features/profile/domain/entities/profile_entity.dart';
+import 'package:tsh_soft/features/profile/presentation/widgets/delete_account_model_sheet.dart';
 import 'package:tsh_soft/features/profile/presentation/widgets/language_setting_widget.dart';
 import 'package:tsh_soft/features/profile/presentation/widgets/profile_item.dart';
 
@@ -16,7 +17,7 @@ import '../../../../injection_container.dart';
 
 class SettingWidget extends ConsumerStatefulWidget {
   final ProfileEntity profileData;
-  const SettingWidget({super.key,required this.profileData});
+  const SettingWidget({super.key, required this.profileData});
 
   @override
   ConsumerState<SettingWidget> createState() => _SettingWidgetState();
@@ -52,8 +53,20 @@ class _SettingWidgetState extends ConsumerState<SettingWidget> {
           ),
           ProfileItem(
             onPress: () {
-              Navigator.pushNamed(context, Routes.editProfileScreenRoute ,
-              arguments: widget.profileData,
+              Navigator.pushNamed(
+                context,
+                Routes.addressesRoute,
+              );
+            },
+            title: 'delivery_addresses'.tr(context),
+            svgIcon: SvgAssets.iconLocation,
+          ),
+          ProfileItem(
+            onPress: () {
+              Navigator.pushNamed(
+                context,
+                Routes.editProfileScreenRoute,
+                arguments: widget.profileData,
               );
             },
             title: 'edit_account'.tr(context),
@@ -119,7 +132,9 @@ class _SettingWidgetState extends ConsumerState<SettingWidget> {
               ),
               iconColor: context.colors.errorColor,
               isBackIcon: true,
-              onPress: () {},
+              onPress: () {
+                DeleteAccountModalSheet.show(context);
+              },
               title: 'delete_account'.tr(context),
               svgIcon: SvgAssets.deleteAccount,
             ),

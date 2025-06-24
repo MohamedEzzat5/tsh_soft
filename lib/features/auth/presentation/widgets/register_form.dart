@@ -131,7 +131,7 @@ class _RegisterFormState extends State<RegisterForm> {
               if (state is RegisterSuccessState) {
                 Constants.showSnakToast(
                   context: context,
-                  message: state.response?.message ?? "done".tr(context),           
+                  message: state.response?.message ?? "done".tr(context),
                   type: 1,
                 );
                 Navigator.pushNamedAndRemoveUntil(
@@ -161,13 +161,13 @@ class _RegisterFormState extends State<RegisterForm> {
                               _formKey.currentState!.save();
                               BlocProvider.of<RegisterCubit>(context).fRegister(
                                 params: AuthParams(
-                                  name: nameController.text,
-                                  email: emailController.text,
-                                  phone: phoneController.text,
-                                  password: passController.text,
-                                  passwordConfirmation:
-                                      confirmPasswordController.text,
-                                ),
+                                    name: nameController.text,
+                                    email: emailController.text,
+                                    phone: phoneController.text,
+                                    password: passController.text,
+                                    passwordConfirmation:
+                                        confirmPasswordController.text,
+                                    photo: selectedImage?.path),
                               );
                             }
                           },

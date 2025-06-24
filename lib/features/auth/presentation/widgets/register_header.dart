@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tsh_soft/core/widgets/gaps.dart';
-import 'package:tsh_soft/core/widgets/profile_image.dart';
+import 'package:tsh_soft/features/profile/presentation/widgets/edit_profile_image.dart';
 
 class RegisterHeader extends StatelessWidget {
   final Function(dynamic) onImageSelected;
@@ -12,7 +12,7 @@ class RegisterHeader extends StatelessWidget {
     return Column(
       children: [
         Gaps.vGap25,
-        ProfileImage(updateBannerImage: onImageSelected),
+        CustomProfileImagePickerWidget(onImageSelected: onImageSelected),
         Gaps.vGap35,
       ],
     );

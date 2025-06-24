@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
+import 'package:tsh_soft/config/routes/app_routes.dart';
+import 'package:tsh_soft/core/params/auth_params.dart';
 import 'package:tsh_soft/core/params/reset_password_params.dart';
+import 'package:tsh_soft/core/utils/constants.dart';
 import 'package:tsh_soft/core/widgets/gaps.dart';
+import 'package:tsh_soft/core/widgets/loading_view.dart';
 import 'package:tsh_soft/core/widgets/my_default_button.dart';
+import 'package:tsh_soft/features/auth/presentation/cubit/reset_password/reset_password_cubit.dart';
 
 import '../../../../core/utils/image_manager.dart';
 import '../../../../core/utils/validator.dart';
@@ -144,68 +150,68 @@ class ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       hintText: "confirm_new_password".tr(context),
                     ),
                     Gaps.vGap50,
-                    MyDefaultButton(
-                      btnText: 'confirm',
-                      onPressed: () {},
-                    )
-                    // BlocConsumer<ConfirmResetPasswordCubit,
-                    //     ConfirmResetPasswordState>(
-                    //   listener: (context, state) {
-                    //     if (state is ConfirmResetPasswordErrorState) {
-                    //       Constants.showSnakToast(
-                    //         context: context,
-                    //         message: state.message,
-                    //         type: 3,
-                    //       );
-                    //     } else if (state is ConfirmResetPasswordSuccessState) {
-                    //       Constants.showSnakToast(
-                    //         context: context,
-                    //         message: state.response.message,
-                    //         type: 1,
-                    //       );
-                    //       Navigator.pushNamedAndRemoveUntil(
-                    //         context,
-                    //         Routes.loginScreenRoute,
-                    //         (route) => false,
-                    //       );
-                    //     }
-                    //   },
-                    //   builder: (context, state) {
-                    //     return state is ConfirmResetPasswordLoadingState
-                    //         ? const Center(child: LoadingView())
-                    //         : MyDefaultButton(
-                    //             textStyle:
-                    //                 TextStyles.bold20(color: context.colors.black),
-                    //             btnText: 'confirm',
-                    //             onPressed: () {
-                    //               if (_formKey.currentState!.validate() &&
-                    //                   passwordController.text ==
-                    //                       confirmPasswordController.text) {
-                    //                 unFocus();
-                    //                 context
-                    //                     .read<ConfirmResetPasswordCubit>()
-                    //                     .fConfirmResetPassword(
-                    //                       email: widget.resetCodeParams.email
-                    //                           .toString(),
-                    //                       password: passwordController.text,
-                    //                       code: widget.resetCodeParams.code
-                    //                           .toString(),
-                    //                     );
-                    //               } else if (passwordController
-                    //                       .text.isNotEmpty &&
-                    //                   confirmPasswordController
-                    //                       .text.isNotEmpty) {
-                    //                 Constants.showSnakToast(
-                    //                   context: context,
-                    //                   message:
-                    //                       'error_valid_password_confirm'.tr(context),
-                    //                   type: 3,
-                    //                 );
-                    //               }
-                    //             },
-                    //           );
-                    //   },
+                    // MyDefaultButton(
+                    //   btnText: 'confirm',
+                    //   onPressed: () {},
                     // ),
+                    BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
+                      listener: (context, state) {
+                        if (state is ResetPasswordFailureState) {
+                          Constants.showSnakToast(
+                            context: context,
+                            message: state.errorMessage,
+                            type: 3,
+                          );
+                        } else if (state is ResetPasswordSuccessState) {
+                          Constants.showSnakToast(
+                            context: context,
+                            message: state.resp.message,
+                            type: 1,
+                          );
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            Routes.loginScreenRoute,
+                            (route) => false,
+                          );
+                        }
+                      },
+                      builder: (context, state) {
+                        return state is ResetPasswordLoadingState
+                            ? const Center(child: LoadingView())
+                            : MyDefaultButton(
+                                btnText: 'confirm',
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate() &&
+                                      passwordController.text ==
+                                          confirmPasswordController.text) {
+                                    unFocus();
+                                    context
+                                        .read<ResetPasswordCubit>()
+                                        .resetPassword(AuthParams(
+                                          email: widget.resetCodeParams.email
+                                              .toString(),
+                                          password: passwordController.text,
+                                          passwordConfirmation:
+                                              confirmPasswordController.text,
+                                          otp: widget.resetCodeParams.code
+                                              .toString(),
+                                        ));
+                                  } else if (passwordController.text.isNotEmpty &&
+                                      confirmPasswordController
+                                          .text.isNotEmpty &&
+                                      passwordController.text !=
+                                          confirmPasswordController.text) {
+                                    Constants.showSnakToast(
+                                      context: context,
+                                      message: 'error_valid_password_confirm'
+                                          .tr(context),
+                                      type: 3,
+                                    );
+                                  }
+                                },
+                              );
+                      },
+                    ),
                   ],
                 ),
               ),

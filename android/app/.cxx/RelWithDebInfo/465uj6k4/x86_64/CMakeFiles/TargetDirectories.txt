@@ -1,0 +1,2 @@
+E:/projects/tsh/tsh_soft/android/app/.cxx/RelWithDebInfo/465uj6k4/x86_64/CMakeFiles/edit_cache.dir
+E:/projects/tsh/tsh_soft/android/app/.cxx/RelWithDebInfo/465uj6k4/x86_64/CMakeFiles/rebuild_cache.dir

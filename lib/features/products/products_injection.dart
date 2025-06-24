@@ -13,10 +13,10 @@ final _sl = ServiceLocator.instance;
 
 Future<void> initProductsFeatureInjection() async {
   ///-> Cubits
-    _sl.registerLazySingleton<GetProductDetailsCubit>(
+    _sl.registerFactory<GetProductDetailsCubit>(
       () => GetProductDetailsCubit(getProductDetailsUseCase: _sl()));
 
-    _sl.registerLazySingleton<GetProductsCubit>(
+    _sl.registerFactory<GetProductsCubit>(
       () => GetProductsCubit(getProductsUseCase: _sl()));
 
   ///-> UseCases

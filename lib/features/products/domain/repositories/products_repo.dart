@@ -5,7 +5,8 @@ import 'package:tsh_soft/core/error/failures.dart';
 import 'package:tsh_soft/core/params/product_params.dart';
 
 abstract class ProductsRepository {
-  Future<Either<Failure, BaseListResponse>> getProductsRepo();
+  Future<Either<Failure, BaseListResponse>> getProductsRepo(
+      {required ProductsParams params});
   Future<Either<Failure, BaseOneResponse>> getProductDetailsRepo(
       {required ProductsParams params});
 }

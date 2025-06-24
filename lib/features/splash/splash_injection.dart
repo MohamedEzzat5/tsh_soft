@@ -12,7 +12,7 @@ final _sl = ServiceLocator.instance;
 
 Future<void> initSplashFeatureInjection() async {
   /// Cubits
-   _sl.registerLazySingleton<AutoLoginCubit>(() => AutoLoginCubit(
+   _sl.registerFactory<AutoLoginCubit>(() => AutoLoginCubit(
         getUserTypeUseCase: _sl(),
         saveUserTypeUseCase: _sl(),
       ));

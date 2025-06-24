@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
 class ProductsParams extends Equatable {
-  final int id;
+  final int? id;
 
-  const ProductsParams({required this.id});
+  const ProductsParams({ this.id});
 
   @override
   List<Object?> get props => [id];

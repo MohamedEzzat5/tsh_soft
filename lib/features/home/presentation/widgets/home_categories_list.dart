@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:tsh_soft/config/routes/app_routes.dart';
 import 'package:tsh_soft/core/widgets/app_image.dart';
 import 'package:tsh_soft/core/widgets/gaps.dart';
-import 'package:tsh_soft/features/home/presentation/cubit/cubit/category_cubit.dart';
+import 'package:tsh_soft/features/home/domain/entities/category_entity.dart';
+import 'package:tsh_soft/features/home/presentation/cubit/category_cubit/category_cubit.dart';
 
 class HomeCategoriesList extends StatefulWidget {
   const HomeCategoriesList({super.key});
@@ -33,28 +35,36 @@ class _HomeCategoriesListState extends State<HomeCategoriesList> {
         }
 
         if (state is CategorySuccessState) {
-          final categories = state.response.data;
+          final List<CategoryEntity> categories =
+              state.response.data as List<CategoryEntity>;
 
           return SizedBox(
             height: 140.h,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
-              itemCount: categories?.length ?? 0,
+              itemCount: categories.length,
               separatorBuilder: (context, _) => Gaps.hGap12,
               itemBuilder: (context, index) {
-                final item = categories![index];
-                return Column(
-                  children: [
-                    AppImage(
-                      imageUrl: item.image ?? '',
-                      width: 100.w,
-                      height: 80.h,
-                      fit: BoxFit.cover,
-                      isCached: true,
-                    ),
-                    Gaps.vGap8,
-                    Text(item.name ?? ''),
-                  ],
+                final CategoryEntity item = categories[index];
+                return InkWell(
+                  onTap: () => Navigator.pushNamed(
+                    context,
+                    Routes.categoryProductsScreenRoute,
+                    arguments: item,
+                  ),
+                  child: Column(
+                    children: [
+                      AppImage(
+                        imageUrl: item.image ?? '',
+                        width: 100.w,
+                        height: 80.h,
+                        fit: BoxFit.cover,
+                        isCached: true,
+                      ),
+                      Gaps.vGap8,
+                      Text(item.name ?? ''),
+                    ],
+                  ),
                 );
               },
             ),

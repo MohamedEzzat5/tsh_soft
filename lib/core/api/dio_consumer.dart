@@ -11,7 +11,7 @@ import '../utils/log_utils.dart';
 import 'status_code.dart';
 
 abstract class DioConsumer {
-  Future<dynamic> get(String path, {Map<String, dynamic>? queryParameters});
+  Future<dynamic> get(String path, {Map<String, dynamic>? queryParameters, Map<String, dynamic>? body});
 
   Future<dynamic> post(
     String path, {
@@ -119,12 +119,16 @@ class DioConsumerImpl implements DioConsumer {
   }
 
   @override
-  Future get(String path, {Map<String, dynamic>? queryParameters}) async {
+  Future get(String path,
+      {Map<String, dynamic>? queryParameters,
+      Map<String, dynamic>? body}) async {
     try {
-      Log.i('[GET][$path], params: ${queryParameters.toString()}');
+      Log.i(
+          '[GET][$path], params: ${queryParameters.toString()} body: ${body.toString()}');
       await _handleAccessTokenHeader();
       updateLanguageCodeHeader();
-      final response = await client.get(path, queryParameters: queryParameters);
+      final response =
+          await client.get(path, queryParameters: queryParameters, data: body);
       Log.i('[GET][$path], response: ${response.data.toString()}');
       return response.data;
     } on SocketException {

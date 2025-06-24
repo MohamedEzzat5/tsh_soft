@@ -3,6 +3,9 @@ import 'package:equatable/equatable.dart';
 class ProductEntity extends Equatable {
   final int? id;
   final String? name;
+  final int? categoryId;
+  final String? createdAt;
+  final String? updatedAt;
   final String? description;
   final dynamic price;
   final int? discount;
@@ -16,6 +19,9 @@ class ProductEntity extends Equatable {
     this.name,
     this.description,
     this.price,
+    this.categoryId,
+    this.createdAt,
+    this.updatedAt,
     this.discount,
     this.stock,
     this.image,
@@ -34,6 +40,8 @@ class ProductEntity extends Equatable {
         image,
         category,
         isFavorite,
+        createdAt,
+        updatedAt,
       ];
 }
 

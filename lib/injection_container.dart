@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tsh_soft/features/address/address_injection.dart';
 import 'package:tsh_soft/features/auth/auth_injection.dart';
+import 'package:tsh_soft/features/cart/cart_injection.dart';
+import 'package:tsh_soft/features/favorite/favourite_injection.dart';
 import 'package:tsh_soft/features/home/home_injection.dart';
+import 'package:tsh_soft/features/orders/orders_injection.dart';
+import 'package:tsh_soft/features/pages/pages_injection.dart';
 import 'package:tsh_soft/features/products/products_injection.dart';
 import 'package:tsh_soft/features/profile/profile_injection.dart';
 import 'package:tsh_soft/features/splash/splash_injection.dart';
@@ -31,6 +36,11 @@ abstract class ServiceLocator {
     await initAuthFeatureInjection();
     await inithomeFeatureInjection();
     await initProfileFeatureInjection();
+    await initAddressFeatureInjection();
+    await initFavouriteFeatureInjection();
+    await initCartFeatureInjection();
+    await initOrdersFeatureInjection();
+    await initPagesFeatureInjection();
  
  
 

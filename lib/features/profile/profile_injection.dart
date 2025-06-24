@@ -14,9 +14,9 @@ final _sl = ServiceLocator.instance;
 Future<void> initProfileFeatureInjection() async {
   ///-> Cubits
 
-  _sl.registerLazySingleton<ProfileCubit>(
+  _sl.registerFactory<ProfileCubit>(
       () => ProfileCubit(getProfileUseCase: _sl()));
-  _sl.registerLazySingleton<UpdateProfileCubit>(
+  _sl.registerFactory<UpdateProfileCubit>(
       () => UpdateProfileCubit(updateProfileUseCase: _sl()));
 
   ///-> UseCases

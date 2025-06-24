@@ -1,32 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tsh_soft/core/params/reset_password_params.dart';
+import 'package:tsh_soft/features/address/presentation/screens/add_address_screen.dart';
+import 'package:tsh_soft/features/address/presentation/screens/addresses_screen.dart';
 import 'package:tsh_soft/features/auth/presentation/screens/confirm_code_screen.dart';
 import 'package:tsh_soft/features/auth/presentation/screens/forget_password_screen.dart';
 import 'package:tsh_soft/features/auth/presentation/screens/login_screen.dart';
 import 'package:tsh_soft/features/auth/presentation/screens/register_screen.dart';
 import 'package:tsh_soft/features/auth/presentation/screens/reset_password_screen.dart';
+import 'package:tsh_soft/features/cart/domain/entities/cart_entity.dart';
 import 'package:tsh_soft/features/cart/presentation/screens/bill_screen.dart';
 import 'package:tsh_soft/features/cart/presentation/screens/cart_screen.dart';
+import 'package:tsh_soft/features/favorite/presentation/screens/favorites_screen.dart';
+import 'package:tsh_soft/features/home/domain/entities/category_entity.dart';
 import 'package:tsh_soft/features/home/presentation/screens/all_category_screen.dart';
+import 'package:tsh_soft/features/home/presentation/screens/category_products_screen.dart';
 import 'package:tsh_soft/features/home/presentation/screens/home_screen.dart';
 import 'package:tsh_soft/features/home/presentation/screens/notifications_screen.dart';
+import 'package:tsh_soft/features/orders/domain/entities/order_entity.dart';
 import 'package:tsh_soft/features/products/domain/entities/product_entity_model.dart';
 import 'package:tsh_soft/features/products/presentation/cubit/select_product_filter/select_filter_cubit.dart';
 import 'package:tsh_soft/features/products/presentation/screens/product_details_screen.dart';
 import 'package:tsh_soft/features/products/presentation/screens/products_screen.dart';
 import 'package:tsh_soft/features/profile/domain/entities/profile_entity.dart';
-import 'package:tsh_soft/features/profile/presentation/screens/favorites_screen.dart';
 import 'package:tsh_soft/features/splash/presentation/screens/on_boarding_screen.dart';
 import 'package:tsh_soft/features/splash/presentation/screens/splash_screen.dart';
 
 import '../../core/utils/app_strings.dart';
-import '../../features/my_orders/presentation/screens/order_details_screen.dart';
-import '../../features/my_orders/presentation/screens/orders_screen.dart';
+import '../../features/orders/presentation/screens/order_details_screen.dart';
+import '../../features/orders/presentation/screens/orders_screen.dart';
 import '../../features/profile/presentation/screens/about_us.dart';
 import '../../features/profile/presentation/screens/contact_us_screen.dart';
 import '../../features/profile/presentation/screens/edit_profile_screen.dart';
-import '../../features/profile/presentation/screens/faq_screen.dart';
+import '../../features/profile/presentation/screens/terms_and_conditions_screen.dart';
 import '../../features/profile/presentation/screens/profile_screen.dart';
 import '../../injection_container.dart';
 
@@ -53,6 +59,9 @@ class Routes {
   static const String forgetPasswordScreenRoute = '/ForgetPasswordRoute';
   static const String confirmCodeScreenRoute = '/ConfirmCodeRoute';
   static const String resetPasswordRoute = '/ResetPasswordScreen';
+  static const String addressesRoute = '/AddressesRoute';
+  static const String addAddressesRoute = '/AddAddressesRoute';
+  static const String categoryProductsScreenRoute = '/CategoryProductsScreen';
 }
 
 class AppRoutes {
@@ -150,7 +159,7 @@ class AppRoutes {
       case Routes.faqScreenRoute:
         return MaterialPageRoute(
           settings: routeSettings,
-          builder: (BuildContext context) => const FaqScreen(),
+          builder: (BuildContext context) => const TermsAndConditionsScreen(),
         );
 
       case Routes.favoritesScreenRoute:
@@ -166,9 +175,12 @@ class AppRoutes {
         );
 
       case Routes.orderDetailsScreenRoute:
+        final OrderEntity order = routeSettings.arguments as OrderEntity;
         return MaterialPageRoute(
           settings: routeSettings,
-          builder: (BuildContext context) => const OrderDetailsScreen(),
+          builder: (BuildContext context) => OrderDetailsScreen(
+            order: order,
+          ),
         );
 
       case Routes.cartScreenRoute:
@@ -184,9 +196,10 @@ class AppRoutes {
         );
 
       case Routes.billScreenRoute:
+        final CartEntity cart = routeSettings.arguments as CartEntity;
         return MaterialPageRoute(
           settings: routeSettings,
-          builder: (BuildContext context) => const BillScreen(),
+          builder: (BuildContext context) => BillScreen(cart: cart),
         );
 
       case Routes.forgetPasswordScreenRoute:
@@ -212,6 +225,28 @@ class AppRoutes {
           settings: routeSettings,
           builder: (BuildContext context) => ResetPasswordScreen(
             resetCodeParams: resetCodeParams,
+          ),
+        );
+
+      case Routes.addressesRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const AddressesScreen(),
+        );
+
+      case Routes.addAddressesRoute:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => const AddAddressScreen(),
+        );
+
+      case Routes.categoryProductsScreenRoute:
+        final CategoryEntity category =
+            routeSettings.arguments as CategoryEntity;
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: (BuildContext context) => CategoryProductsScreen(
+            category: category,
           ),
         );
 

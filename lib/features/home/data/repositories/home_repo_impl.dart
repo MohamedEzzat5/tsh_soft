@@ -3,6 +3,7 @@ import 'package:tsh_soft/core/base_classes/base_list_response.dart';
 import 'package:tsh_soft/core/error/exceptions.dart';
 import 'package:tsh_soft/core/error/failures.dart';
 import 'package:tsh_soft/features/home/data/datasources/home_remote_data_source.dart';
+import 'package:tsh_soft/features/home/data/models/slider_resp_model.dart';
 import 'package:tsh_soft/features/home/domain/repositories/home_repo.dart';
 import 'package:tsh_soft/injection_container.dart';
 
@@ -22,6 +23,20 @@ class HomeRepositoryImpl implements HomeRepository {
       }
     } else {
       return Left(NetworkFailure(message: 'No internet connection'));
+    }
+  }
+
+   @override
+  Future<Either<Failure, GetSlidersRespModel>> getSliders() async {
+    if (await networkInfo.isConnected) {
+      try {
+        final response = await remote.getSliders();
+        return Right(response);
+      } on AppException catch (error) {
+        return Left(error.toFailure());
+      }
+    } else {
+      return Left(NetworkFailure(message: "No internet connection"));
     }
   }
 }

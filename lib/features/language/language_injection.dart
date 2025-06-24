@@ -13,10 +13,10 @@ import 'presentation/cubit/locale_cubit/locale_cubit.dart';
 
 Future<void> initLanguageFeatureInjection() async {
   /// Cubits
-  ServiceLocator.instance.registerLazySingleton(() => LocaleCubit(
+  ServiceLocator.instance.registerFactory(() => LocaleCubit(
       changeLangUseCase: ServiceLocator.instance(),
       getSavedLangUseCase: ServiceLocator.instance()));
-  ServiceLocator.instance.registerLazySingleton(
+  ServiceLocator.instance.registerFactory(
       () => GetLanguagesCubit(getLanguagesList: ServiceLocator.instance()));
 
   /// UseCases

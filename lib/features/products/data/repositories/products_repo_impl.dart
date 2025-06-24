@@ -32,11 +32,12 @@ class ProductsRepoImpl implements ProductsRepository {
   }
 
   @override
-  Future<Either<Failure, BaseListResponse>> getProductsRepo() async {
+  Future<Either<Failure, BaseListResponse>> getProductsRepo(
+      {required ProductsParams params}) async {
     if (await networkInfo.isConnected) {
       try {
         BaseListResponse responseRepo =
-            await remote.getProducts();
+            await remote.getProducts(params: params);
         return Right(responseRepo);
       } on AppException catch (error) {
         log.Log.e(

@@ -7,22 +7,10 @@ import 'package:tsh_soft/features/products/domain/entities/product_entity_model.
 import 'package:tsh_soft/features/products/presentation/cubit/get_products_cubit/get_products_cubit.dart';
 import 'package:tsh_soft/features/products/presentation/widgets/product_item.dart';
 
-class ProductsGridView extends StatefulWidget {
+class ProductsGridView extends StatelessWidget {
   final bool isScrollable;
   const ProductsGridView({super.key, this.isScrollable = false});
 
-  @override
-  State<ProductsGridView> createState() => _ProductsGridViewState();
-}
-
-class _ProductsGridViewState extends State<ProductsGridView> {
-
-  @override
-  void initState() {
-        BlocProvider.of<GetProductsCubit>(context).getProducts();
-
-    super.initState();
-  }
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetProductsCubit, GetProductsState>(
@@ -32,11 +20,12 @@ class _ProductsGridViewState extends State<ProductsGridView> {
         } else if (state is GetProductsError) {
           return Center(child: Text(state.message));
         } else if (state is GetProductsSuccess) {
-          final List<ProductEntity> products = state.response.data as List<ProductEntity>;
+          final List<ProductEntity> products =
+              state.response.data as List<ProductEntity>;
           return GridView.builder(
             shrinkWrap: true,
             padding: EdgeInsets.zero,
-            physics: widget.isScrollable
+            physics: isScrollable
                 ? const BouncingScrollPhysics()
                 : const NeverScrollableScrollPhysics(),
             itemCount: products.length,
@@ -57,6 +46,7 @@ class _ProductsGridViewState extends State<ProductsGridView> {
                   );
                 },
                 child: ProductItemWidget(
+                  productId: product.id ?? 0,
                   isFavorite: product.isFavorite ?? false,
                   name: product.name ?? '',
                   image: product.image ?? '',
@@ -68,7 +58,7 @@ class _ProductsGridViewState extends State<ProductsGridView> {
         } else {
           return SizedBox();
         }
-      } ,
+      },
     );
   }
 }
@@ -82,12 +72,12 @@ class ShimmerGrid extends StatelessWidget {
       shrinkWrap: true,
       padding: EdgeInsets.zero,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 6,
+      itemCount: 4,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        crossAxisSpacing: 12.w,
+        crossAxisSpacing: 16.w,
         mainAxisSpacing: 12.h,
-        childAspectRatio: .75,
+        childAspectRatio: .88,
       ),
       itemBuilder: (context, index) {
         return Shimmer.fromColors(
@@ -104,4 +94,3 @@ class ShimmerGrid extends StatelessWidget {
     );
   }
 }
-

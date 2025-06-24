@@ -75,6 +75,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   BottomActionBar(
                     totalPrice: counter * (product.price ?? 0) ,
                     counter: counter,
+                    productId: product.id ?? 0,
                   ),
                 ],
               );

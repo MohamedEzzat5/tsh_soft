@@ -5,6 +5,7 @@ import 'package:tsh_soft/core/utils/svg_manager.dart';
 import 'package:tsh_soft/core/widgets/gaps.dart';
 import 'package:tsh_soft/core/widgets/my_default_button.dart';
 import 'package:tsh_soft/features/profile/domain/entities/profile_entity.dart';
+import 'package:tsh_soft/features/profile/presentation/widgets/logout_model_sheet.dart';
 
 import '../../../../config/routes/app_routes.dart';
 import '../../../../core/utils/image_manager.dart';
@@ -83,10 +84,7 @@ class ProfileScreen extends StatelessWidget {
                 child: MyDefaultButton(
                   width: 0.6.sw,
                   onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                        context, Routes.loginScreenRoute, (_) => false);
-                    sharedPreferences.clearAll();
-                    secureStorage.clearAll();
+                    LogoutModalSheet.show(context);
                   },
                   btnText: 'logout',
                   textColor: context.colors.main,
