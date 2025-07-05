@@ -130,7 +130,7 @@ class CartItem extends StatelessWidget {
                   children: [
                     Text('total'.tr(context), style: TextStyles.bold14()),
                     Text(
-                      '${item.price ?? ''}  ${'egp'.tr(context)}',
+                      '${double.parse(item.product?.price ?? '') * (item.quantity ?? 1)}  ${'egp'.tr(context)}',
                       style: TextStyles.bold16(color: Colors.blue),
                     ),
                   ],

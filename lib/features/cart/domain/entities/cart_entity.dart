@@ -56,6 +56,7 @@ class CartProductEntity extends Equatable {
   final int? discount;
   final int? stock;
   final String? image;
+  final String? fullPathImage;
   final String? createdAt;
   final String? updatedAt;
 
@@ -68,6 +69,7 @@ class CartProductEntity extends Equatable {
     this.discount,
     this.stock,
     this.image,
+    this.fullPathImage,
     this.createdAt,
     this.updatedAt,
   });

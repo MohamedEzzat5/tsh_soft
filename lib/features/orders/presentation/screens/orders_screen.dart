@@ -72,7 +72,6 @@ class _OrdersScreenState extends State<OrdersScreen>
                   },
                 ),
                 SizedBox(height: 16.h),
-                // ✅ This Expanded ensures content fills remaining space
                 Expanded(
                   child: BlocBuilder<GetOrdersCubit, GetOrdersState>(
                     builder: (context, state) {

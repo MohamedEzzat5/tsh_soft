@@ -105,6 +105,7 @@ class ProductModel extends CartProductEntity {
     super.image,
     super.createdAt,
     super.updatedAt,
+    super.fullPathImage,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
@@ -116,6 +117,7 @@ class ProductModel extends CartProductEntity {
         discount: json['discount'],
         stock: json['stock'],
         image: json['image'],
+        fullPathImage: json['fullPathImg'],
         createdAt: json['created_at'],
         updatedAt: json['updated_at'],
       );
@@ -129,6 +131,7 @@ class ProductModel extends CartProductEntity {
         'discount': discount,
         'stock': stock,
         'image': image,
+        'fullPathImg': fullPathImage,
         'created_at': createdAt,
         'updated_at': updatedAt,
       };

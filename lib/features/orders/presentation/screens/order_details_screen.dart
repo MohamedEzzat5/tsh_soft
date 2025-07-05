@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:tsh_soft/config/locale/app_localizations.dart';
 import 'package:tsh_soft/core/utils/constants.dart';
 import 'package:tsh_soft/core/widgets/gaps.dart';
+import 'package:tsh_soft/features/cart/domain/entities/cart_entity.dart';
 import 'package:tsh_soft/features/orders/domain/entities/order_entity.dart';
 
 import '../../../../core/utils/svg_manager.dart';
@@ -19,10 +20,11 @@ class OrderDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DateTime parsedDate = DateTime.parse(order.createdAt!);
-
     final String? formattedDate = DateFormat('yyyy-MM-dd').format(parsedDate);
-
     final String? formattedTime = DateFormat('hh:mm a').format(parsedDate);
+    final List<CartItemEntity> items =
+        order.cart?.items as List<CartItemEntity>;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -163,49 +165,51 @@ class OrderDetailsScreen extends StatelessWidget {
                       ),
                       Gaps.vGap10,
                       ListView.separated(
+                        separatorBuilder: (context, index) => Gaps.vGap10,
+                        itemCount: items.length,
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
+                          final CartProductEntity product =
+                              items[index].product as CartProductEntity;
                           return Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'اكسسوارات بناتي',
+                                product.name ?? '',
                                 style: TextStyles.semiBold16(),
                               ),
                               Spacer(),
                               Text(
-                                '2 x',
+                                '${items[index].quantity} x',
                                 style: TextStyles.semiBold16(),
                               ),
                               Gaps.hGap10,
                               Text(
-                                '1000 ${'egp'.tr(context)}',
+                                '${items[index].price} ${'egp'.tr(context)}',
                                 style: TextStyles.semiBold16(),
                               ),
                             ],
                           );
                         },
-                        separatorBuilder: (context, index) => Gaps.vGap10,
-                        itemCount: 2,
                       ),
                       Divider(
                         color: context.colors.borderColor,
                         height: 30.h,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'delivery'.tr(context),
-                            style: TextStyles.semiBold16(),
-                          ),
-                          Text(
-                            '200 ${'egp'.tr(context)}',
-                            style: TextStyles.semiBold16(),
-                          ),
-                        ],
-                      ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //   children: [
+                      //     Text(
+                      //       'delivery'.tr(context),
+                      //       style: TextStyles.semiBold16(),
+                      //     ),
+                      //     Text(
+                      //       '200 ${'egp'.tr(context)}',
+                      //       style: TextStyles.semiBold16(),
+                      //     ),
+                      //   ],
+                      // ),
                       Divider(
                         color: context.colors.borderColor,
                         height: 30.h,
@@ -218,7 +222,7 @@ class OrderDetailsScreen extends StatelessWidget {
                             style: TextStyles.semiBold16(),
                           ),
                           Text(
-                            '2200 ${'egp'.tr(context)}',
+                            '${order.total} ${'egp'.tr(context)}',
                             style: TextStyles.semiBold16(),
                           ),
                         ],
