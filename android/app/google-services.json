@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "470317212190",
+    "project_id": "tsh-store-df1a8",
+    "storage_bucket": "tsh-store-df1a8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470317212190:android:119856a6933a35781d840f",
+        "android_client_info": {
+          "package_name": "com.tsh.dev.tsh_soft"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjUgulcFJocqYuQyEniW7AWbv4tv85FmQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
